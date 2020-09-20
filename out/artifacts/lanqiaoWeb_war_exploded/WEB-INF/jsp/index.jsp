@@ -26,7 +26,7 @@
 <div class="main-wrapper">
     <div class="header">
         <div class="header-left">
-            <a href="index.jsp" class="logo">
+            <a href="JDDispatcherServlet?target=/index.jsp" class="logo">
                 <img src="http://img.duoziwang.com/2018/16/04172136909052.jpg" width="35" height="35" alt="">
                 <span>京东后台管理系统</span>
             </a>
@@ -112,26 +112,26 @@
             <li class="nav-item dropdown has-arrow">
                 <a href="#" class="dropdown-toggle nav-link user-link" data-toggle="dropdown">
                         <span class="user-img">
-							<img class="rounded-circle" src="img/user.jpg" width="24" alt="Admin">
+							<img class="rounded-circle" src="https://dss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=3818670604,1923994441&fm=26&gp=0.jpg" width="24" alt="Admin">
 							<span class="status online"></span>
 						</span>
                     <span>Admin</span>
                 </a>
                 <div class="dropdown-menu">
-                    <a class="dropdown-item" href="profile.html">My Profile</a>
-                    <a class="dropdown-item" href="edit-profile.html">Edit Profile</a>
-                    <a class="dropdown-item" href="settings.html">Settings</a>
-                    <a class="dropdown-item" href="login?action=LoginOut">Logout</a>
+                    <a class="dropdown-item" href="profile.html">我的简介</a>
+                    <a class="dropdown-item" href="edit-profile.html">更改个人信息</a>
+                    <a class="dropdown-item" href="settings.html">设置</a>
+                    <a class="dropdown-item" href="login?action=LoginOut">退出登录</a>
                 </div>
             </li>
         </ul>
         <div class="dropdown mobile-user-menu float-right">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-ellipsis-v"></i></a>
             <div class="dropdown-menu dropdown-menu-right">
-                <a class="dropdown-item" href="profile.html">My Profile</a>
-                <a class="dropdown-item" href="edit-profile.html">Edit Profile</a>
-                <a class="dropdown-item" href="settings.html">Settings</a>
-                <a class="dropdown-item" href="login.jsp">Logout</a>
+                <a class="dropdown-item" href="profile.html">我的简介</a>
+                <a class="dropdown-item" href="edit-profile.html">更改个人信息</a>
+                <a class="dropdown-item" href="settings.html">设置</a>
+                <a class="dropdown-item" href="login.jsp">退出登录</a>
             </div>
         </div>
     </div>
@@ -144,12 +144,12 @@
                         <a href="jsp/main.jsp" target="mainIFrame"><i class="fa fa-dashboard"></i> <span>主页</span></a>
                     </li>
                     <li class="submenu">
-                        <a href="page/doctors.html"><i class="fa fa-certificate"></i> <span>商品分类管理</span><span class="menu-arrow"></span></a>
+                        <a href="page/doctors.html"><i class="fa fa-certificate"></i> <span>一级商品管理</span><span class="menu-arrow"></span></a>
                         <ul style="display: none;">
-                            <li><a href="JDDispatcherServlet?target=admin/category/addCategory.jsp" target="mainIFrame">添加商品</a></li>
-                            <li><a href="JDDispatcherServlet?target=admin/category/deleteById.jsp" target="mainIFrame">删除商品</a></li>
+                            <li><a href="JDDispatcherServlet?target=admin/category/addCategory.jsp" target="mainIFrame">添加一级商品</a></li>
+                            <li><a href="JDDispatcherServlet?target=admin/category/deleteById.jsp" target="mainIFrame">删除一级商品</a></li>
                             <%--<li><a href="JDDispatcherServlet?target=admin/category/modifyCate.jsp" target="mainIFrame">修改商品</a></li>--%>
-                            <li><a href="CategoryServlet?action=selectAll&requestPage=1" target="mainIFrame">查询所有商品</a></li>
+                            <li><a href="CategoryServlet?action=selectAll&requestPage=1" target="mainIFrame">查询一级商品</a></li>
                         </ul>
                     </li>
                     <li>

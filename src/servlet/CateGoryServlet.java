@@ -4,7 +4,7 @@ import org.apache.commons.beanutils.BeanUtils;
 import page.PageInfo;
 import service.impl.CategoryServiceImpl;
 import service.inner.CategoryService;
-import vo.Category;
+import vo.Categorys;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -46,7 +46,7 @@ public class CateGoryServlet extends HttpServlet {
     }
     protected void deleteNoId(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         Map<String, String[]> map= request.getParameterMap();
-        Category c=new Category();
+        Categorys c=new Categorys();
         try {
             BeanUtils.populate(c,map);
             cs.deleteNoId(c);
@@ -62,7 +62,7 @@ public class CateGoryServlet extends HttpServlet {
     }
     protected void add(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
             Map<String, String[]> map= request.getParameterMap();
-            Category c=new Category();
+        Categorys c=new Categorys();
         try {
             BeanUtils.populate(c,map);
         } catch (IllegalAccessException e) {
@@ -74,14 +74,13 @@ public class CateGoryServlet extends HttpServlet {
         }
         System.out.println(c);
         try {
-            String sql="select * from category where cname='"+c.getCname()+"' and cdesc='"+c.getCdesc()+"'";
+            String sql="select * from category where cname='"+c.getCname()+"'";
             int isactive= cs.selectIsActive(sql);
             if (isactive>0)
             {
                 System.out.println("已经有这个用户了,不能再添加");
                 request.setAttribute("msg","已经有这个用户了,不能再添加");
                 request.getRequestDispatcher("jsp/showmessage.jsp").forward(request,response);
-
             }else {
                 cs.addCategory(c);
                 selectAll(request,response);//添加成功后跳转页面
@@ -93,16 +92,16 @@ public class CateGoryServlet extends HttpServlet {
 
 
     protected void selectAll(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String selectCount="select count(1) from category";
+        String selectCount="select count(1) from categorys";
         String sql="";
-        List<Category> list=new ArrayList<>();
+        List<Categorys> list=new ArrayList<>();
         int requestPage=Integer.parseInt(request.getParameter("requestPage"));
         PageInfo pageInfo=new PageInfo(requestPage);
 
         try {
             int count=cs.selectAllCount(selectCount);
             pageInfo.setTotalRecordCount(count);
-            sql+="select * from (select c.*,rownum r from category c where rownum<="+pageInfo.getEnd()+")\n" +
+            sql+="select * from (select c.*,rownum r from categorys c where rownum<="+pageInfo.getEnd()+")\n" +
                     " where r>="+pageInfo.getBegin();
 //            System.out.println("总记录数总共有"+count+"条");
 //            System.out.println(sql);
@@ -122,7 +121,7 @@ public class CateGoryServlet extends HttpServlet {
     }
     protected void deleteById(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         Map<String, String[]> map= request.getParameterMap();
-        Category c=new Category();
+        Categorys c=new Categorys();
         try {
             BeanUtils.populate(c,map);
             cs.delete(c);
@@ -138,15 +137,16 @@ public class CateGoryServlet extends HttpServlet {
     }
     protected void modify(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         Map<String, String[]> map= request.getParameterMap();
-        Category c=new Category();
+        Categorys c=new Categorys();
         try {
             BeanUtils.populate(c,map);
-            Category c1=cs.selectById(c.getCid());;
+//            System.out.println(c);
+            Categorys c1=cs.selectById(c.getCid());;
             if (c1!=null)
             {
 
                 int i = cs.updateCate(c);
-                System.out.println("修改是否成功" + i);
+//                System.out.println("修改是否成功" + i);
                 selectAll(request, response);//直接调用这个方法重新查询页面
             }
             else {

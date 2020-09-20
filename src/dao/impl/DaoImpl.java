@@ -276,7 +276,7 @@ public class DaoImpl<T> implements Dao<T> {
     public T getOneById(int id, Class<?> clazz) throws Exception {
 
         Object object = clazz.newInstance();
-        System.out.println(object);
+//        System.out.println(object);
         init(clazz);
         // 3.建立通道
         String sql = "select * from " + className + " where " + lowerColumnNameList.get(0) + "=?";

@@ -1,7 +1,7 @@
 package dao.inner;
 
-import vo.Category;
+import vo.Categorys;
 
-public interface CategoryDao extends Dao<Category>  {
+public interface CategoryDao extends Dao<Categorys>  {
 
 }

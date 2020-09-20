@@ -1,4 +1,4 @@
-<%@ page language="java" import="java.util.*" import="vo.Category" contentType="text/html; charset=utf-8" isELIgnored="false" %>
+<%@ page language="java" import="java.util.*" contentType="text/html; charset=utf-8" isELIgnored="false" %>
 <%@ page import="page.PageInfo" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%
@@ -95,12 +95,17 @@
 							<input type="hidden" name="cid" value="${category.cid}">
 							<input type="hidden" name="cname" value="${category.cname}">
 							<input type="hidden" name="cdesc" value="${category.cdesc}">
+							<input type="hidden" name="cparent" value="${category.cparent}">
+							<input type="hidden" name="clevel" value="${category.clevel}">
+							<input type="hidden" name="cicon" value="${category.cicon}">
 							<tr>
 								<td>${category.cid}</td>
 								<td>${category.cname}</td>
 								<td>${category.cdesc}</td>
 								<td>
-									<a  href="JDDispatcherServlet?target=admin/category/modifyCate.jsp?cid=${category.cid}&cname=${category.cname}&cdesc=${category.cdesc}&requestPage=${pageInfo.currentPage}" class="btn btn-success btn-xs">修改</a>
+									<a  href="JDDispatcherServlet?target=admin/category/modifyCate.jsp?cid=${category.cid}&cname=${category.cname}
+									&cdesc=${category.cdesc}&requestPage=${pageInfo.currentPage}&cicon=${category.cicon}&clevel=${category.clevel}&cparent=${category.cparent}"
+										class="btn btn-success btn-xs">修改</a>
 								</td>
 								<td>
 									<button  onclick="deleteCate(${category.cid})"   class="btn btn-danger btn-xs">删除</button>
