@@ -1,0 +1,26 @@
+<Context>
+    <!-- 使用阿里巴巴的DruidDataSource配置针对Oracle数据库的JNDI数据源 -->
+    <!-- 1.removeabandoned="true"
+            是否自动回收超时连接 测试阶段可以设置为true自动回收
+            实际生产环境 有可能会出现长事务 如果生产设置为true可能会因为误回收Connection,导致程序出错
+            应该依赖于程序代码自己关闭Connection
+         2.removeabandonedtimeout  Connection超时多长时间没关闭进行回收(以秒数为单位)
+         3.logabandoned  是否在自动回收超时连接的时候打印连接的超时错误 调试阶段可以设置为true,生产环境设置为false
+         4.filters="stat" 使用名为stat的Filter实现 统计监控信息
+-->
+    <Resource
+            name="jdbc/OracleDataSource"
+            factory="com.alibaba.druid.pool.DruidDataSourceFactory"
+            auth="Container"
+            type="javax.sql.DataSource"
+            driverClassName="oracle.jdbc.OracleDriver"
+            url="jdbc:oracle:thin:@localhost:1521:orcl"
+            username="scott"
+            password="tiger"
+            maxActive="50"
+            maxWait="10000"
+            removeabandoned="true"
+            removeabandonedtimeout="60"
+            logabandoned="true"
+            filters="stat"/>
+</Context>

@@ -1,11 +1,7 @@
 package util;
 
-import com.alibaba.druid.pool.DruidDataSource;
 import com.alibaba.druid.pool.DruidDataSourceFactory;
 
-import javax.naming.Context;
-import javax.naming.InitialContext;
-import javax.naming.NamingException;
 import javax.sql.DataSource;
 import java.io.InputStream;
 import java.sql.Connection;
@@ -14,25 +10,22 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.Properties;
 
-public class ConnOracle {
-    //Oracle数据库配置的JNDI数据源连接名,后面跟的是DataSource名，DataSource名在web.xml文件中的<res-ref-name></res-ref-name>进行了配置
-    private static final String ORACLE_DB_JNDINAME = "java:comp/env/jdbc/OracleDataSource";
-    private static DataSource ds = null;
+public class ConnOracle2 {
 
-    static{
+    private static DataSource ds;
+
+    static {
         try {
-            //1、初始化名称查找上下文
-            Context ctx = new InitialContext();
-            //2、通过JNDI名称找到DataSource
-            ds = (DruidDataSource) ctx.lookup(ORACLE_DB_JNDINAME);
-            System.out.println("-------------阿里巴巴druid连接池-------------");
-            System.out.println(ds);
-
-        } catch (NamingException e) {
+            Properties properties = new Properties();
+            //FileInputStream fis = new FileInputStream("src/druid.properties");
+            //从CLASSPATH(classes文件夹下)读druid.properties
+            InputStream is = ConnOracle2.class.getClassLoader().getResourceAsStream("druid.properties");
+            properties.load(is);
+            ds = DruidDataSourceFactory.createDataSource(properties);
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
-
 
     public static Connection getConnection() {
         Connection conn = null;
@@ -72,6 +65,6 @@ public class ConnOracle {
     }
 
     public static void main(String[] args) {
-        System.out.println(ConnOracle.getConnection());
+        System.out.println(ConnOracle2.getConnection());
     }
 }

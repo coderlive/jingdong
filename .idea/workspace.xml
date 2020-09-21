@@ -7,43 +7,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="610151f4-ef21-49e3-b9a7-c277b25e62d1" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/vo/Categorys.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/lanqiaoWeb_war_exploded/WEB-INF/classes/dao/impl/CateDaoImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/lanqiaoWeb_war_exploded/WEB-INF/classes/dao/impl/CateDaoImpl.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/artifacts/lanqiaoWeb_war_exploded/WEB-INF/classes/dao/impl/DaoImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/lanqiaoWeb_war_exploded/WEB-INF/classes/dao/impl/DaoImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/lanqiaoWeb_war_exploded/WEB-INF/classes/dao/inner/CategoryDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/lanqiaoWeb_war_exploded/WEB-INF/classes/dao/inner/CategoryDao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/lanqiaoWeb_war_exploded/WEB-INF/classes/filter/LoginFilter.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/lanqiaoWeb_war_exploded/WEB-INF/classes/filter/LoginFilter.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/lanqiaoWeb_war_exploded/WEB-INF/classes/service/impl/CategoryServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/lanqiaoWeb_war_exploded/WEB-INF/classes/service/impl/CategoryServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/lanqiaoWeb_war_exploded/WEB-INF/classes/service/inner/CategoryService.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/lanqiaoWeb_war_exploded/WEB-INF/classes/service/inner/CategoryService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/lanqiaoWeb_war_exploded/WEB-INF/classes/servlet/CateGoryServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/lanqiaoWeb_war_exploded/WEB-INF/classes/servlet/CateGoryServlet.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/lanqiaoWeb_war_exploded/WEB-INF/classes/servlet/login.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/lanqiaoWeb_war_exploded/WEB-INF/classes/servlet/login.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/lanqiaoWeb_war_exploded/WEB-INF/classes/vo/Category.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/lanqiaoWeb_war_exploded/WEB-INF/jsp/admin/category/addCategory.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/lanqiaoWeb_war_exploded/WEB-INF/jsp/admin/category/addCategory.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/lanqiaoWeb_war_exploded/WEB-INF/jsp/admin/category/categoryMain.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/lanqiaoWeb_war_exploded/WEB-INF/jsp/admin/category/categoryMain.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/lanqiaoWeb_war_exploded/WEB-INF/jsp/admin/category/modifyCate.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/lanqiaoWeb_war_exploded/WEB-INF/jsp/admin/category/modifyCate.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/lanqiaoWeb_war_exploded/WEB-INF/jsp/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/lanqiaoWeb_war_exploded/WEB-INF/jsp/index.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/lanqiaoWeb/dao/impl/CateDaoImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/lanqiaoWeb/dao/impl/CateDaoImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/lanqiaoWeb_war_exploded/WEB-INF/classes/druid.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/lanqiaoWeb_war_exploded/WEB-INF/classes/util/ConnOracle.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/lanqiaoWeb_war_exploded/WEB-INF/classes/util/ConnOracle.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/lanqiaoWeb_war_exploded/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/lanqiaoWeb_war_exploded/WEB-INF/web.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/lanqiaoWeb/dao/impl/DaoImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/lanqiaoWeb/dao/impl/DaoImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/lanqiaoWeb/dao/inner/CategoryDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/lanqiaoWeb/dao/inner/CategoryDao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/lanqiaoWeb/filter/LoginFilter.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/lanqiaoWeb/filter/LoginFilter.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/lanqiaoWeb/service/impl/CategoryServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/lanqiaoWeb/service/impl/CategoryServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/lanqiaoWeb/service/inner/CategoryService.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/lanqiaoWeb/service/inner/CategoryService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/lanqiaoWeb/servlet/CateGoryServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/lanqiaoWeb/servlet/CateGoryServlet.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/lanqiaoWeb/servlet/login.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/lanqiaoWeb/servlet/login.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/lanqiaoWeb/vo/Category.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dao/impl/CateDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dao/impl/CateDaoImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/lanqiaoWeb/druid.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/lanqiaoWeb/util/ConnOracle.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/lanqiaoWeb/util/ConnOracle.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/dao/impl/DaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dao/impl/DaoImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dao/inner/CategoryDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dao/inner/CategoryDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/filter/LoginFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/filter/LoginFilter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/service/impl/CategoryServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/service/impl/CategoryServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/service/inner/CategoryService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/service/inner/CategoryService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/servlet/CateGoryServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/servlet/CateGoryServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/servlet/login.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/servlet/login.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/vo/Category.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/WEB-INF/jsp/admin/category/addCategory.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/jsp/admin/category/addCategory.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/WEB-INF/jsp/admin/category/categoryMain.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/jsp/admin/category/categoryMain.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/WEB-INF/jsp/admin/category/modifyCate.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/jsp/admin/category/modifyCate.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/WEB-INF/jsp/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/jsp/index.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/druid.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/vo/druid.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/util/ConnOracle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/util/ConnOracle2.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/web.xml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -122,37 +97,44 @@
     <session id="-2116544042">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="1" />
+          <entry key="project.closed" value="2" />
           <entry key="project.open.time.1" value="1" />
           <entry key="project.open.time.28" value="1" />
           <entry key="project.open.time.30" value="1" />
-          <entry key="project.opened" value="3" />
+          <entry key="project.open.time.34" value="1" />
+          <entry key="project.opened" value="4" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="class" value="6" />
-          <entry key="java" value="57" />
+          <entry key="java" value="60" />
           <entry key="jsp" value="16" />
+          <entry key="xml" value="2" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="CLASS" value="6" />
-          <entry key="JAVA" value="57" />
+          <entry key="JAVA" value="60" />
           <entry key="JSP" value="16" />
+          <entry key="XML" value="2" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="java" value="374" />
+          <entry key="dummy" value="1" />
+          <entry key="java" value="375" />
           <entry key="jsp" value="116" />
+          <entry key="xml" value="17" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="374" />
+          <entry key="JAVA" value="375" />
           <entry key="JSP" value="116" />
+          <entry key="PLAIN_TEXT" value="1" />
+          <entry key="XML" value="17" />
         </counts>
       </usages-collector>
     </session>
@@ -162,11 +144,53 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/web/WEB-INF/jsp/index.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="332">
-              <caret line="131" column="76" lean-forward="true" selection-start-line="131" selection-start-column="76" selection-end-line="131" selection-end-column="76" />
+            <state relative-caret-position="457">
+              <caret line="142" column="31" selection-start-line="142" selection-start-column="31" selection-end-line="142" selection-end-column="31" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/web/WEB-INF/web.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="453">
+              <caret line="22" column="19" selection-start-line="22" selection-start-column="19" selection-end-line="22" selection-end-column="19" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/util/ConnOracle.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="215">
+              <caret line="37" column="31" lean-forward="true" selection-start-line="37" selection-start-column="31" selection-end-line="37" selection-end-column="31" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/dao/impl/CateDaoImpl.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="75">
+              <caret line="3" column="13" selection-start-line="3" selection-start-column="13" selection-end-line="3" selection-end-column="13" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/dao/impl/DaoImpl.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="200">
+              <caret line="47" column="43" selection-start-line="47" selection-start-column="43" selection-end-line="47" selection-end-column="43" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -174,7 +198,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/filter/LoginFilter.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="250">
+            <state relative-caret-position="325">
               <caret line="20" column="65" selection-start-line="20" selection-start-column="65" selection-end-line="20" selection-end-column="65" />
             </state>
           </provider>
@@ -237,7 +261,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/service/impl/UserServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/testRelefction.java" />
         <option value="$PROJECT_DIR$/src/test/readAntion.java" />
         <option value="$PROJECT_DIR$/src/vo/Users.java" />
@@ -252,7 +275,6 @@
         <option value="$PROJECT_DIR$/src/Filter/BFilter.java" />
         <option value="$PROJECT_DIR$/src/servlet/JDDispatcherServlet.java" />
         <option value="$PROJECT_DIR$/web/index.jsp" />
-        <option value="$PROJECT_DIR$/src/util/ConnOracle.java" />
         <option value="$PROJECT_DIR$/src/dao/inner/Dao.java" />
         <option value="$PROJECT_DIR$/web/jsp/admin.jsp" />
         <option value="$PROJECT_DIR$/web/WEB-INF/jsp/test/js2.jsp" />
@@ -266,7 +288,6 @@
         <option value="$PROJECT_DIR$/web/WEB-INF/jsp/admin/category/deleteNoId.jsp" />
         <option value="$PROJECT_DIR$/web/jsp/login.html" />
         <option value="$PROJECT_DIR$/web/jsp/index.jsp" />
-        <option value="$PROJECT_DIR$/web/WEB-INF/web.xml" />
         <option value="$PROJECT_DIR$/web/jsp/login.jsp" />
         <option value="$PROJECT_DIR$/src/util/PreventSQLInjectionUtil.java" />
         <option value="$PROJECT_DIR$/src/filter/UTFfilter.java" />
@@ -284,10 +305,13 @@
         <option value="$PROJECT_DIR$/web/WEB-INF/jsp/admin/category/categoryMain.jsp" />
         <option value="$PROJECT_DIR$/web/WEB-INF/jsp/admin/category/addCategory.jsp" />
         <option value="$PROJECT_DIR$/src/servlet/CateGoryServlet.java" />
-        <option value="$PROJECT_DIR$/src/dao/impl/DaoImpl.java" />
         <option value="$PROJECT_DIR$/src/servlet/login.java" />
         <option value="$PROJECT_DIR$/src/filter/LoginFilter.java" />
         <option value="$PROJECT_DIR$/web/WEB-INF/jsp/index.jsp" />
+        <option value="$PROJECT_DIR$/web/META-INF/context.xml" />
+        <option value="$PROJECT_DIR$/web/WEB-INF/web.xml" />
+        <option value="$PROJECT_DIR$/src/util/ConnOracle.java" />
+        <option value="$PROJECT_DIR$/src/dao/impl/DaoImpl.java" />
       </list>
     </option>
   </component>
@@ -317,7 +341,6 @@
     </navigator>
     <panes>
       <pane id="Scope" />
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -334,30 +357,31 @@
               <item name="jingdong" type="b2602c69:ProjectViewProjectNode" />
               <item name="jingdong" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="dao" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="jingdong" type="b2602c69:ProjectViewProjectNode" />
+              <item name="jingdong" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="dao" type="462c0819:PsiDirectoryNode" />
+              <item name="impl" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="jingdong" type="b2602c69:ProjectViewProjectNode" />
+              <item name="jingdong" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="filter" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="jingdong" type="b2602c69:ProjectViewProjectNode" />
               <item name="jingdong" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="servlet" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="jingdong" type="b2602c69:ProjectViewProjectNode" />
-              <item name="jingdong" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="vo" type="462c0819:PsiDirectoryNode" />
+              <item name="util" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="jingdong" type="b2602c69:ProjectViewProjectNode" />
               <item name="jingdong" type="462c0819:PsiDirectoryNode" />
               <item name="web" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="jingdong" type="b2602c69:ProjectViewProjectNode" />
-              <item name="jingdong" type="462c0819:PsiDirectoryNode" />
-              <item name="web" type="462c0819:PsiDirectoryNode" />
-              <item name="jsp" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="jingdong" type="b2602c69:ProjectViewProjectNode" />
@@ -393,13 +417,14 @@
           <select />
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1600590607656" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1600669774956" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -409,18 +434,21 @@
     <property name="settings.editor.selected.configurable" value="fileTemplates" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="E:\IdeaProject\lanqiaoWeb\web\WEB-INF\jsp" />
-      <recent name="E:\IdeaProject\lanqiaoWeb\web\jsp" />
-      <recent name="E:\IdeaProject\lanqiaoWeb\web\WEB-INF\lib" />
-      <recent name="E:\IdeaProject\lanqiaoWeb\web\img" />
-      <recent name="E:\IdeaProject\lanqiaoWeb\web\js" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="E:\IdeaProject\lanqiaoWeb\web\css" />
       <recent name="E:\IdeaProject\lanqiaoWeb\web\js" />
       <recent name="E:\IdeaProject\lanqiaoWeb\web\fonts" />
       <recent name="E:\IdeaProject\lanqiaoWeb\src" />
+      <recent name="E:\IdeaProject\lanqiaoWeb\web\img" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="util" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\gitProject\jingdong\src\vo" />
+      <recent name="E:\IdeaProject\lanqiaoWeb\web\WEB-INF\jsp" />
+      <recent name="E:\IdeaProject\lanqiaoWeb\web\jsp" />
+      <recent name="E:\IdeaProject\lanqiaoWeb\web\WEB-INF\lib" />
       <recent name="E:\IdeaProject\lanqiaoWeb\web\img" />
     </key>
   </component>
@@ -437,8 +465,8 @@
     </option>
   </component>
   <component name="RunManager" selected="Tomcat Server.Unnamed">
-    <configuration name="ConnOracle" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="util.ConnOracle" />
+    <configuration name="ConnOracle2" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="util.ConnOracle2" />
       <module name="lanqiaoWeb" />
       <extension name="coverage">
         <pattern>
@@ -685,7 +713,7 @@
     </configuration>
     <list>
       <item itemvalue="Tomcat Server.Unnamed" />
-      <item itemvalue="Application.ConnOracle" />
+      <item itemvalue="Application.ConnOracle2" />
       <item itemvalue="Application.readAntion" />
       <item itemvalue="Tomcat Server.index.html" />
     </list>
@@ -693,7 +721,7 @@
       <list>
         <item itemvalue="Tomcat Server.index.html" />
         <item itemvalue="Application.readAntion" />
-        <item itemvalue="Application.ConnOracle" />
+        <item itemvalue="Application.ConnOracle2" />
       </list>
     </recent_temporary>
   </component>
@@ -720,12 +748,13 @@
       <workItem from="1600408617838" duration="19828000" />
       <workItem from="1600523994862" duration="720000" />
       <workItem from="1600564257238" duration="6222000" />
-      <workItem from="1600584908354" duration="5470000" />
+      <workItem from="1600584908354" duration="5919000" />
+      <workItem from="1600667860240" duration="1395000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="139772000" />
+    <option name="totallyTimeSpent" value="141616000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -740,7 +769,7 @@
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.4879227" visible="true" weight="0.17627347" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.4879227" visible="true" weight="0.17828418" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -749,9 +778,9 @@
       <window_info id="Capture Tool" order="6" />
       <window_info id="Web" order="7" sideWeight="0.5106082" side_tool="true" weight="0.17761394" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.3286119" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.15841584" />
-      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.32577905" />
+      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.49150142" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32956153" />
@@ -780,20 +809,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar://C:/apache-tomcat-8.0.23/lib/catalina.jar!/org/apache/catalina/core/StandardContextValve.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="114">
-          <caret line="51" selection-start-line="51" selection-end-line="51" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/apache-tomcat-8.0.23/lib/servlet-api.jar!/javax/servlet/http/HttpServlet.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="97">
-          <caret line="281" selection-start-line="281" selection-end-line="281" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/web/jsp/test/js1.jsp" />
     <entry file="file://$PROJECT_DIR$/web/jsp/test/js2.jsp" />
     <entry file="file://$PROJECT_DIR$/web/jsp/404.jsp">
@@ -840,13 +855,6 @@
     <entry file="file://$PROJECT_DIR$/web/jsp/admin.jsp" />
     <entry file="file://$PROJECT_DIR$/web/jsp/page/assets.html">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/WEB-INF/web.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="250">
-          <caret line="10" column="48" lean-forward="true" selection-start-line="10" selection-start-column="48" selection-end-line="10" selection-end-column="48" />
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/web/jsp/login.jsp">
       <provider selected="true" editor-type-id="text-editor">
@@ -911,7 +919,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/druid.properties">
+    <entry file="file://$PROJECT_DIR$/src/vo/druid.properties">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="225">
           <caret line="9" column="12" selection-start-line="9" selection-start-column="12" selection-end-line="9" selection-end-column="12" />
@@ -988,46 +996,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/dao/impl/CateDaoImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="6" lean-forward="true" selection-start-line="6" selection-end-line="6" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/vo/Categorys.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="175">
           <caret line="7" column="24" selection-start-line="7" selection-start-column="19" selection-end-line="7" selection-end-column="24" />
-          <folding>
-            <element signature="e#266#267#0" expanded="true" />
-            <element signature="e#292#293#0" expanded="true" />
-            <element signature="e#331#332#0" expanded="true" />
-            <element signature="e#361#362#0" expanded="true" />
-            <element signature="e#396#397#0" expanded="true" />
-            <element signature="e#426#427#0" expanded="true" />
-            <element signature="e#473#474#0" expanded="true" />
-            <element signature="e#511#512#0" expanded="true" />
-            <element signature="e#545#546#0" expanded="true" />
-            <element signature="e#574#575#0" expanded="true" />
-            <element signature="e#619#620#0" expanded="true" />
-            <element signature="e#655#656#0" expanded="true" />
-            <element signature="e#687#688#0" expanded="true" />
-            <element signature="e#715#716#0" expanded="true" />
-            <element signature="e#757#758#0" expanded="true" />
-            <element signature="e#791#792#0" expanded="true" />
-            <element signature="e#823#824#0" expanded="true" />
-            <element signature="e#851#852#0" expanded="true" />
-            <element signature="e#893#894#0" expanded="true" />
-            <element signature="e#927#928#0" expanded="true" />
-            <element signature="e#959#960#0" expanded="true" />
-            <element signature="e#987#988#0" expanded="true" />
-            <element signature="e#1029#1030#0" expanded="true" />
-            <element signature="e#1063#1064#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1049,9 +1021,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="166">
           <caret line="17" column="21" selection-start-line="17" selection-start-column="21" selection-end-line="17" selection-end-column="21" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1059,13 +1028,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="122">
           <caret line="14" column="6" selection-start-line="14" selection-start-column="6" selection-end-line="14" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/dao/impl/DaoImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="322">
-          <caret line="284" column="28" lean-forward="true" selection-start-line="284" selection-start-column="28" selection-end-line="284" selection-end-column="28" />
         </state>
       </provider>
     </entry>
@@ -1130,15 +1092,56 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/filter/LoginFilter.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="250">
+        <state relative-caret-position="325">
           <caret line="20" column="65" selection-start-line="20" selection-start-column="65" selection-end-line="20" selection-end-column="65" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/META-INF/context.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="28">
+          <caret line="7" column="23" lean-forward="true" selection-start-line="7" selection-start-column="23" selection-end-line="7" selection-end-column="23" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/web/WEB-INF/jsp/index.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="332">
-          <caret line="131" column="76" lean-forward="true" selection-start-line="131" selection-start-column="76" selection-end-line="131" selection-end-column="76" />
+        <state relative-caret-position="457">
+          <caret line="142" column="31" selection-start-line="142" selection-start-column="31" selection-end-line="142" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/WEB-INF/web.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="453">
+          <caret line="22" column="19" selection-start-line="22" selection-start-column="19" selection-end-line="22" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/util/ConnOracle.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="215">
+          <caret line="37" column="31" lean-forward="true" selection-start-line="37" selection-start-column="31" selection-end-line="37" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/dao/impl/CateDaoImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="3" column="13" selection-start-line="3" selection-start-column="13" selection-end-line="3" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/dao/impl/DaoImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="200">
+          <caret line="47" column="43" selection-start-line="47" selection-start-column="43" selection-end-line="47" selection-end-column="43" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
