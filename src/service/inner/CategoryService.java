@@ -1,4 +1,5 @@
 package service.inner;
+import page.PageInfo;
 import vo.Categorys;
 
 import java.util.List;
@@ -13,4 +14,8 @@ public interface CategoryService {
     int selectIsActive(String sql) throws Exception;
 
     int selectAllCount(String selectCount) throws Exception;
+
+    int getPageQueryByCount(Categorys c) throws Exception;
+
+    List<Categorys> getPageQuery(PageInfo pageInfo, Categorys c) throws Exception;
 }

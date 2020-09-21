@@ -16,12 +16,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
-
-
-
-
 public class DaoImpl<T> implements Dao<T> {
-
     // 组合Connection对象
     private Connection conn;
 

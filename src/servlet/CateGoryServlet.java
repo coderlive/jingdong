@@ -42,7 +42,64 @@ public class CateGoryServlet extends HttpServlet {
         else if(action.equals("deleteNoId"))
         {
             deleteNoId(request,response);
+        }else if(action.equals("getPageByQuery"))
+        {
+            getPageByQuery(request,response);
         }
+    }
+    //下面这个方法不用了
+    protected void selectAll(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String selectCount="select count(1) from categorys";
+        String sql="";
+        List<Categorys> list=new ArrayList<>();
+        int requestPage=Integer.parseInt(request.getParameter("requestPage"));
+        PageInfo pageInfo=new PageInfo(requestPage);
+
+        try {
+            int count=cs.selectAllCount(selectCount);
+            pageInfo.setTotalRecordCount(count);
+            sql+="select * from (select c.*,rownum r from categorys c where rownum<="+pageInfo.getEnd()+")\n" +
+                    " where r>="+pageInfo.getBegin();
+//            System.out.println("总记录数总共有"+count+"条");
+//            System.out.println(sql);
+            list=cs.selectAll(sql);
+            request.setAttribute("list",list);
+            request.setAttribute("pageInfo",pageInfo);
+            request.getRequestDispatcher("WEB-INF/jsp/admin/category/categoryMain.jsp").forward(request,response);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+    }
+    protected void getPageByQuery(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String searchCondition=request.getParameter("searchCondition");
+        if (searchCondition==null)
+            searchCondition="";
+        System.out.println("查询条件为："+searchCondition);
+        List<Categorys> list=new ArrayList<>();
+        String Page=request.getParameter("requestPage");
+        int requestPage;
+        if (Page==null) {
+            requestPage= 1;
+        }else {
+            requestPage=Integer.parseInt(Page);
+        }
+        PageInfo pageInfo=new PageInfo(requestPage);
+        Categorys c=new Categorys();
+        c.setCname(searchCondition);
+        c.setCdesc(searchCondition);
+        try {
+            int count=cs.getPageQueryByCount(c);
+            pageInfo.setTotalRecordCount(count);
+            list=cs.getPageQuery(pageInfo,c);
+            request.setAttribute("list",list);
+            request.setAttribute("pageInfo",pageInfo);
+            request.setAttribute("searchCondition",searchCondition);
+            request.getRequestDispatcher("WEB-INF/jsp/admin/category/categoryMain.jsp").forward(request,response);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
     }
     protected void deleteNoId(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         Map<String, String[]> map= request.getParameterMap();
@@ -74,7 +131,7 @@ public class CateGoryServlet extends HttpServlet {
         }
         System.out.println(c);
         try {
-            String sql="select * from category where cname='"+c.getCname()+"'";
+            String sql="select * from categorys where cname='"+c.getCname()+"'";
             int isactive= cs.selectIsActive(sql);
             if (isactive>0)
             {
@@ -83,7 +140,7 @@ public class CateGoryServlet extends HttpServlet {
                 request.getRequestDispatcher("jsp/showmessage.jsp").forward(request,response);
             }else {
                 cs.addCategory(c);
-                selectAll(request,response);//添加成功后跳转页面
+                getPageByQuery(request,response);//添加成功后跳转页面
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -91,29 +148,7 @@ public class CateGoryServlet extends HttpServlet {
     }
 
 
-    protected void selectAll(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String selectCount="select count(1) from categorys";
-        String sql="";
-        List<Categorys> list=new ArrayList<>();
-        int requestPage=Integer.parseInt(request.getParameter("requestPage"));
-        PageInfo pageInfo=new PageInfo(requestPage);
 
-        try {
-            int count=cs.selectAllCount(selectCount);
-            pageInfo.setTotalRecordCount(count);
-            sql+="select * from (select c.*,rownum r from categorys c where rownum<="+pageInfo.getEnd()+")\n" +
-                    " where r>="+pageInfo.getBegin();
-//            System.out.println("总记录数总共有"+count+"条");
-//            System.out.println(sql);
-            list=cs.selectAll(sql);
-            request.setAttribute("list",list);
-            request.setAttribute("pageInfo",pageInfo);
-            request.getRequestDispatcher("WEB-INF/jsp/admin/category/categoryMain.jsp").forward(request,response);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
-    }
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String action=request.getParameter("action");
@@ -125,7 +160,7 @@ public class CateGoryServlet extends HttpServlet {
         try {
             BeanUtils.populate(c,map);
             cs.delete(c);
-            selectAll(request,response);//直接调用这个方法重新查询页面
+            getPageByQuery(request,response);//直接调用这个方法重新查询页面
         } catch (IllegalAccessException e) {
             e.printStackTrace();
         } catch (InvocationTargetException e) {
@@ -133,7 +168,6 @@ public class CateGoryServlet extends HttpServlet {
         } catch (Exception e) {
             e.printStackTrace();
         }
-
     }
     protected void modify(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         Map<String, String[]> map= request.getParameterMap();
@@ -147,7 +181,7 @@ public class CateGoryServlet extends HttpServlet {
 
                 int i = cs.updateCate(c);
 //                System.out.println("修改是否成功" + i);
-                selectAll(request, response);//直接调用这个方法重新查询页面
+                getPageByQuery(request, response);//直接调用这个方法重新查询页面
             }
             else {
                 System.out.println("要修改的用户不存在");

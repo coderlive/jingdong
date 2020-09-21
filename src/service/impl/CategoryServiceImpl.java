@@ -2,6 +2,7 @@ package service.impl;
 
 import dao.impl.CateDaoImpl;
 import dao.inner.CategoryDao;
+import page.PageInfo;
 import service.inner.CategoryService;
 import vo.Categorys;
 
@@ -46,6 +47,40 @@ public class CategoryServiceImpl implements CategoryService {
     @Override
     public int selectAllCount(String selectCount) throws Exception {
         return cd.getTotalRecordCount(selectCount);
+    }
+
+    @Override
+    public int getPageQueryByCount(Categorys c) throws Exception {
+        String sql="select count(1) from categorys where 1=1";
+        String cname=c.getCname();
+        String cdesc=c.getCdesc();
+        if (cname!=null&&!cname.trim().equals(""))
+        {
+            sql+=" and cname='"+cname+"'";
+        }
+        if (cdesc!=null&&!cdesc.trim().equals(""))
+        {
+            sql+=" or cdesc like '%"+cdesc+"%'";
+        }
+//        System.out.println(sql);
+        return cd.getTotalRecordCount(sql);
+    }
+
+    @Override
+    public List<Categorys> getPageQuery(PageInfo pageInfo, Categorys c) throws Exception {
+        String sql="select * from (select c.*,rownum r from categorys c where 1=1";
+        String cname=c.getCname();
+        String cdesc=c.getCdesc();
+        if (cname!=null&&!cname.trim().equals(""))
+        {
+            sql+=" and cname='"+cname+"'";
+        }
+        if (cdesc!=null&&!cdesc.trim().equals(""))
+        {
+            sql+=" or cdesc like '%"+cdesc+"%'";
+        }
+        sql+=") where r>="+pageInfo.getBegin()+" and r<="+pageInfo.getEnd();
+        return cd.getPageByQuery(sql,Categorys.class);
     }
 
 

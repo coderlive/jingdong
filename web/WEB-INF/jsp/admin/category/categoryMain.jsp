@@ -7,7 +7,6 @@
 %>
 <!DOCTYPE html>
 <html>
-
 	<head>
 		<meta charset="UTF-8">
 		<base href="<%=basePath%>">
@@ -80,6 +79,15 @@
 					<li class="breadcrumb-item active" aria-current="page">管理一级商品种类</li>
 				</ol>
 			</nav>
+			<!--0.8 搜索功能 加入搜索框-->
+			<form id="categoryForm2" action="CategoryServlet?action=getPageByQuery" method="post">
+				<div class="input-group mb-3">
+					<input type="text" id="searchCondition" name="searchCondition" value='${searchCondition}' class="form-control" placeholder="请输入你想搜索的信息" aria-label="请输入你想搜索的信息" aria-describedby="button-addon2">
+					<div class="input-group-append">
+						<button style="width: 100px" class="btn btn-primary" type="submit" id="button-addon2">搜索</button>
+					</div>
+				</div>
+			</form>
 			<table id="categoryTable" class="table table-striped table-bordered table-hover">
 				<thead>
 					<tr class="tableHead">
@@ -104,7 +112,7 @@
 								<td>${category.cdesc}</td>
 								<td>
 									<a  href="JDDispatcherServlet?target=admin/category/modifyCate.jsp?cid=${category.cid}&cname=${category.cname}
-									&cdesc=${category.cdesc}&requestPage=${pageInfo.currentPage}&cicon=${category.cicon}&clevel=${category.clevel}&cparent=${category.cparent}"
+									&cdesc=${category.cdesc}&requestPage=${pageInfo.currentPage}&cicon=${category.cicon}&clevel=${category.clevel}&cparent=${category.cparent}&searchCondition=${searchCondition}"
 										class="btn btn-success btn-xs">修改</a>
 								</td>
 								<td>
@@ -116,20 +124,21 @@
 			</table>
 			<div  class="pageDiv">
 				<form id="categoryForm" action="CategoryServlet" method="post">
-					<input type="hidden" name="action" value="selectAll"/>
+					<input type="hidden" name="action" value="getPageByQuery"/>
+					<input type="hidden" name="searchCondition" value="${searchCondition}"/>
 					  <ul class="pagination">
-						<li id="first" class="page-item"><a class="page-link" href="CategoryServlet?action=selectAll&requestPage=1">首页</a></li>
-						<li id="previous" class="page-item"><a class="page-link" href="CategoryServlet?action=selectAll&requestPage=${pageInfo.previousPage}">上一页</a></li>
+						<li id="first" class="page-item"><a class="page-link" href="CategoryServlet?action=getPageByQuery&requestPage=1&searchCondition=${searchCondition}">首页</a></li>
+						<li id="previous" class="page-item"><a class="page-link" href="CategoryServlet?action=getPageByQuery&requestPage=${pageInfo.previousPage}&searchCondition=${searchCondition}">上一页</a></li>
 							  <c:forEach  varStatus="status" begin="${pageInfo.currArea*5+1}" end="${(pageInfo.currArea+1)*5}">
 								<c:if test="${status.index<=pageInfo.totalPageCount}"	>
-									<li class="page-item <c:if test="${status.index==pageInfo.currentPage}">active</c:if> "><a class="page-link" href="CategoryServlet?action=selectAll&requestPage=${status.index}">${status.index}</a></li>
+									<li class="page-item <c:if test="${status.index==pageInfo.currentPage}">active</c:if> "><a class="page-link" href="CategoryServlet?action=getPageByQuery&requestPage=${status.index}&searchCondition=${searchCondition}">${status.index}</a></li>
 								</c:if>
 							</c:forEach>
 							  <c:if test="${(pageInfo.currArea+1)*5<=pageInfo.totalPageCount}">
-								  <li class="page-item"><a class="page-link" href="CategoryServlet?action=selectAll&requestPage=${pageInfo.currentPage+5<=pageInfo.totalPageCount?pageInfo.currentPage+5:pageInfo.totalPageCount}">...</a></li>
+								  <li class="page-item"><a class="page-link" href="CategoryServlet?action=requestPage&requestPage=${pageInfo.currentPage+5<=pageInfo.totalPageCount?pageInfo.currentPage+5:pageInfo.totalPageCount}&searchCondition=${searchCondition}">...</a></li>
 							  </c:if>
-						<li id="next" class="page-item"><a class="page-link" href="CategoryServlet?action=selectAll&requestPage=${pageInfo.nextPage}">下一页</a></li>
-						<li id="last" class="page-item"><a class="page-link" href="CategoryServlet?action=selectAll&requestPage=${pageInfo.totalPageCount}">尾页</a></li>
+						<li id="next" class="page-item"><a class="page-link" href="CategoryServlet?action=getPageByQuery&requestPage=${pageInfo.nextPage}&searchCondition=${searchCondition}">下一页</a></li>
+						<li id="last" class="page-item"><a class="page-link" href="CategoryServlet?action=getPageByQuery&requestPage=${pageInfo.totalPageCount}&searchCondition=${searchCondition}">尾页</a></li>
 						  <li class="page-item"><span class="page-link">共${pageInfo.totalRecordCount}条记录</span> </li>
 						  <li class="page-item"><span class="page-link">共${pageInfo.totalPageCount}页</span></li>
 						  <li class="page-item"><span class="page-link">每页${pageInfo.perPageRecordCount}条</span></li>
@@ -157,7 +166,6 @@
 				$("#categoryTable>tbody>tr:even").css("background-color","#fff");
                 //给跳到第几页下拉列表框绑定事件
                 $("#requestPage").change(function () {
-
                     //提交请求
                     $("#categoryForm").submit();
                 });
@@ -178,7 +186,7 @@
                 var is_delte=confirm("是否确认删除");
                 if (is_delte)
                 {
-                    window.location.assign('CategoryServlet?action=deleteById&cid='+cid+'&requestPage='+${pageInfo.currentPage})
+                    window.location.assign('CategoryServlet?action=deleteById&cid='+cid+'&requestPage=${pageInfo.currentPage}&searchCondition=${searchCondition}')
                 }
             }
 		</script>

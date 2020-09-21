@@ -25,8 +25,8 @@ public class ConnOracle {
             Context ctx = new InitialContext();
             //2、通过JNDI名称找到DataSource
             ds = (DruidDataSource) ctx.lookup(ORACLE_DB_JNDINAME);
-            System.out.println("-------------阿里巴巴druid连接池-------------");
-            System.out.println(ds);
+//            System.out.println("-------------阿里巴巴druid连接池-------------");
+//            System.out.println(ds);
 
         } catch (NamingException e) {
             e.printStackTrace();

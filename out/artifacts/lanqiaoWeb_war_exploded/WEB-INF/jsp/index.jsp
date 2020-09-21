@@ -149,11 +149,11 @@
                             <li><a href="JDDispatcherServlet?target=admin/category/addCategory.jsp" target="mainIFrame">添加一级商品</a></li>
                             <li><a href="JDDispatcherServlet?target=admin/category/deleteById.jsp" target="mainIFrame">删除一级商品</a></li>
                             <%--<li><a href="JDDispatcherServlet?target=admin/category/modifyCate.jsp" target="mainIFrame">修改商品</a></li>--%>
-                            <li><a href="CategoryServlet?action=selectAll&requestPage=1" target="mainIFrame">查询一级商品</a></li>
+                            <li><a href="CategoryServlet?action=getPageByQuery&requestPage=1" target="mainIFrame">查询一级商品</a></li>
                         </ul>
                     </li>
                     <li>
-                        <a href="page/patients.html"><i class="fa fa-wheelchair"></i> <span>Patients</span></a>
+                        <a href="page/patients.html"><i class="fa fa-wheelchair"></i><span>Patients</span></a>
                     </li>
                     <li>
                         <a href="page/appointments.html"><i class="fa fa-calendar"></i> <span>Appointments</span></a>
