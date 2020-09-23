@@ -81,9 +81,21 @@
 			</nav>
 			<!--0.8 搜索功能 加入搜索框-->
 			<form id="categoryForm2" action="CategoryServlet?action=getPageByQuery" method="post">
-				<div class="input-group mb-3">
+                <input id="clevel" type="hidden" name="clevel" value="${clevel}"><!--默认查询一级商品-->
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <button id="search" type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            查询所有商品
+                        </button>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" clevel="1"  href="javascript:0;">查询一级商品</a>
+                            <a class="dropdown-item" clevel="2"  href="javascript:0;">查询二级商品</a>
+                            <a class="dropdown-item" clevel="3"  href="javascript:0;">查询三级商品</a>
+                            <a class="dropdown-item" clevel="0"  href="javascript:0;">查询所有商品</a>
+                        </div>
+                    </div>
 					<input type="text" id="searchCondition" name="searchCondition" value='${searchCondition}' class="form-control" placeholder="请输入你想搜索的信息" aria-label="请输入你想搜索的信息" aria-describedby="button-addon2">
-					<div class="input-group-append">
+                    <div class="input-group-append">
 						<button style="width: 100px" class="btn btn-primary" type="submit" id="button-addon2">搜索</button>
 					</div>
 				</div>
@@ -112,7 +124,7 @@
 								<td>${category.cdesc}</td>
 								<td>
 									<a  href="JDDispatcherServlet?target=admin/category/modifyCate.jsp?cid=${category.cid}&cname=${category.cname}
-									&cdesc=${category.cdesc}&requestPage=${pageInfo.currentPage}&cicon=${category.cicon}&clevel=${category.clevel}&cparent=${category.cparent}&searchCondition=${searchCondition}"
+									&cdesc=${category.cdesc}&requestPage=${pageInfo.currentPage}&cicon=${category.cicon}&clevel=${category.clevel}&cparent=${category.cparent}&searchCondition=${searchCondition}&clevel=${clevel}"
 										class="btn btn-success btn-xs">修改</a>
 								</td>
 								<td>
@@ -126,19 +138,20 @@
 				<form id="categoryForm" action="CategoryServlet" method="post">
 					<input type="hidden" name="action" value="getPageByQuery"/>
 					<input type="hidden" name="searchCondition" value="${searchCondition}"/>
+                    <input type="hidden" name="clevel" value="${clevel}">
 					  <ul class="pagination">
-						<li id="first" class="page-item"><a class="page-link" href="CategoryServlet?action=getPageByQuery&requestPage=1&searchCondition=${searchCondition}">首页</a></li>
-						<li id="previous" class="page-item"><a class="page-link" href="CategoryServlet?action=getPageByQuery&requestPage=${pageInfo.previousPage}&searchCondition=${searchCondition}">上一页</a></li>
+						<li id="first" class="page-item"><a class="page-link" href="CategoryServlet?action=getPageByQuery&requestPage=1&searchCondition=${searchCondition}&clevel=${clevel}">首页</a></li>
+						<li id="previous" class="page-item"><a class="page-link" href="CategoryServlet?action=getPageByQuery&requestPage=${pageInfo.previousPage}&searchCondition=${searchCondition}&clevel=${clevel}">上一页</a></li>
 							  <c:forEach  varStatus="status" begin="${pageInfo.currArea*5+1}" end="${(pageInfo.currArea+1)*5}">
 								<c:if test="${status.index<=pageInfo.totalPageCount}"	>
-									<li class="page-item <c:if test="${status.index==pageInfo.currentPage}">active</c:if> "><a class="page-link" href="CategoryServlet?action=getPageByQuery&requestPage=${status.index}&searchCondition=${searchCondition}">${status.index}</a></li>
+									<li class="page-item <c:if test="${status.index==pageInfo.currentPage}">active</c:if> "><a class="page-link" href="CategoryServlet?action=getPageByQuery&requestPage=${status.index}&searchCondition=${searchCondition}&clevel=${clevel}">${status.index}</a></li>
 								</c:if>
 							</c:forEach>
 							  <c:if test="${(pageInfo.currArea+1)*5<=pageInfo.totalPageCount}">
-								  <li class="page-item"><a class="page-link" href="CategoryServlet?action=requestPage&requestPage=${pageInfo.currentPage+5<=pageInfo.totalPageCount?pageInfo.currentPage+5:pageInfo.totalPageCount}&searchCondition=${searchCondition}">...</a></li>
+								  <li class="page-item"><a class="page-link" href="CategoryServlet?action=requestPage&requestPage=${pageInfo.currentPage+5<=pageInfo.totalPageCount?pageInfo.currentPage+5:pageInfo.totalPageCount}&searchCondition=${searchCondition}&clevel=${clevel}">...</a></li>
 							  </c:if>
-						<li id="next" class="page-item"><a class="page-link" href="CategoryServlet?action=getPageByQuery&requestPage=${pageInfo.nextPage}&searchCondition=${searchCondition}">下一页</a></li>
-						<li id="last" class="page-item"><a class="page-link" href="CategoryServlet?action=getPageByQuery&requestPage=${pageInfo.totalPageCount}&searchCondition=${searchCondition}">尾页</a></li>
+						<li id="next" class="page-item"><a class="page-link" href="CategoryServlet?action=getPageByQuery&requestPage=${pageInfo.nextPage}&searchCondition=${searchCondition}&clevel=${clevel}">下一页</a></li>
+						<li id="last" class="page-item"><a class="page-link" href="CategoryServlet?action=getPageByQuery&requestPage=${pageInfo.totalPageCount}&searchCondition=${searchCondition}&clevel=${clevel}">尾页</a></li>
 						  <li class="page-item"><span class="page-link">共${pageInfo.totalRecordCount}条记录</span> </li>
 						  <li class="page-item"><span class="page-link">共${pageInfo.totalPageCount}页</span></li>
 						  <li class="page-item"><span class="page-link">每页${pageInfo.perPageRecordCount}条</span></li>
@@ -158,10 +171,12 @@
 				</ul>
 			</div>
 		</div>
-		<script src="js/jquery-3.2.1.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/jquery-3.2.1.min.js" type="text/javascript"></script>
+        <script src="js/popper.min.js"></script>
 		<script src="js/bootstrap.js" type="text/javascript" ></script>
 		<script type="text/javascript">
 			$(function(){
+                setSearch();
 				//对id为categoryTable表格进行隔行换色
 				$("#categoryTable>tbody>tr:even").css("background-color","#fff");
                 //给跳到第几页下拉列表框绑定事件
@@ -181,12 +196,29 @@
                     $("#last").addClass("disabled");
                 }
 
+                $('.dropdown-menu .dropdown-item').click(function () {
+                    $('#clevel').val($(this).attr('clevel'));
+                    $('#search').text($(this).text());
+                });
+                function setSearch() {
+                    var level=${clevel};
+                    var strlevel='';
+                    if (level==0)
+                        strlevel='查询所有商品';
+                    else if (level==1)
+                        strlevel='查询一级商品';
+                    else if (level==2)
+                        strlevel='查询二级商品';
+                    else if (level==3)
+                        strlevel='查询三级商品';
+                    $('#search').text(strlevel);
+                }
 			});
 			function deleteCate(cid) {
                 var is_delte=confirm("是否确认删除");
                 if (is_delte)
                 {
-                    window.location.assign('CategoryServlet?action=deleteById&cid='+cid+'&requestPage=${pageInfo.currentPage}&searchCondition=${searchCondition}')
+                    window.location.assign('CategoryServlet?action=deleteById&cid='+cid+'&requestPage=${pageInfo.currentPage}&searchCondition=${searchCondition}&clevel=${clevel}')
                 }
             }
 		</script>

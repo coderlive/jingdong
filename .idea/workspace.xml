@@ -8,25 +8,16 @@
   <component name="ChangeListManager">
     <list default="true" id="610151f4-ef21-49e3-b9a7-c277b25e62d1" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/lanqiaoWeb_war_exploded/WEB-INF/classes/dao/impl/DaoImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/lanqiaoWeb_war_exploded/WEB-INF/classes/dao/impl/DaoImpl.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/artifacts/lanqiaoWeb_war_exploded/WEB-INF/classes/service/impl/CategoryServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/lanqiaoWeb_war_exploded/WEB-INF/classes/service/impl/CategoryServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/lanqiaoWeb_war_exploded/WEB-INF/classes/service/inner/CategoryService.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/lanqiaoWeb_war_exploded/WEB-INF/classes/service/inner/CategoryService.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/artifacts/lanqiaoWeb_war_exploded/WEB-INF/classes/servlet/CateGoryServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/lanqiaoWeb_war_exploded/WEB-INF/classes/servlet/CateGoryServlet.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/lanqiaoWeb_war_exploded/WEB-INF/classes/util/ConnOracle.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/lanqiaoWeb_war_exploded/WEB-INF/classes/util/ConnOracle.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/lanqiaoWeb_war_exploded/WEB-INF/classes/vo/druid.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/lanqiaoWeb_war_exploded/WEB-INF/jsp/admin/category/addCategory.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/lanqiaoWeb_war_exploded/WEB-INF/jsp/admin/category/addCategory.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/artifacts/lanqiaoWeb_war_exploded/WEB-INF/jsp/admin/category/categoryMain.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/lanqiaoWeb_war_exploded/WEB-INF/jsp/admin/category/categoryMain.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/artifacts/lanqiaoWeb_war_exploded/WEB-INF/jsp/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/lanqiaoWeb_war_exploded/WEB-INF/jsp/index.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/lanqiaoWeb/dao/impl/DaoImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/lanqiaoWeb/dao/impl/DaoImpl.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/lanqiaoWeb/service/impl/CategoryServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/lanqiaoWeb/service/impl/CategoryServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/lanqiaoWeb/service/inner/CategoryService.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/lanqiaoWeb/service/inner/CategoryService.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/lanqiaoWeb/servlet/CateGoryServlet.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/lanqiaoWeb/util/ConnOracle.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/lanqiaoWeb/util/ConnOracle.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/lanqiaoWeb/vo/druid.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dao/impl/DaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dao/impl/DaoImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/service/impl/CategoryServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/service/impl/CategoryServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/service/inner/CategoryService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/service/inner/CategoryService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/servlet/CateGoryServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/servlet/CateGoryServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/util/ConnOracle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/util/ConnOracle.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/jsp/admin/category/addCategory.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/jsp/admin/category/addCategory.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/web/WEB-INF/jsp/admin/category/categoryMain.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/jsp/admin/category/categoryMain.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/web/WEB-INF/jsp/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/jsp/index.jsp" afterDir="false" />
     </list>
@@ -107,42 +98,47 @@
     <session id="-2116544042">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="3" />
+          <entry key="project.closed" value="4" />
           <entry key="project.open.time.1" value="1" />
           <entry key="project.open.time.28" value="1" />
           <entry key="project.open.time.30" value="1" />
-          <entry key="project.open.time.34" value="1" />
-          <entry key="project.opened" value="4" />
+          <entry key="project.open.time.34" value="2" />
+          <entry key="project.open.time.36" value="1" />
+          <entry key="project.opened" value="6" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="class" value="6" />
-          <entry key="java" value="75" />
-          <entry key="jsp" value="18" />
+          <entry key="css" value="1" />
+          <entry key="java" value="89" />
+          <entry key="js" value="1" />
+          <entry key="jsp" value="25" />
           <entry key="xml" value="2" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="CLASS" value="6" />
-          <entry key="JAVA" value="75" />
-          <entry key="JSP" value="18" />
+          <entry key="CSS" value="1" />
+          <entry key="JAVA" value="89" />
+          <entry key="JSP" value="25" />
+          <entry key="JavaScript" value="1" />
           <entry key="XML" value="2" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="dummy" value="1" />
-          <entry key="java" value="1009" />
-          <entry key="jsp" value="259" />
+          <entry key="java" value="2126" />
+          <entry key="jsp" value="2581" />
           <entry key="xml" value="17" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="1009" />
-          <entry key="JSP" value="259" />
+          <entry key="JAVA" value="2126" />
+          <entry key="JSP" value="2581" />
           <entry key="PLAIN_TEXT" value="1" />
           <entry key="XML" value="17" />
         </counts>
@@ -157,8 +153,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/web/WEB-INF/jsp/index.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1309">
-              <caret line="143" column="87" selection-start-line="143" selection-start-column="87" selection-end-line="143" selection-end-column="87" />
+            <state relative-caret-position="286">
+              <caret line="152" column="25" lean-forward="true" selection-start-line="152" selection-start-column="25" selection-end-line="152" selection-end-column="25" />
             </state>
           </provider>
         </entry>
@@ -166,11 +162,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/web/WEB-INF/jsp/admin/category/categoryMain.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="58">
-              <caret line="82" column="98" selection-start-line="82" selection-start-column="98" selection-end-line="82" selection-end-column="98" />
-              <folding>
-                <element signature="n#style#0;n#button#0;n#div#0;n#div#0;n#form#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-              </folding>
+            <state relative-caret-position="250">
+              <caret line="190" column="45" selection-start-line="190" selection-start-column="45" selection-end-line="190" selection-end-column="45" />
             </state>
           </provider>
         </entry>
@@ -178,11 +171,29 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/servlet/CateGoryServlet.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="144">
-              <caret line="134" column="49" lean-forward="true" selection-start-line="134" selection-start-column="49" selection-end-line="134" selection-end-column="49" />
+            <state relative-caret-position="331">
+              <caret line="209" column="31" lean-forward="true" selection-start-line="209" selection-start-column="31" selection-end-line="209" selection-end-column="31" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/service/inner/CategoryService.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="150">
+              <caret line="9" column="29" selection-start-line="9" selection-start-column="20" selection-end-line="9" selection-end-column="29" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/web/WEB-INF/jsp/admin/category/addCategory.jsp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="260">
+              <caret line="158" column="54" selection-start-line="158" selection-start-column="54" selection-end-line="158" selection-end-column="54" />
             </state>
           </provider>
         </entry>
@@ -202,36 +213,36 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>主页</find>
-      <find>map</find>
-      <find>失败</find>
-      <find>select</find>
-      <find>assets/</find>
-      <find>Logout</find>
-      <find>查询所有</find>
-      <find>pageDiv</find>
       <find>btn</find>
       <find>navigation</find>
       <find>pagination</find>
       <find>se</find>
       <find>mySpan</find>
       <find>getCurrentPage</find>
-      <find>dropdown</find>
       <find>Category</find>
       <find>update</find>
       <find>selectAll</find>
       <find>delte</find>
-      <find>add</find>
       <find>京东后台</find>
       <find>查询</find>
       <find>Admin</find>
       <find>ConnOracle2</find>
       <find>delete</find>
       <find>上一页</find>
-      <find>修改</find>
       <find>categoryForm</find>
-      <find>删除</find>
       <find>modify</find>
+      <find>addCategory</find>
+      <find>fid</find>
+      <find>cparent</find>
+      <find>add</find>
+      <find>category2</find>
+      <find>修改</find>
+      <find>dropdown</find>
+      <find>SELECTOR_DROPDOWN</find>
+      <find>getPageByQuery</find>
+      <find>删除</find>
+      <find>添加</find>
+      <find>id=&quot;clevel&quot;</find>
     </findStrings>
     <replaceStrings>
       <replace>..</replace>
@@ -245,9 +256,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/testRelefction.java" />
-        <option value="$PROJECT_DIR$/src/test/readAntion.java" />
-        <option value="$PROJECT_DIR$/src/vo/Users.java" />
         <option value="$PROJECT_DIR$/src/test/Info.java" />
         <option value="$PROJECT_DIR$/src/servlet/LifeCycleServlet.java" />
         <option value="$PROJECT_DIR$/web/jsp/success.jsp" />
@@ -281,8 +289,6 @@
         <option value="$PROJECT_DIR$/web/js/bootstrap.js" />
         <option value="$PROJECT_DIR$/src/vo/Category.java" />
         <option value="$PROJECT_DIR$/src/vo/Categorys.java" />
-        <option value="$PROJECT_DIR$/web/WEB-INF/jsp/admin/category/modifyCate.jsp" />
-        <option value="$PROJECT_DIR$/web/WEB-INF/jsp/admin/category/addCategory.jsp" />
         <option value="$PROJECT_DIR$/src/servlet/login.java" />
         <option value="$PROJECT_DIR$/web/META-INF/context.xml" />
         <option value="$PROJECT_DIR$/web/WEB-INF/web.xml" />
@@ -291,10 +297,15 @@
         <option value="$PROJECT_DIR$/src/dao/impl/CateDaoImpl.java" />
         <option value="$PROJECT_DIR$/src/dao/inner/CategoryDao.java" />
         <option value="$PROJECT_DIR$/src/service/inner/CategoryService.java" />
-        <option value="$PROJECT_DIR$/src/service/impl/CategoryServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/filter/LoginFilter.java" />
-        <option value="$PROJECT_DIR$/web/WEB-INF/jsp/index.jsp" />
+        <option value="$PROJECT_DIR$/src/servlet/CateGoryServlet2.java" />
+        <option value="$PROJECT_DIR$/web/WEB-INF/jsp/admin/category/addCategory2.jsp" />
+        <option value="$PROJECT_DIR$/web/WEB-INF/jsp/admin/category2/addCategory2.jsp" />
+        <option value="$PROJECT_DIR$/web/WEB-INF/jsp/admin/category/modifyCate.jsp" />
+        <option value="$PROJECT_DIR$/src/service/impl/CategoryServiceImpl.java" />
         <option value="$PROJECT_DIR$/web/WEB-INF/jsp/admin/category/categoryMain.jsp" />
+        <option value="$PROJECT_DIR$/web/WEB-INF/jsp/index.jsp" />
+        <option value="$PROJECT_DIR$/web/WEB-INF/jsp/admin/category/addCategory.jsp" />
         <option value="$PROJECT_DIR$/src/servlet/CateGoryServlet.java" />
       </list>
     </option>
@@ -312,9 +323,9 @@
     <option name="FILTER_DEBUG" value="true" />
     <option name="CUSTOM_FILTER" />
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="155" />
-    <option name="y" value="40" />
+  <component name="ProjectFrameBounds" extendedState="7">
+    <option name="x" value="105" />
+    <option name="y" value="86" />
     <option name="width" value="1775" />
     <option name="height" value="920" />
   </component>
@@ -360,19 +371,6 @@
               <item name="jingdong" type="b2602c69:ProjectViewProjectNode" />
               <item name="jingdong" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="service" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="jingdong" type="b2602c69:ProjectViewProjectNode" />
-              <item name="jingdong" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="service" type="462c0819:PsiDirectoryNode" />
-              <item name="impl" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="jingdong" type="b2602c69:ProjectViewProjectNode" />
-              <item name="jingdong" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="servlet" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -380,41 +378,6 @@
               <item name="jingdong" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="util" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="jingdong" type="b2602c69:ProjectViewProjectNode" />
-              <item name="jingdong" type="462c0819:PsiDirectoryNode" />
-              <item name="web" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="jingdong" type="b2602c69:ProjectViewProjectNode" />
-              <item name="jingdong" type="462c0819:PsiDirectoryNode" />
-              <item name="web" type="462c0819:PsiDirectoryNode" />
-              <item name="WEB-INF" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="jingdong" type="b2602c69:ProjectViewProjectNode" />
-              <item name="jingdong" type="462c0819:PsiDirectoryNode" />
-              <item name="web" type="462c0819:PsiDirectoryNode" />
-              <item name="WEB-INF" type="462c0819:PsiDirectoryNode" />
-              <item name="jsp" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="jingdong" type="b2602c69:ProjectViewProjectNode" />
-              <item name="jingdong" type="462c0819:PsiDirectoryNode" />
-              <item name="web" type="462c0819:PsiDirectoryNode" />
-              <item name="WEB-INF" type="462c0819:PsiDirectoryNode" />
-              <item name="jsp" type="462c0819:PsiDirectoryNode" />
-              <item name="admin" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="jingdong" type="b2602c69:ProjectViewProjectNode" />
-              <item name="jingdong" type="462c0819:PsiDirectoryNode" />
-              <item name="web" type="462c0819:PsiDirectoryNode" />
-              <item name="WEB-INF" type="462c0819:PsiDirectoryNode" />
-              <item name="jsp" type="462c0819:PsiDirectoryNode" />
-              <item name="admin" type="462c0819:PsiDirectoryNode" />
-              <item name="category" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -427,8 +390,8 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1600679094324" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1600835552072" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/web/WEB-INF/lib" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="project.structure.last.edited" value="Libraries" />
@@ -437,22 +400,22 @@
     <property name="settings.editor.selected.configurable" value="fileTemplates" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="E:\IdeaProject\lanqiaoWeb\web\css" />
-      <recent name="E:\IdeaProject\lanqiaoWeb\web\js" />
-      <recent name="E:\IdeaProject\lanqiaoWeb\web\fonts" />
-      <recent name="E:\IdeaProject\lanqiaoWeb\src" />
-      <recent name="E:\IdeaProject\lanqiaoWeb\web\img" />
-    </key>
-    <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="util" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\gitProject\jingdong\web\WEB-INF\jsp\admin\category2" />
       <recent name="E:\gitProject\jingdong\src" />
       <recent name="E:\gitProject\jingdong\src\vo" />
       <recent name="E:\IdeaProject\lanqiaoWeb\web\WEB-INF\jsp" />
       <recent name="E:\IdeaProject\lanqiaoWeb\web\jsp" />
-      <recent name="E:\IdeaProject\lanqiaoWeb\web\WEB-INF\lib" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="util" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\gitProject\jingdong\web\WEB-INF\lib" />
+      <recent name="E:\gitProject\jingdong\web\WEB-INF\jsp\admin\category2" />
+      <recent name="E:\gitProject\jingdong\web\WEB-INF\jsp\admin\category" />
+      <recent name="E:\IdeaProject\lanqiaoWeb\web\css" />
+      <recent name="E:\IdeaProject\lanqiaoWeb\web\js" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -753,11 +716,13 @@
       <workItem from="1600564257238" duration="6222000" />
       <workItem from="1600584908354" duration="5919000" />
       <workItem from="1600667860240" duration="9974000" />
+      <workItem from="1600758326739" duration="18352000" />
+      <workItem from="1600820078149" duration="12476000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="150195000" />
+    <option name="totallyTimeSpent" value="181023000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -770,8 +735,9 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.4879227" visible="true" weight="0.17828418" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.4879227" visible="true" weight="0.1883378" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -782,15 +748,15 @@
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3286119" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.15841584" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.2719547" />
+      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.15439093" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" weight="0.32956153" />
-      <window_info anchor="bottom" id="Application Servers" order="7" weight="0.36349455" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.3286119" />
+      <window_info anchor="bottom" id="Application Servers" order="7" weight="0.36260623" />
       <window_info anchor="bottom" id="Terminal" order="8" />
-      <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" weight="0.32956153" />
+      <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" weight="0.3286119" />
       <window_info anchor="bottom" id="Messages" order="10" weight="0.3555241" />
-      <window_info anchor="bottom" id="Java Enterprise" order="11" weight="0.32956153" />
+      <window_info anchor="bottom" id="Java Enterprise" order="11" weight="0.3286119" />
       <window_info anchor="bottom" id="Database Changes" order="12" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="13" show_stripe_button="false" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -811,25 +777,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/web/jsp/404.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="350">
-          <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/js/app.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-600" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/css/font-awesome.min.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="196">
-          <caret line="2922" column="14" lean-forward="true" selection-start-line="2922" selection-start-column="14" selection-end-line="2922" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/web/jsp/page/employees.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-8025">
@@ -895,20 +842,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="175">
           <caret line="4717" column="11" selection-start-line="4717" selection-start-column="1" selection-end-line="4717" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/css/bootstrap.min.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="275">
-          <caret line="5" column="83061" selection-start-line="5" selection-start-column="83052" selection-end-line="5" selection-end-column="83061" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/js/bootstrap.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="5">
-          <caret line="1939" column="12" selection-start-line="1939" selection-start-column="4" selection-end-line="1939" selection-end-column="12" />
         </state>
       </provider>
     </entry>
@@ -1015,13 +948,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/WEB-INF/jsp/admin/category/addCategory.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="84" column="57" lean-forward="true" selection-start-line="84" selection-start-column="57" selection-end-line="84" selection-end-column="57" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/dao/inner/Dao.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="122">
@@ -1064,13 +990,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/WEB-INF/jsp/admin/category/modifyCate.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="132">
-          <caret line="108" column="25" selection-start-line="108" selection-start-column="25" selection-end-line="108" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/web/META-INF/context.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="28">
@@ -1082,16 +1001,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="128">
           <caret line="9" column="40" selection-start-line="9" selection-start-column="40" selection-end-line="9" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/dao/impl/DaoImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="50">
-          <caret line="21" lean-forward="true" selection-start-line="21" selection-end-line="21" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1116,37 +1025,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/service/inner/CategoryService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="172">
-          <caret line="19" column="20" selection-start-line="19" selection-start-column="20" selection-end-line="19" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/dao/impl/CateDaoImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="6" lean-forward="true" selection-start-line="6" selection-end-line="6" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/dao/inner/CategoryDao.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="175">
           <caret line="7" lean-forward="true" selection-start-line="7" selection-end-line="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/service/impl/CategoryServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="341">
-          <caret line="81" column="76" lean-forward="true" selection-start-line="81" selection-start-column="76" selection-end-line="81" selection-end-column="76" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1163,16 +1045,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/WEB-INF/jsp/admin/category/categoryMain.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="58">
-          <caret line="82" column="98" selection-start-line="82" selection-start-column="98" selection-end-line="82" selection-end-column="98" />
-          <folding>
-            <element signature="n#style#0;n#button#0;n#div#0;n#div#0;n#form#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/filter/LoginFilter.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="171">
@@ -1180,17 +1052,98 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/servlet/CateGoryServlet2.java" />
+    <entry file="file://$PROJECT_DIR$/src/dao/impl/CateDaoImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="3" column="19" selection-start-line="3" selection-start-column="19" selection-end-line="3" selection-end-column="19" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/WEB-INF/jsp/admin/category2/categoryMain2.jsp" />
+    <entry file="file://$PROJECT_DIR$/web/js/bootstrap.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="52">
+          <caret line="1946" selection-start-line="1946" selection-end-line="1946" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/dao/impl/DaoImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="340" lean-forward="true" selection-start-line="340" selection-end-line="340" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/css/bootstrap.min.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="88">
+          <caret line="5" column="58630" selection-start-line="5" selection-start-column="58630" selection-end-line="5" selection-end-column="58630" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/WEB-INF/jsp/admin/category2/addCategory2.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="253">
+          <caret line="92" column="48" selection-start-line="92" selection-start-column="48" selection-end-line="92" selection-end-column="48" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/WEB-INF/jsp/admin/category/modifyCate.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="266">
+          <caret line="114" lean-forward="true" selection-start-line="114" selection-end-line="114" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/service/impl/CategoryServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="529">
+          <caret line="82" column="9" lean-forward="true" selection-start-line="82" selection-start-column="9" selection-end-line="82" selection-end-column="9" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/web/WEB-INF/jsp/index.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1309">
-          <caret line="143" column="87" selection-start-line="143" selection-start-column="87" selection-end-line="143" selection-end-column="87" />
+        <state relative-caret-position="286">
+          <caret line="152" column="25" lean-forward="true" selection-start-line="152" selection-start-column="25" selection-end-line="152" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/WEB-INF/jsp/admin/category/categoryMain.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="250">
+          <caret line="190" column="45" selection-start-line="190" selection-start-column="45" selection-end-line="190" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/service/inner/CategoryService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="9" column="29" selection-start-line="9" selection-start-column="20" selection-end-line="9" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/WEB-INF/jsp/admin/category/addCategory.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="260">
+          <caret line="158" column="54" selection-start-line="158" selection-start-column="54" selection-end-line="158" selection-end-column="54" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/servlet/CateGoryServlet.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="134" column="49" lean-forward="true" selection-start-line="134" selection-start-column="49" selection-end-line="134" selection-end-column="49" />
+        <state relative-caret-position="331">
+          <caret line="209" column="31" lean-forward="true" selection-start-line="209" selection-start-column="31" selection-end-line="209" selection-end-column="31" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

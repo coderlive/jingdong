@@ -51,9 +51,14 @@ public class CategoryServiceImpl implements CategoryService {
 
     @Override
     public int getPageQueryByCount(Categorys c) throws Exception {
-        String sql="select count(1) from categorys where 1=1";
+        String sql="select count(1) from categorys where 1=1";;
         String cname=c.getCname();
         String cdesc=c.getCdesc();
+        int clevel=c.getClevel();
+        if (clevel!=0)
+        {
+            sql+=" and clevel="+clevel;
+        }
         if (cname!=null&&!cname.trim().equals(""))
         {
             sql+=" and cname='"+cname+"'";
@@ -71,6 +76,11 @@ public class CategoryServiceImpl implements CategoryService {
         String sql="select * from (select c.*,rownum r from categorys c where 1=1";
         String cname=c.getCname();
         String cdesc=c.getCdesc();
+        int clevel=c.getClevel();
+        if (clevel!=0)
+        {
+            sql+=" and clevel="+clevel;
+        }
         if (cname!=null&&!cname.trim().equals(""))
         {
             sql+=" and cname='"+cname+"'";

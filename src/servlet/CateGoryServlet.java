@@ -1,5 +1,6 @@
 package servlet;
 
+import com.google.gson.Gson;
 import org.apache.commons.beanutils.BeanUtils;
 import page.PageInfo;
 import service.impl.CategoryServiceImpl;
@@ -12,6 +13,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.io.UnsupportedEncodingException;
 import java.lang.reflect.InvocationTargetException;
 import java.security.Key;
@@ -29,9 +31,6 @@ public class CateGoryServlet extends HttpServlet {
         if (action.equals("add"))
         {
             add(request,response);
-        }else if (action.equals("selectAll"))
-        {
-            selectAll(request,response);
         }else if (action.equals("deleteById"))
         {
             deleteById(request,response);
@@ -45,32 +44,35 @@ public class CateGoryServlet extends HttpServlet {
         }else if(action.equals("getPageByQuery"))
         {
             getPageByQuery(request,response);
+        }else if (action.equals("getLevelCategory"))//获取商品种类
+        {
+            getLevelCategory(request,response);
         }
     }
-    //下面这个方法不用了
-    protected void selectAll(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String selectCount="select count(1) from categorys";
-        String sql="";
-        List<Categorys> list=new ArrayList<>();
-        int requestPage=Integer.parseInt(request.getParameter("requestPage"));
-        PageInfo pageInfo=new PageInfo(requestPage);
 
+    protected void getLevelCategory(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
+        //调用ajax方法返回当前商品级别的所有数据
+        String sql="select * from categorys where clevel=";//查询一级商品
+        String clevel=request.getParameter("clevel");
+        sql+=clevel;
+        String cparent=request.getParameter("cparent");
+        if (cparent!=null)
+            sql+=" and cparent="+cparent;
+//        System.out.println(sql);
         try {
-            int count=cs.selectAllCount(selectCount);
-            pageInfo.setTotalRecordCount(count);
-            sql+="select * from (select c.*,rownum r from categorys c where rownum<="+pageInfo.getEnd()+")\n" +
-                    " where r>="+pageInfo.getBegin();
-//            System.out.println("总记录数总共有"+count+"条");
-//            System.out.println(sql);
-            list=cs.selectAll(sql);
-            request.setAttribute("list",list);
-            request.setAttribute("pageInfo",pageInfo);
-            request.getRequestDispatcher("WEB-INF/jsp/admin/category/categoryMain.jsp").forward(request,response);
+            List<Categorys> list=cs.selectAll(sql);
+//            System.out.println(list);
+            Gson gson=new Gson();
+//            gson.toJson(list);
+            PrintWriter pw= response.getWriter();
+           pw.print(gson.toJson(list));
+           pw.flush();
+           pw.close();
         } catch (Exception e) {
             e.printStackTrace();
         }
-
     }
+    //下面这个是分页查询
     protected void getPageByQuery(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String searchCondition=request.getParameter("searchCondition");
         if (searchCondition==null)
@@ -84,10 +86,17 @@ public class CateGoryServlet extends HttpServlet {
         }else {
             requestPage=Integer.parseInt(Page);
         }
+        String clevel=request.getParameter("clevel");
+        int level=0;
+        if (clevel!=null)
+        {
+            level=Integer.parseInt(clevel);
+        }
         PageInfo pageInfo=new PageInfo(requestPage);
         Categorys c=new Categorys();
         c.setCname(searchCondition);
         c.setCdesc(searchCondition);
+        c.setClevel(level);
         try {
             int count=cs.getPageQueryByCount(c);
             pageInfo.setTotalRecordCount(count);
@@ -95,12 +104,14 @@ public class CateGoryServlet extends HttpServlet {
             request.setAttribute("list",list);
             request.setAttribute("pageInfo",pageInfo);
             request.setAttribute("searchCondition",searchCondition);
+            request.setAttribute("clevel",clevel);
             request.getRequestDispatcher("WEB-INF/jsp/admin/category/categoryMain.jsp").forward(request,response);
         } catch (Exception e) {
             e.printStackTrace();
         }
 
     }
+    //自己的的方法，删除一个数据，不用id，用商品名称就可以删除
     protected void deleteNoId(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         Map<String, String[]> map= request.getParameterMap();
         Categorys c=new Categorys();
@@ -117,11 +128,13 @@ public class CateGoryServlet extends HttpServlet {
             e.printStackTrace();
         }
     }
+    //添加一个数据
     protected void add(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
             Map<String, String[]> map= request.getParameterMap();
         Categorys c=new Categorys();
         try {
             BeanUtils.populate(c,map);
+            System.out.println(c);
         } catch (IllegalAccessException e) {
             e.printStackTrace();
         } catch (InvocationTargetException e) {
@@ -154,6 +167,7 @@ public class CateGoryServlet extends HttpServlet {
         String action=request.getParameter("action");
         doPost(request,response);
     }
+    //用id值删除一个数据
     protected void deleteById(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         Map<String, String[]> map= request.getParameterMap();
         Categorys c=new Categorys();
@@ -169,6 +183,7 @@ public class CateGoryServlet extends HttpServlet {
             e.printStackTrace();
         }
     }
+    //修改数据
     protected void modify(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         Map<String, String[]> map= request.getParameterMap();
         Categorys c=new Categorys();

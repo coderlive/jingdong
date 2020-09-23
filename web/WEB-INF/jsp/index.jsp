@@ -11,7 +11,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
     <base href="<%=baseurl%>">
     <title>京东后台管理页面</title>
-
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
@@ -144,12 +143,12 @@
                         <a href="jsp/main.jsp" target="mainIFrame"><i class="fa fa-dashboard"></i> <span>主页</span></a>
                     </li>
                     <li class="submenu">
-                        <a href="page/doctors.html"><i class="fa fa-certificate"></i> <span>一级商品管理</span><span class="menu-arrow"></span></a>
+                        <a href="page/doctors.html"><i class="fa fa-certificate"></i> <span>商品管理</span><span class="menu-arrow"></span></a>
                         <ul style="display: none;">
-                            <li><a href="JDDispatcherServlet?target=admin/category/addCategory.jsp" target="mainIFrame">添加一级商品</a></li>
-                            <li><a href="JDDispatcherServlet?target=admin/category/deleteById.jsp" target="mainIFrame">删除一级商品</a></li>
-                            <%--<li><a href="JDDispatcherServlet?target=admin/category/modifyCate.jsp" target="mainIFrame">修改商品</a></li>--%>
-                            <li><a href="CategoryServlet?action=getPageByQuery&requestPage=1" target="mainIFrame">查询一级商品</a></li>
+                            <li><a href="JDDispatcherServlet?target=admin/category/addCategory.jsp" target="mainIFrame">添加商品</a></li>
+                            <li><a href="JDDispatcherServlet?target=admin/category/deleteById.jsp" target="mainIFrame">删除商品</a></li>
+                            <li><a href="CategoryServlet?action=getPageByQuery&requestPage=1&clevel=0" target="mainIFrame">查询商品</a></li>
+                            <li><a href="CategoryServlet?action=getLevelCategory&clevel=1" target="mainIFrame">测试数据</a></li>
                         </ul>
                     </li>
                     <li>
