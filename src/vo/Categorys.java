@@ -5,7 +5,6 @@ public class Categorys {
     private Integer cparent;//商品的父级id
     private Integer clevel;//商品层级
     private String cname;//商品名称
-    private String cicon;//图片地址
     private String cdesc;//商品描述
 
     public Integer getCid() {
@@ -40,14 +39,6 @@ public class Categorys {
         this.cname = cname;
     }
 
-    public String getCicon() {
-        return cicon;
-    }
-
-    public void setCicon(String cicon) {
-        this.cicon = cicon;
-    }
-
     public String getCdesc() {
         return cdesc;
     }
@@ -63,7 +54,6 @@ public class Categorys {
                 ", cparent=" + cparent +
                 ", clevel=" + clevel +
                 ", cname='" + cname + '\'' +
-                ", cicon='" + cicon + '\'' +
                 ", cdesc='" + cdesc + '\'' +
                 '}';
     }

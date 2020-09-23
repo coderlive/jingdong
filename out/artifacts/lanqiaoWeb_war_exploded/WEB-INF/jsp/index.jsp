@@ -143,16 +143,20 @@
                         <a href="jsp/main.jsp" target="mainIFrame"><i class="fa fa-dashboard"></i> <span>主页</span></a>
                     </li>
                     <li class="submenu">
-                        <a href="page/doctors.html"><i class="fa fa-certificate"></i> <span>商品管理</span><span class="menu-arrow"></span></a>
+                        <a href="page/doctors.html"><i class="fa fa-certificate"></i> <span>商品种类管理</span><span class="menu-arrow"></span></a>
                         <ul style="display: none;">
-                            <li><a href="JDDispatcherServlet?target=admin/category/addCategory.jsp" target="mainIFrame">添加商品</a></li>
-                            <li><a href="JDDispatcherServlet?target=admin/category/deleteById.jsp" target="mainIFrame">删除商品</a></li>
-                            <li><a href="CategoryServlet?action=getPageByQuery&requestPage=1&clevel=0" target="mainIFrame">查询商品</a></li>
-                            <li><a href="CategoryServlet?action=getLevelCategory&clevel=1" target="mainIFrame">测试数据</a></li>
+                            <li><a href="JDDispatcherServlet?target=admin/category/addCategory.jsp" target="mainIFrame">添加商品种类</a></li>
+                            <li><a href="JDDispatcherServlet?target=admin/category/deleteById.jsp" target="mainIFrame">删除商品种类</a></li>
+                            <li><a href="CategoryServlet?action=getPageByQuery&requestPage=1&clevel=0" target="mainIFrame">查询商品种类</a></li>
                         </ul>
                     </li>
                     <li>
-                        <a href="page/patients.html"><i class="fa fa-wheelchair"></i><span>Patients</span></a>
+                        <a href="javascript:0;"><i class="fa fa-calendar"></i> <span>商品管理</span><span class="menu-arrow"></span></a>
+                        <ul style="display: none;">
+                            <li><a href="javascript:0;" target="mainIFrame">添加商品</a></li>
+                            <li><a href="javascript:0;" target="mainIFrame">删除商品</a></li>
+                            <li><a href="javascript:0;" target="mainIFrame">查询商品</a></li>
+                        </ul>
                     </li>
                     <li>
                         <a href="page/appointments.html"><i class="fa fa-calendar"></i> <span>Appointments</span></a>

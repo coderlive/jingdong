@@ -49,21 +49,19 @@ public class CateGoryServlet extends HttpServlet {
             getLevelCategory(request,response);
         }
     }
-
+    //返回json数据,只需要更具父类的id :cparent 来查询就可以了
     protected void getLevelCategory(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
         //调用ajax方法返回当前商品级别的所有数据
-        String sql="select * from categorys where clevel=";//查询一级商品
-        String clevel=request.getParameter("clevel");
-        sql+=clevel;
+        String sql="select * from categorys where cparent=";//查询一级商品
         String cparent=request.getParameter("cparent");
-        if (cparent!=null)
-            sql+=" and cparent="+cparent;
-//        System.out.println(sql);
+        sql+=cparent;
+        System.out.println(sql);
         try {
             List<Categorys> list=cs.selectAll(sql);
 //            System.out.println(list);
             Gson gson=new Gson();
 //            gson.toJson(list);
+            response.setContentType("application/json");
             PrintWriter pw= response.getWriter();
            pw.print(gson.toJson(list));
            pw.flush();

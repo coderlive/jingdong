@@ -117,14 +117,13 @@
 							<input type="hidden" name="cdesc" value="${category.cdesc}">
 							<input type="hidden" name="cparent" value="${category.cparent}">
 							<input type="hidden" name="clevel" value="${category.clevel}">
-							<input type="hidden" name="cicon" value="${category.cicon}">
 							<tr>
 								<td>${category.cid}</td>
 								<td>${category.cname}</td>
 								<td>${category.cdesc}</td>
 								<td>
 									<a  href="JDDispatcherServlet?target=admin/category/modifyCate.jsp?cid=${category.cid}&cname=${category.cname}
-									&cdesc=${category.cdesc}&requestPage=${pageInfo.currentPage}&cicon=${category.cicon}&clevel=${category.clevel}&cparent=${category.cparent}&searchCondition=${searchCondition}&clevel=${clevel}"
+									&cdesc=${category.cdesc}&requestPage=${pageInfo.currentPage}&clevel=${category.clevel}&cparent=${category.cparent}&searchCondition=${searchCondition}&clevel=${clevel}"
 										class="btn btn-success btn-xs">修改</a>
 								</td>
 								<td>
