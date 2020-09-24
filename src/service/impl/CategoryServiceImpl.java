@@ -92,6 +92,9 @@ public class CategoryServiceImpl implements CategoryService {
         sql+=") where r>="+pageInfo.getBegin()+" and r<="+pageInfo.getEnd();
         return cd.getPageByQuery(sql,Categorys.class);
     }
-
+    public List<Categorys> selectByName(String cname) throws Exception {
+        String sql="select * from categorys where cname='"+cname+"'";
+        return cd.getPageByQuery(sql,Categorys.class);
+    }
 
 }

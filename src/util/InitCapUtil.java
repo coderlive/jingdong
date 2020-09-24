@@ -10,7 +10,7 @@ public class InitCapUtil {
     /**
      * 作者: zhangzy
      * 时间: 2018年8月23日 上午10:45:40
-     * 功能: 把输入的属性名 改成首字母大写
+     * 功能: 把输入的属性名 改成首字母大写,其余字母小写
      * 输入参数: 属性名  例如 CNAME
      * 返回值: 首字母大写的属性名  例如 Cname
      */
@@ -23,7 +23,13 @@ public class InitCapUtil {
 
         for(int i=1,length=charArr.length;i<length;i++){
 
-            charArr[i] = (char)(columnName.charAt(i) + 32);
+            char perChar = columnName.charAt(i);
+            if(perChar=='_'|| (perChar>=48 && perChar<=57)) {//'_' 和数字不要转化
+                charArr[i] = columnName.charAt(i);
+            }else{
+                charArr[i] = (char)(columnName.charAt(i) + 32);
+            }
+
         }
 
         afterColumnName = new String(charArr);
@@ -45,7 +51,13 @@ public class InitCapUtil {
 
         for(int i=0,length=charArr.length;i<length;i++){
 
-            charArr[i] = (char)(columnName.charAt(i) + 32);
+            char perChar = columnName.charAt(i);
+            if(perChar=='_'|| (perChar>=48 && perChar<=57)) {//'_' 和数字不要转化
+                charArr[i] = columnName.charAt(i);
+            }else{
+                charArr[i] = (char)(columnName.charAt(i) + 32);
+            }
+
         }
 
         afterColumnName = new String(charArr);

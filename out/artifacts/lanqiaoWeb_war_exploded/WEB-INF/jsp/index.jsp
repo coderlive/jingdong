@@ -153,9 +153,10 @@
                     <li>
                         <a href="javascript:0;"><i class="fa fa-calendar"></i> <span>商品管理</span><span class="menu-arrow"></span></a>
                         <ul style="display: none;">
-                            <li><a href="javascript:0;" target="mainIFrame">添加商品</a></li>
-                            <li><a href="javascript:0;" target="mainIFrame">删除商品</a></li>
-                            <li><a href="javascript:0;" target="mainIFrame">查询商品</a></li>
+                            <li><a href="JDDispatcherServlet?target=admin/product/addProduct.jsp" target="mainIFrame">添加商品</a></li>
+                            <li><a href="ProductServlet?action=getPageByQuery&target=productMain&requestPage=1" target="mainIFrame">管理商品</a></li>
+                            <li><a href="ProductServlet?action=getPageByQuery&target=productMainUpload&requestPage=1" target="mainIFrame">文件上传</a></li>
+                            <li><a href="ProductServlet?action=getPageByQuery&target=productMainUpDown&requestPage=1" target="mainIFrame">上下架商品</a></li>
                         </ul>
                     </li>
                     <li>

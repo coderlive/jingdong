@@ -2,10 +2,10 @@ package vo;
 
 public class Products {
     private Integer pid;//商品id
-    private String pname;//商品名称
-    private Float price;//商品价格
-    private Float pingjia_sum;//评价数
-    private String dianpu_name;//店铺名
+    private String pname;//商品名称*
+    private Integer price;//商品价格
+    private Integer pingjia_sum;//评价数
+    private String dianpu_name;//店铺名*
     private String product_list_large_image;//列表页大图
     private String product_list_small_image1;//列表页小图
     private String product_list_small_image2;
@@ -20,7 +20,7 @@ public class Products {
     private String detail_small_img5;
     private String shopping_car_img;//购物车商品图片
     private Integer onsale;//1 表示上架  0 表示下架
-    private Integer cid;//所属二级商品种类id
+    private Integer cid;//所属二级商品种类id*
 
     public Integer getPid() {
         return pid;
@@ -38,19 +38,19 @@ public class Products {
         this.pname = pname;
     }
 
-    public Float getPrice() {
+    public Integer getPrice() {
         return price;
     }
 
-    public void setPrice(Float price) {
+    public void setPrice(Integer price) {
         this.price = price;
     }
 
-    public Float getPingjia_sum() {
+    public Integer getPingjia_sum() {
         return pingjia_sum;
     }
 
-    public void setPingjia_sum(Float pingjia_sum) {
+    public void setPingjia_sum(Integer pingjia_sum) {
         this.pingjia_sum = pingjia_sum;
     }
 
@@ -184,7 +184,7 @@ public class Products {
 
     @Override
     public String toString() {
-        return "products{" +
+        return "Products{" +
                 "pid=" + pid +
                 ", pname='" + pname + '\'' +
                 ", price=" + price +

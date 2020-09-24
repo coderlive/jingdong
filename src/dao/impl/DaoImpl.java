@@ -18,7 +18,7 @@ import java.util.ArrayList;
 import java.util.List;
 public class DaoImpl<T> implements Dao<T> {
     // 组合Connection对象
-    private Connection conn;
+    protected Connection conn;
 
     private Class<?> voClazz;
     private String className;// 简单类名

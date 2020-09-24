@@ -18,4 +18,5 @@ public interface CategoryService {
     int getPageQueryByCount(Categorys c) throws Exception;
 
     List<Categorys> getPageQuery(PageInfo pageInfo, Categorys c) throws Exception;
+    List<Categorys> selectByName(String cname) throws Exception;
 }
