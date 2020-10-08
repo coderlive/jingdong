@@ -170,13 +170,15 @@
                     <li>
                         <a href="JDDispatcherServlet?target=admin/product/salesVolume.jsp" target="mainIFrame"><i class="fa fa-hospital-o"></i> <span>商品销量排行榜</span></a>
                     </li>
+                        <li>
+                            <a href="javascript:0;"><i class="fa fa-calendar"></i> <span>订单管理</span><span class="menu-arrow"></span></a>
+                            <ul style="display: none;">
+                                <li><a href="OrderServlet?action=find&requestPage=1" target="mainIFrame">管理订单</a></li>
+                            </ul>
+                        </li>
                     <li>
                         <a href="CategoryServlet?action=goJdIndex&target=/user/welcome&clevel=1" ><i class="fa fa-calendar"></i> <span>去京东首页</span></a>
                     </li>
-                    <li>
-                        <a href="#"><i class="fa fa-calendar-check-o"></i> <span>doctor</span></a>
-                    </li>
-
                     <li class="submenu">
                         <a href="#"><i class="fa fa-user"></i> <span> Employees </span> <span class="menu-arrow"></span></a>
                         <ul style="display: none;">

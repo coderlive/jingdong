@@ -2408,7 +2408,7 @@
             </div>
         </div>
     </div>
-    <div class="nologin-tip">
+    <div class="nologin-tip" style="visibility:hidden;">
         <span class="wicon"></span>
         您还没有登录！登录后购物车的商品将保存到您账号中
         <a class="btn-1 ml10" href="login.html" clstag="clickcart|keycount|xincart|cart_pageTopLogin">立即登录</a>

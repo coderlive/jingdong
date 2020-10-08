@@ -18,6 +18,34 @@
     <script src="js/jquery-1.7.2.js"></script>
     <script>
         $(function () {
+            var loginmun=0;
+            $("#btn-login").click(function () {
+                var username = $('input[name="username"]').val();
+                var password = $('input[name="password"]').val();
+
+                $.post("login",{action:"checkLogin",username:username,password:password},function(data){
+
+                    var ischeck=JSON.parse(data)
+                    if (ischeck)
+                    {
+                        window.location.assign('CategoryServlet?action=goJdIndex&target=/user/welcome&clevel=1');
+                    }
+                    else
+                    {
+                        loginmun++;
+                        //如果loginmun==2，就再发送一次ajax锁定用户
+                        if (loginmun<=3)
+                        {
+                            alert('登录失败次数:'+loginmun)
+                        }
+                        if (loginmun==3) {
+                            $.post("login",{action:"lockUser",username:username},function(data){
+                                alert(data)
+                            },"json");
+                        }
+                    }
+                },"json");
+            });
             $("#lbtn").click(function () {
                 var login_scan = $(".login-scan").css("display");
                 if (login_scan == "none") {
@@ -85,7 +113,7 @@
             </div>
             <!-- 输入框 -->
             <div class="login">
-                <form action="login?action=frontLogin" method="post">
+                <%--<form action="login?action=frontLogin" method="post">--%>
                     <div class="box user">
                         <div class="icon"></div>
                         <input name="username" type="username" placeholder="邮箱/用户名/登录手机">
@@ -96,9 +124,9 @@
                     </div>
                     <a href="#" class="forget">忘记密码</a>
                     <div class="btn">
-                        <button type="submit" class="btn-button">登 &nbsp;&nbsp; 录</button>
+                        <button id="btn-login" class="btn-button">登 &nbsp;&nbsp; 录</button>
                     </div>
-                </form>
+                <%--</form>--%>
             </div>
             <!-- 扫码框 -->
             <div class="login-scan">

@@ -115,7 +115,7 @@
             <ul class="nav">
                 <div class="nav-item">
                     <li class="spacer"></li>
-                    <a href="page/history/history.html">我的订单</a>
+                    <a href="OrderServlet?action=queryMyOrder">我的订单</a>
                     <li class="spacer"></li>
                 </div>
                 <div class="nav-item ">

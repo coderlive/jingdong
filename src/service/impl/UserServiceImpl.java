@@ -50,25 +50,33 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    public Users getOneById(String userid) throws Exception {
+        return dao.getOneById(Integer.parseInt(userid),Users.class);
+    }
+
+    @Override
     public List<Users> getPageQuery(PageInfo pageInfo, Users users) throws Exception {
         //select * from (select c.*,rownum r from users c where 1=1 and rownum<=8 ) where r>=1 ;
+        List<Users> list = null;
         String sql="select * from (select c.*,rownum r from users c where 1=1";
+        Integer userid = users.getUserid();
+        String username = users.getUsername();
 
-        sql+=" and rownum<="+pageInfo.getEnd();
 //        String username=users.getUsername();
 //        Integer lock=users.getUenable();
-//
-//        if (username!=null&&!username.trim().equals(""))
-//        {
-//            sql+=" and username='"+username+"'";
-//        }
-//        if (lock!=null)
-//        {
-//            sql+=" or lock="+lock;
-//        }
+        if (username!=null&&!username.trim().equals(""))
+        {
+            sql+=" and username='"+username+"'";
+        }
+        if (userid!=null)
+        {
+            sql+=" or userid="+userid;
+        }
         sql+=") where r>="+pageInfo.getBegin();
+        sql+=" and r<="+pageInfo.getEnd();
         System.out.println(sql);
-        return dao.getPageByQuery(sql,Users.class);
+        list = dao.getPageByQuery(sql,Users.class);
+        return list;
     }
 
     @Override
@@ -97,5 +105,12 @@ public class UserServiceImpl implements UserService {
     public int getTotalRecordCount() throws Exception {
         String sql = "select count(*) from users";
         return dao.getTotalRecordCount(sql);
+    }
+
+    @Override
+    public void lockUser(String username) {
+
+        String sql = "update users set uenable=1 where username='"+username+"'";
+        dao.lockUser(sql);
     }
 }

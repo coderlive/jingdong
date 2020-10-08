@@ -36,9 +36,6 @@ public class login extends HttpServlet {
         }else if (action.equals("LoginOut"))
         {
             LoginOut(request,response);
-        }else if(action.equals("frontLogin"))//frontuser这个是检测前台登录的界面的
-        {
-            frontLogin(request,response);
         }else if(action.equals("frontLoginOut"))
         {
             frontLoginOut(request,response);
@@ -59,6 +56,12 @@ public class login extends HttpServlet {
             updateActive(request,response);
         }else if (action.equals("getAllByPage")) {
             getAllByPage(request,response);
+        }else if(action.equals("checkLogin"))
+        {
+            checkLogin(request,response);
+        }else if(action.equals("lockUser"))
+        {
+            lockUser(request,response);
         }
     }
 
@@ -123,30 +126,62 @@ public class login extends HttpServlet {
             e.printStackTrace();
         }
     }
-
-    private void frontLogin(HttpServletRequest request, HttpServletResponse response) {
+    //判断用户登录信息
+    protected void checkLogin(HttpServletRequest request, HttpServletResponse response)
+    {
         //获取用户名和密码
         String username = request.getParameter("username");
+        System.out.println(username);
         String password = request.getParameter("password");
+        System.out.println(password);
+        Gson gson=new Gson();
         //在user表查询用户名和密码
-        String sql = "select * from users where username ='"+username+"' and password ='"+password+"'  and uenable=0 and active=1";
+        String sql = "select * from users where username ='"+username+"' and password ='"+password+"' and uenable=0 and active=1";
         //正则表达式防止sql注入验证用户名和密码
+        response.setContentType("application/json");
+        PrintWriter pw= null;
+        try {
+            pw = response.getWriter();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         boolean isValid = PreventSQLInjectionUtil.isValid(username) || PreventSQLInjectionUtil.isValid(password);
         try {
             if (isValid) {
                 List list = us.getPageByQuery(sql,Users.class);
                 if (list.size()>0) {
                     request.getSession().setAttribute("frontuser",list.get(0));
-                    request.getRequestDispatcher("WEB-INF/jsp/admin/user/welcome.jsp").forward(request,response);
-                    return;
-                }
-                else {
-                    request.getRequestDispatcher("WEB-INF/jsp/admin/user/frontLogin.jsp").forward(request,response);
+                    pw.write(gson.toJson("true"));
+//                    request.getRequestDispatcher("CategoryServlet?action=goJdIndex&target=/user/welcome&clevel=1").forward(request,response);
+                }else {
+                    Users u=new Users();
+                    u.setPassword(password);
+                    list.add(u);
+
+                    pw.write(gson.toJson("false"));
+
                 }
             }
+            pw.flush();
+            pw.close();
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    //锁定账户
+    private void lockUser(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        //获取登录失败3次后用户的用户名和密码
+        String username = request.getParameter("username");
+        us.lockUser(username);
+
+        Gson gson = new Gson();
+        response.setContentType("application/json");
+        PrintWriter pw= null;
+        pw = response.getWriter();
+        pw.write(gson.toJson("失败次数过多,账户已被禁用"));
+        pw.flush();
+        pw.close();
     }
     //这个是前台的退出功能
     protected void frontLoginOut(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -208,8 +243,15 @@ public class login extends HttpServlet {
 
         Integer intLock= UsersDictionary.lockStrToInt(searchCondition);//根据查询条件获取禁用解锁的状态
         Integer intActive= UsersActiveDictionary.activeStrToInt(searchCondition);//根据查询条件获取用户激活的状态
-        if (searchCondition==null)
-            searchCondition="";
+        Users users = new Users();
+        if(searchCondition!=null&&!searchCondition.trim().equals("")){
+
+            users.setUsername(searchCondition);
+            if (searchCondition.matches("[0-9]+"))
+            {
+                users.setUserid(Integer.parseInt(searchCondition));
+            }
+        }
         System.out.println("查询条件为："+searchCondition);
         String Page=request.getParameter("requestPage");
         int requestPage;
@@ -223,7 +265,7 @@ public class login extends HttpServlet {
         {
             pageInfo.setPerPageRecordCount(Integer.parseInt(perPageRecordCount));
         }
-        Users users = new Users();
+
 
         users.setUsername(searchCondition);
         users.setActive(intActive);

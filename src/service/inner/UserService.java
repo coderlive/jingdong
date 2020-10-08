@@ -23,4 +23,8 @@ public interface UserService {
 
     //查询总共有多少条记录
     public int getTotalRecordCount() throws Exception;
+
+    Users getOneById(String userid) throws Exception;
+
+    void lockUser(String username);
 }

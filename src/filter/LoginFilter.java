@@ -19,10 +19,12 @@ public class LoginFilter implements Filter {
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
         HttpServletRequest request= (HttpServletRequest) servletRequest;
         HttpServletResponse response= (HttpServletResponse) servletResponse;
-        if ("salesVolume".equals(request.getParameter("action")))
-        {
-            filterChain.doFilter(servletRequest, servletResponse);
-            return;//如果是订单销售页面的话就不拦截直接跳过
+        String out[]=new String[]{"salesVolume","find","getPageByQuery","byone","getOneForUpdate"};
+        for (String str:out) {
+            if (str.equals(request.getParameter("action"))) {
+                filterChain.doFilter(servletRequest, servletResponse);
+                return;//如果是订单销售页面的话就不拦截直接跳过
+            }
         }
         System.out.println("拦截的路径是"+request.getRequestURL());
         Users u = (Users) request.getSession().getAttribute("frontuser");//拦截前台页面

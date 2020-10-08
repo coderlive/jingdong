@@ -38,4 +38,14 @@ public class UserDaoImpl extends DaoImpl<Users> implements UserDao {
         }
         return count;
     }
+
+    @Override
+    public void lockUser(String sql) {
+        try {
+            PreparedStatement pst=conn.prepareStatement(sql);
+            pst.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
 }

@@ -124,7 +124,7 @@
 
             <span class="input-group-btn">
                     <input type="submit" value="搜索" class="btn btn-default"/>
-                    <input type="hidden" name="target" value="/admin/user/usersMainUpDown">
+                    <input type="hidden" name="target" value="/admin/user/usersMain">
 			</span>
         </div>
 

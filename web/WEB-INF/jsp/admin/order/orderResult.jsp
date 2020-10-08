@@ -1715,7 +1715,7 @@
 								</div>
 								<h3 class="state-txt">付款成功</h3>
 								<br>
-								<a target="_blank" href="" class="btn-1">查看订单详情</a>
+								<a  href="OrderServlet?action=queryMyOrder" class="btn-1">查看订单详情</a>
 								<br>
 								<a target="_blank" href="" class="btn-9" clstag="">修改订单</a><br>
 								<a class="btn-print" href="" target="_blank" clstag="" style="display: inline;">
