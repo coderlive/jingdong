@@ -1,0 +1,338 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+a:hover {
+  color: #e93854 !important;
+  text-decoration: underline;
+}
+
+.header {
+  height: 80px;
+}
+
+.tip {
+  height: 40px;
+  background-color: #fff8f0;
+}
+
+.main {
+  height: 475px;
+  background-color: #e93854;
+}
+
+.foot {
+  height: 86px;
+}
+
+/* 版心设置 */
+.header-c,
+.main-c,
+.foot-c {
+  position: relative;
+  width: 990px;
+  height: 100%;
+  margin: 0 auto;
+}
+
+.header-c .logo {
+  float: left;
+  width: 170px;
+  height: 60px;
+  background: url(../img/login/jdlogo.png) no-repeat center;
+  margin-top: 10px;
+}
+
+.header-c .wel {
+  float: left;
+  width: 110px;
+  height: 40px;
+  background: url(../img/login/welcomelogin.png) no-repeat center;
+  margin-top: 30px;
+  margin-left: 20px;
+}
+
+.header-c .ask {
+  position: absolute;
+  right: 0;
+  bottom: 10px;
+  color: #999;
+  font-size: 14px;
+  background: url(../img/login/wenjuan.png) no-repeat left center;
+  text-indent: 24px;
+}
+
+.tip {
+  text-align: center;
+}
+
+.tip-c {
+  display: inline-block;
+  font-size: 12px;
+  line-height: 40px;
+  color: #999;
+  background: url(../img/login/Safety.png) no-repeat left;
+  padding-left: 24px;
+}
+
+.main-c {
+  background: url(../img/login/qsgw.png) no-repeat center;
+}
+
+.main .login-block {
+  position: absolute;
+  right: 0;
+  top: 10px;
+  width: 346px;
+  /* height: 400px; */
+  background-color: #fff;
+}
+
+.main .tab {
+  height: 54px;
+  border-bottom: 1px solid #f4f4f4;
+}
+
+.tab .tab-item {
+  float: left;
+  width: 173px;
+  height: 18px;
+  text-align: center;
+  line-height: 18px;
+  font-size: 18px;
+  font-weight: bolder;
+  margin: 17px 0;
+  cursor: pointer;
+}
+
+.tab .tab-item.left {
+  width: 172px;
+  border-right: 1px solid #f4f4f4;
+}
+
+.tab .tab-item:hover {
+  color: #e93854;
+}
+
+.tab .tab-item.active {
+  color: #e93854;
+}
+
+/* 账号登录 */
+.login {
+  display: none;
+  width: 306px;
+  margin: 0 auto;
+  margin-top: 33px;
+}
+
+.login .box {
+  overflow: hidden;
+  width: 304px;
+  margin-bottom: 25px;
+  border: 1px solid #f4f4f4;
+}
+
+.login .box .icon {
+  float: left;
+  width: 38px;
+  height: 38px;
+  border-right: 1px solid #f4f4f4;
+  background: url(../img/login/pwd-icons-new.png) no-repeat;
+}
+
+.login .pwd .icon {
+  background-position: -48px 0;
+}
+
+.login .box input {
+  float: left;
+  margin: 10px 0;
+  width: 254px;
+  height: 18px;
+  margin-left: 10px;
+  outline: none;
+  border: none;
+}
+
+.login .forget {
+  display: block;
+  font-size: 14px;
+  color: #333;
+  text-align: right;
+}
+
+.login .btn {
+  height: 50px;
+}
+.login .btn-button {
+  width: 304px;
+  height: 33px;
+  outline: none;
+  cursor: pointer;
+  border-width: 0px;
+  border-radius: 3px;
+  color: #fff;
+  text-align: center;
+  font-size: 18px;
+  background-color: #e93854;
+  line-height: 35px;
+  margin: 15px 0;
+  cursor: pointer;
+}
+
+.btn-button:hover {
+  color: #fff;
+}
+
+/* 扫码登录 */
+.login-scan {
+  display: block;
+  width: 306px;
+  height: 245px;
+  margin: 0 auto;
+  margin-top: 33px;
+}
+
+.login-scan .box {
+  width: 304px;
+  margin-bottom: 25px;
+  position: relative;
+}
+
+#sc {
+  position: absolute;
+  left: 75px;
+  display: block;
+}
+
+/* 动画 */
+.scan-help {
+  display: none;
+  float: right;
+  position: relative;
+}
+
+#he {
+  position: absolute;
+  right: -10px;
+  top: -15px;
+}
+
+.scantip {
+  position: absolute;
+  left: 40px;
+  bottom: 105px;
+  width: 257px;
+  margin: 18px auto 14px;
+  text-align: center;
+}
+
+.scantip li {
+  font-size: 5px;
+  list-style: none;
+  text-align: center;
+}
+
+.red {
+  color: red;
+}
+
+.img {
+  position: absolute;
+  bottom: 75px;
+  left: 0px;
+  width: 280px;
+  padding: 0 20px;
+  background-color: #fff;
+  color: #999;
+  font-family: "microsoft yahei";
+  font-size: 10px;
+  line-height: 25px;
+}
+
+.img .isc {
+  float: left;
+  margin-left: 30px;
+}
+
+.img .ic {
+  display: inline-block;
+  width: 25px;
+  height: 25px;
+  vertical-align: -6px;
+  background: url(../img/login/saoma.png) no-repeat;
+}
+
+.img .sp .ic {
+  background-position: -26px 0;
+}
+
+.img .sa .ic {
+  background-position: -52.5px 0;
+}
+
+/* 登录框底部 */
+.login-block .concat {
+  width: 304px;
+  height: 58px;
+  padding: 0 20px;
+  background-color: #f4f4f4;
+}
+
+.concat .box {
+  float: left;
+  margin-left: 30px;
+  font-size: 12px;
+  height: 58px;
+  line-height: 58px;
+}
+
+.concat .box.reg {
+  float: right;
+  font-size: 14px;
+  color: #b61d1d;
+}
+
+.concat .icon {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  vertical-align: -6px;
+  background: url(../img/login/qwx.png) no-repeat;
+}
+
+.concat .wx .icon {
+  background-position: -19px 0;
+}
+
+.concat .reg .icon {
+  background: url("../img/login/pwd-icons-new.png") no-repeat -106px -74px;
+}
+
+/* 底部 */
+.foot-c {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 12px;
+  color: #666;
+}
+
+.links a {
+  color: #666;
+  line-height: 1.5;
+  margin: 0 10px;
+}
+
+.copyright {
+  margin-top: 10px;
+}

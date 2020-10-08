@@ -5,6 +5,7 @@ public class Products {
     private String pname;//商品名称*
     private Integer price;//商品价格
     private Integer pingjia_sum;//评价数
+    private Integer xiao_liang;//销量
     private String dianpu_name;//店铺名*
     private String product_list_large_image;//列表页大图
     private String product_list_small_image1;//列表页小图
@@ -21,6 +22,15 @@ public class Products {
     private String shopping_car_img;//购物车商品图片
     private Integer onsale;//1 表示上架  0 表示下架
     private Integer cid;//所属二级商品种类id*
+    private int shoppingCartSum;//设置购物车数量
+
+    public int getShoppingCartSum() {
+        return shoppingCartSum;
+    }
+
+    public void setShoppingCartSum(int shoppingCartSum) {
+        this.shoppingCartSum = shoppingCartSum;
+    }
 
     public Integer getPid() {
         return pid;
@@ -52,6 +62,14 @@ public class Products {
 
     public void setPingjia_sum(Integer pingjia_sum) {
         this.pingjia_sum = pingjia_sum;
+    }
+
+    public Integer getXiao_liang() {
+        return xiao_liang;
+    }
+
+    public void setXiao_liang(Integer xiao_liang) {
+        this.xiao_liang = xiao_liang;
     }
 
     public String getDianpu_name() {
@@ -186,25 +204,7 @@ public class Products {
     public String toString() {
         return "Products{" +
                 "pid=" + pid +
-                ", pname='" + pname + '\'' +
-                ", price=" + price +
-                ", pingjia_sum=" + pingjia_sum +
-                ", dianpu_name='" + dianpu_name + '\'' +
-                ", product_list_large_image='" + product_list_large_image + '\'' +
-                ", product_list_small_image1='" + product_list_small_image1 + '\'' +
-                ", product_list_small_image2='" + product_list_small_image2 + '\'' +
-                ", product_list_small_image3='" + product_list_small_image3 + '\'' +
-                ", pdesc='" + pdesc + '\'' +
-                ", product_sum=" + product_sum +
-                ", detail_large_img='" + detail_large_img + '\'' +
-                ", detail_small_img1='" + detail_small_img1 + '\'' +
-                ", detail_small_img2='" + detail_small_img2 + '\'' +
-                ", detail_small_img3='" + detail_small_img3 + '\'' +
-                ", detail_small_img4='" + detail_small_img4 + '\'' +
-                ", detail_small_img5='" + detail_small_img5 + '\'' +
-                ", shopping_car_img='" + shopping_car_img + '\'' +
-                ", onsale=" + onsale +
-                ", cid=" + cid +
+                ", shoppingCartSum=" + shoppingCartSum +
                 '}';
     }
 }

@@ -97,4 +97,15 @@ public class CategoryServiceImpl implements CategoryService {
         return cd.getPageByQuery(sql,Categorys.class);
     }
 
+    @Override
+    public List<Categorys> selectAllByParentId(int cid) throws Exception {
+        String sql="select * from categorys where cparent="+cid;
+        return cd.getPageByQuery(sql,Categorys.class);
+    }
+    @Override
+    public List<Categorys> selectAllByLevel(int clevel) throws Exception {
+        String sql="select * from categorys where clevel="+clevel;
+        return cd.getPageByQuery(sql,Categorys.class);
+    }
+
 }

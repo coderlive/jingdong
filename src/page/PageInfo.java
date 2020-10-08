@@ -92,6 +92,15 @@ public class PageInfo {
 
     public void setPerPageRecordCount(int perPageRecordCount) {
         this.perPageRecordCount = perPageRecordCount;
+        //下面的这些都是我自己重新添加的
+        this.begin = (requestPage-1) * perPageRecordCount + 1;
+        this.end = requestPage * perPageRecordCount;
+
+        //设置当前页
+        this.setCurrentPage(requestPage);
+
+        this.currArea=(requestPage-1)/this.perPageRecordCount;
+
     }
 
     public int getRequestPage() {

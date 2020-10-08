@@ -1,6 +1,8 @@
 package servlet;
 
+import com.google.gson.Gson;
 import org.apache.commons.beanutils.BeanUtils;
+import page.OrderCondition;
 import page.PageInfo;
 import service.impl.CategoryServiceImpl;
 import service.impl.ProductServiceImpl;
@@ -18,6 +20,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.List;
@@ -59,10 +62,54 @@ public class ProductServlet extends HttpServlet {
         }else if(action.equals("uploadImage"))//上传图片的功能
         {
             uploadImage(request,response);
+        }else if(action.equals("selectAllProduct"))//查询所有的商品,根据cid查询所有商品
+        {
+            selectAllProduct(request,response);
+        }else if(action.equals("salesVolume"))
+        {
+            salesVolume(request,response);//查询商品销量，返回json数据
         }
     }
+
+    private void salesVolume(HttpServletRequest request, HttpServletResponse response) {
+        List<Products> list=null;
+        String row=request.getParameter("row");
+        Gson gson=new Gson();
+        try {
+             list=ps.salesVolume(row);
+             response.setContentType("application/json");
+             PrintWriter pw= response.getWriter();
+             pw.print(gson.toJson(list));
+             pw.flush();
+             pw.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    //这个方法暂时不用
+    private void selectAllProduct(HttpServletRequest request, HttpServletResponse response) {
+        String id=request.getParameter("cid");
+        int cid=Integer.parseInt(id);
+        List<Products> list= null;
+        try {
+            list = ps.selectAllProduct(cid);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        request.setAttribute("list",list);
+        try {
+            request.getRequestDispatcher("/WEB-INF/jsp/admin/product/Productlist.jsp").forward(request,response);
+        } catch (ServletException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
     private void uploadImage(HttpServletRequest request, HttpServletResponse response) {
-        String target = "/WEB-INF/jsp/msg.jsp";//错误的就转发到错误的视图
+//        String target = "/WEB-INF/jsp/msg.jsp";//错误的就转发到错误的视图
         // 一.填充数据
         // 二.调用业务逻辑
         ServletConfig servletConfig = this.getServletConfig();
@@ -78,17 +125,23 @@ public class ProductServlet extends HttpServlet {
             } catch (Exception e) {
 
                 request.setAttribute("msg", "上传图片失败");
+                try {
+                    request.getRequestDispatcher("/WEB-INF/jsp/msg.jsp").forward(request, response);
+                } catch (ServletException e1) {
+                    e1.printStackTrace();
+                } catch (IOException e1) {
+                    e1.printStackTrace();
+                }
                 e.printStackTrace();
             }
         }
         // 三.转发视图
-        try {
-            request.getRequestDispatcher(target).forward(request, response);
-        } catch (ServletException e) {
-            e.printStackTrace();
+        try {//跳转到商品管理的页面了
+            response.sendRedirect("http://localhost:8080/HelloWorld/ProductServlet?action=getPageByQuery&target=/admin/product/productMain&requestPage=1");
         } catch (IOException e) {
             e.printStackTrace();
         }
+
     }
     private void getOneForUpload(HttpServletRequest request, HttpServletResponse response)  {
         String target=request.getParameter("target");
@@ -109,7 +162,8 @@ public class ProductServlet extends HttpServlet {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        target="WEB-INF/jsp/admin/product/"+target+".jsp";
+        target="WEB-INF/jsp/admin"+target+".jsp";
+        request.setAttribute("target",target);
         request.setAttribute("pageInfo",pageInfo);
         request.setAttribute("product",p);
         request.setAttribute("searchCondition",searchCondition);
@@ -172,6 +226,7 @@ public class ProductServlet extends HttpServlet {
         int pid=Integer.parseInt(request.getParameter("pid"));
         String searchCondition=request.getParameter("searchCondition");
         String requestPage=request.getParameter("requestPage");
+        String target=request.getParameter("target");
         Products p=null;
         Categorys c=null;
         try {
@@ -181,6 +236,7 @@ public class ProductServlet extends HttpServlet {
         } catch (Exception e) {
             e.printStackTrace();
         }
+        request.setAttribute("target",target);
         request.setAttribute("product",p);
         request.setAttribute("category",c);
         request.setAttribute("searchCondition",searchCondition);
@@ -190,13 +246,18 @@ public class ProductServlet extends HttpServlet {
 
     //下面这个是分页查询
     protected void getPageByQuery(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        List<Products> list=new ArrayList<>();
         String searchCondition=request.getParameter("searchCondition");
         String target=request.getParameter("target");
+        //下面这个是设置分页的个数的,一页8个
+        String perPageRecordCount=request.getParameter("perPageRecordCount");
+        //下面两个是获取排序的条件
+        String orderCondition=request.getParameter("orderCondition");
+        String ascOrDesc=request.getParameter("ascOrDesc");
         Integer intOnsale= ProductDictionary.onsaleStrToInt(searchCondition);//根据查询条件获取上下架的状态
         if (searchCondition==null)
             searchCondition="";
         System.out.println("查询条件为："+searchCondition);
-        List<Products> list=new ArrayList<>();
         String Page=request.getParameter("requestPage");
         int requestPage;
         if (Page==null) {
@@ -204,16 +265,24 @@ public class ProductServlet extends HttpServlet {
         }else {
             requestPage=Integer.parseInt(Page);
         }
-
         PageInfo pageInfo=new PageInfo(requestPage);
+        if (perPageRecordCount!=null)
+        {
+            pageInfo.setPerPageRecordCount(Integer.parseInt(perPageRecordCount));
+        }
         Products p=new Products();
         try {
             List<Categorys> lc_list=cs.selectByName(searchCondition);
-            if (lc_list.size()!=0)
+            if (lc_list.size()!=0)//根据查询条件查看是不是有这个cid的商品
             {
                 Categorys category=lc_list.get(0);
                 p.setCid(lc_list.get(0).getCid());
                 request.setAttribute("category",category);
+            }
+            String cid=request.getParameter("cid");//获取cid，如果是根据cid来查询的话就直接把cid放进去
+            if (cid!=null&&!"".equals(cid))
+            {
+                p.setCid(Integer.parseInt(cid));
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -221,14 +290,28 @@ public class ProductServlet extends HttpServlet {
         p.setPname(searchCondition);
         p.setDianpu_name(searchCondition);
         p.setOnsale(intOnsale);
+        OrderCondition oc=new OrderCondition();//这个是排序的类
+        if (orderCondition!=null&&!orderCondition.equals(""))
+        {
+            oc.setOrderCondition(orderCondition);
+        }if (ascOrDesc!=null&&!ascOrDesc.equals(""))
+        {
+            oc.setAscOrDesc(ascOrDesc);
+        }
         try {
             int count=ps.getPageQueryByCount(p);
             pageInfo.setTotalRecordCount(count);
-            list=ps.getPageQuery(pageInfo,p);
+            list=ps.getPageQuery(pageInfo,p,oc);
             System.out.println(list);
-            target="WEB-INF/jsp/admin/product/"+target+".jsp";
+            target="WEB-INF/jsp"+target+".jsp";
+            request.setAttribute("orderConditionObj",oc);
             request.setAttribute("list",list);
+            if(list.size()!=0)
+            {
+                request.setAttribute("product",list.get(0));//把第一个放进去好算一点
+            }
             request.setAttribute("pageInfo",pageInfo);
+            request.setAttribute("requestPage",requestPage);
             request.setAttribute("searchCondition",searchCondition);
             request.getRequestDispatcher(target).forward(request,response);
         } catch (Exception e) {
@@ -254,10 +337,10 @@ public class ProductServlet extends HttpServlet {
             {
                 System.out.println("已经有这个用户了,不能再添加");
                 request.setAttribute("msg","已经有这个用户了,不能再添加");
-                request.getRequestDispatcher("jsp/showmessage.jsp").forward(request,response);
+                request.getRequestDispatcher("WEB-INF/jsp/msg.jsp").forward(request,response);
             }else {
                 ps.addProduct(p);
-//                getPageByQuery(request,response);//添加成功后跳转页面
+                getPageByQuery(request,response);//添加成功后跳转页面
             }
         } catch (Exception e) {
             e.printStackTrace();

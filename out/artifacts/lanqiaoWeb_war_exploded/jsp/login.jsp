@@ -11,6 +11,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
     <base href="<%=baseurl%>">
     <title>登录</title>
+    <link href="favicon.ico" rel="shortcut icon"/><!--这个是标题图片-->
     <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="css/style.css">
@@ -27,7 +28,7 @@
 				<div class="account-box">
                     <form action="login?action=LoginIn" class="form-signin" method="post">
 						<div class="account-logo">
-                            <a href="index.html"><img src="http://img.duoziwang.com/2018/16/04172136909052.jpg" alt=""></a>
+                            <a href="index.html"><img src="img/jdhead.jpg" alt=""></a>
                         </div>
                         <div class="form-group">
                             <label>用户名</label>

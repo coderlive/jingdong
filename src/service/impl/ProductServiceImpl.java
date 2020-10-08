@@ -1,18 +1,15 @@
 package service.impl;
 
-import dao.impl.CateDaoImpl;
 import dao.impl.ProductDaoImpl;
-import dao.inner.CategoryDao;
 import dao.inner.ProductDao;
 import org.apache.commons.beanutils.BeanUtils;
 import org.apache.commons.fileupload.FileItem;
 import org.apache.commons.fileupload.FileUploadException;
 import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
+import page.OrderCondition;
 import page.PageInfo;
-import service.inner.CategoryService;
 import service.inner.ProductService;
-import vo.Categorys;
 import vo.Products;
 
 import javax.servlet.http.HttpServletRequest;
@@ -50,25 +47,28 @@ public class ProductServiceImpl implements ProductService {
         {
             sql+=" or dianpu_name like '%"+dianpu_name+"%'";
         }
-        if (cid!=null)
-        {
-            sql+=" or cid="+cid;
-        }
         if (onsale!=null)
         {
             sql+=" or onsale="+onsale;
+        }
+        if (cid!=null)
+        {
+            sql+=" and cid="+cid;
         }
         System.out.println(sql);
         return pd.getTotalRecordCount(sql);
     }
 
     @Override
-    public List<Products> getPageQuery(PageInfo pageInfo, Products p) throws Exception {
-        String sql="select * from (select c.*,rownum r from products c where 1=1";
+    public List<Products> getPageQuery(PageInfo pageInfo, Products p, OrderCondition oc) throws Exception {
+//        select * from (select c.*,rownum r from (select * from products order by price) c where 1=1 and rownum<=8 ) where r>=1 ;
+        String sql="select * from (select c.*,rownum r from (select * from products ";
         String pname=p.getPname();
         String dianpu_name=p.getDianpu_name();
         Integer cid=p.getCid();
         Integer onsale=p.getOnsale();
+        sql+=" order by "+oc.getOrderCondition()+" "+oc.getAscOrDesc();
+        sql+=") c where 1=1 ";
         if (pname!=null&&!pname.trim().equals(""))
         {
             sql+=" and pname='"+pname+"'";
@@ -77,15 +77,16 @@ public class ProductServiceImpl implements ProductService {
         {
             sql+=" or dianpu_name like '%"+dianpu_name+"%'";
         }
-        if (cid!=null)
-        {
-            sql+=" or cid="+cid;
-        }
         if (onsale!=null)
         {
             sql+=" or onsale="+onsale;
         }
-        sql+=") where r>="+pageInfo.getBegin()+" and r<="+pageInfo.getEnd();
+        if (cid!=null)
+        {
+            sql+=" and cid="+cid;
+        }
+        sql+=" and rownum<="+pageInfo.getEnd();
+        sql+=") where r>="+pageInfo.getBegin();
         System.out.println(sql);
         return pd.getPageByQuery(sql,Products.class);
     }
@@ -217,29 +218,23 @@ public class ProductServiceImpl implements ProductService {
                 }
             }
         } catch (FileUploadException e) {
-
             e.printStackTrace();
         } catch (Exception e) {
-
             e.printStackTrace();
         }
-
         System.out.println("**********look here***************");
         System.out.println("pid=" + pid);
         for (String str : fileNameList) {//查看文件的选项
             System.out.println(str);
         }
-
-
         //---------------------------2.把上传的文件名 保存到数据库对应的字段中------------------------------
-
         List<String> fileNameWithDirectoryList = new ArrayList<String>();//带文件夹的文件名 例如 product2\\图片名
         for(String fileName:fileNameList){
 
             String fileNameWithDirectory = "";
 
             if(!fileName.trim().equals("")){
-                fileNameWithDirectory = "product" + pid + "\\" + fileName;
+                fileNameWithDirectory = "product" + pid + "/" + fileName;
             }
 
             fileNameWithDirectoryList.add(fileNameWithDirectory);
@@ -254,6 +249,25 @@ public class ProductServiceImpl implements ProductService {
         }
         tempDir.delete();//用完这个文件夹你就给我清楚了他
     }
+
+    @Override
+    public List<Products> selectAllProduct(int cid) throws Exception {
+        String sql="select * from products where cid="+cid;
+        return pd.getPageByQuery(sql,Products.class);
+    }
+
+    @Override
+    public List<Products> salesVolume(String row) throws Exception {
+        String sql="select * from (select * from products order by xiao_liang desc) where rownum<="+row;
+        return pd.getPageByQuery(sql,Products.class);
+    }
+
+    @Override
+    public void updateProductByOid(String no_id,int status) {
+        String sql="update orders set status="+status+" where ORDERS_NO='"+no_id+"'";
+        pd.updateProductByOid(sql);
+    }
+
     public void saveImagePathInTable(String pid,List<String> fileNameWithDirectoryList) throws Exception{
         System.out.println("fileNameWithDirectoryList size=" + fileNameWithDirectoryList.size());
         //先把以前的查出来
@@ -269,9 +283,10 @@ public class ProductServiceImpl implements ProductService {
         //也可以使用BeanUtils工具类的 setProperty(对象,属性名,属性值)这个方法为product修改属性值
         for(int i=0;i<imgNameArr.length;i++) {
             String imgLocation = fileNameWithDirectoryList.get(i);
-
-            //相当于product.setProductListLargeImage(imgLocation);
-            BeanUtils.setProperty(product, imgNameArr[i], imgLocation);//使用反射来设置对象的图片属性
+            if (!imgLocation.equals("")) {//老师的代码这里有bug，坑了我，可恶
+                //相当于product.setProductListLargeImage(imgLocation);
+                BeanUtils.setProperty(product, imgNameArr[i], imgLocation);//使用反射来设置对象的图片属性
+            }
         }
 
 

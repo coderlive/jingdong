@@ -13,6 +13,7 @@
     <base href="<%=basePath%>">
     <meta charset="UTF-8">
     <title></title>
+    <link href="favicon.ico" rel="shortcut icon"/><!--这个是标题图片-->
     <meta http-equiv="pragma" content="no-cache">
     <meta http-equiv="cache-control" content="no-cache">
     <meta http-equiv="expires" content="0">
@@ -104,11 +105,6 @@
 </head>
 
 <body>
-<%
-    PageInfo pageInfo = (PageInfo) request.getAttribute("pageInfo");
-
-%>
-
 <div>
     <ul class="breadcrumb">
         <li><a href="#">首页</a></li>
@@ -117,7 +113,7 @@
     </ul>
 </div>
 <div id="categoryDiv">
-    <form id="categoryForm" action="ProductServlet?action=getPageByQuery&target=productMain" method="post">
+    <form id="categoryForm" action="ProductServlet?action=getPageByQuery&target=/admin/product/productMain" method="post">
 
         <div id="jdCategorySearch" class="input-group">
             <input type="search" id="searchCondition" name="searchCondition" value='${requestScope.searchCondition}'
@@ -140,6 +136,7 @@
                 <th width="10%">商品数量</th>
                 <th width="15%">*店铺名称</th>
                 <th width="15%">*所属种类</th>
+                <th width="10%">操作</th>
                 <th width="10%">操作</th>
                 <th width="10%">操作</th>
             </tr>
@@ -177,6 +174,9 @@
                     <button onclick="deleteProductById(<%=product.getPid() %>)" class="btn btn-danger btn-xs">删除
                     </button>
                 </td>
+                <td>
+                    <button onclick="getOneForUpload(<%=product.getPid() %>)" class="btn btn-success btn-xs">上传图片</button>
+                </td>
             </tr>
             <%
                 }
@@ -187,21 +187,21 @@
 
 
     <div class="pageDiv">
-        <form id="productForm2" action="ProductServlet?action=getPageByQuery&target=productMain" method="post">
+        <form id="productForm2" action="ProductServlet?action=getPageByQuery&target=/admin/product/productMain" method="post">
             <a id="first" class="btn btn-default btn-sm"
-               href='ProductServlet?action=getPageByQuery&target=productMain&searchCondition=${searchCondition}&requestPage=1'>首页</a>
+               href='ProductServlet?action=getPageByQuery&target=/admin/product/productMain&searchCondition=${searchCondition}&requestPage=1'>首页</a>
 
 
             <a id="previous" class="btn btn-default btn-sm"
-               href='ProductServlet?action=getPageByQuery&target=productMain&searchCondition=${searchCondition}&requestPage=${pageInfo.previousPage}'>
+               href='ProductServlet?action=getPageByQuery&target=/admin/product/productMain&searchCondition=${searchCondition}&requestPage=${pageInfo.previousPage}'>
                 上一页</a>
             <a id="next" class="btn btn-default btn-sm"
-               href='ProductServlet?action=getPageByQuery&target=productMain&searchCondition=${searchCondition}&requestPage=${pageInfo.nextPage}'>
+               href='ProductServlet?action=getPageByQuery&target=/admin/product/productMain&searchCondition=${searchCondition}&requestPage=${pageInfo.nextPage}'>
                 下一页</a>
 
 
             <a id="last" class="btn btn-default btn-sm"
-               href='ProductServlet?action=getPageByQuery&target=productMain&searchCondition=${requestScope.searchCondition}&requestPage=${pageInfo.totalPageCount}'>尾页</a>
+               href='ProductServlet?action=getPageByQuery&target=/admin/product/productMain&searchCondition=${requestScope.searchCondition}&requestPage=${pageInfo.totalPageCount}'>尾页</a>
 
             <span class="mySpan">
 
@@ -216,19 +216,14 @@
                     <span>跳到第 </span>
                     <input type="hidden" name="searchCondition" value="${searchCondition}"/>
                     <select id="requestPage" name="requestPage">
-                        <%
-                            int TotalPageCount = pageInfo.getTotalPageCount();
-                            int currentPage = pageInfo.getCurrentPage();
-                            for (int i = 1; i <= TotalPageCount; i++) {
-
-                                if (currentPage == i) {
-                                    out.println("<option selected='selected'>" + i + "</option>");
-                                } else {
-                                    out.println("<option>" + i + "</option>");
-                                }
-
-                            }
-                        %>
+                        <c:forEach var="item" varStatus="status" begin="1" end="${pageInfo.totalPageCount}">
+                            <c:if test="${status.index==pageInfo.currentPage}">
+                                <option selected='selected'> ${status.index} </option>
+                            </c:if>
+                            <c:if test="${status.index!=pageInfo.currentPage}">
+                                <option> ${status.index} </option>
+                            </c:if>
+                        </c:forEach>
                     </select>
                     <span>页 </span>
             </span>
@@ -269,7 +264,7 @@
             content: '您确认删除吗?',
             confirm: function () {
                 //发请求
-                location.assign("ProductServlet?action=delete&target=productMain&searchCondition=${searchCondition}&requestPage=${pageInfo.currentPage}&pid=" +pid);
+                location.assign("ProductServlet?action=delete&target=/admin/product/productMain&searchCondition=${searchCondition}&requestPage=${pageInfo.currentPage}&pid=" +pid);
             },
             cancel: function () {
 
@@ -277,9 +272,11 @@
         });
     }
 
-    function getOneForUpdate(pid) {
-        <%--console.log("ProductServlet?action=getOneForUpdate&target=productMain&searchCondition='${searchCondition}'&requestPage=${pageInfo.currentPage}&pid=" + pid);--%>
-        location.assign("ProductServlet?action=getOneForUpdate&target=productMain&searchCondition=${searchCondition}&requestPage=${pageInfo.currentPage}&pid=" + pid);
+    function getOneForUpdate(pid) {//这个是查询出该商品并且跳到修改的页面
+        location.assign("ProductServlet?action=getOneForUpdate&target=/admin/product/productMain&searchCondition=${searchCondition}&requestPage=${pageInfo.currentPage}&pid=" + pid);
+    }
+    function getOneForUpload(pid){//这个是上传的函数，用来获取上床
+        location.assign("ProductServlet?action=getOneForUpload&target=/product/uploadProductImage&searchCondition=${searchCondition}&requestPage=${pageInfo.currentPage}&pid=" + pid);
     }
 
 

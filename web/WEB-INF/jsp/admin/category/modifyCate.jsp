@@ -103,6 +103,7 @@
             <input type="hidden" name="cparent" value="${param.cparent}">
             <input type="hidden" name="clevel" value="${param.clevel}">
             <input type="hidden" name="requestPage" value="${param.requestPage}">
+            <input type="hidden" name="target" value="${param.target}">
             <%--<div class="inputDiv"><label class="myFormLabel">商品编号</label><input type="text" class="jdInput"name="cid" value="${param.cid}" /></div>--%>
             <div class="inputDiv"><label class="myFormLabel">商品种类名称</label><input type="text" class="jdInput"name="cname" value="${param.cname}" /></div>
             <div class="inputDiv"><label class="myFormLabel">商品种类描述</label><input type="text" class="jdInput"name="cdesc" value="${param.cdesc}" /></div>

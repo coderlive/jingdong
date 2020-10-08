@@ -12,6 +12,7 @@
     <base href="<%=basePath%>">
     <meta charset="UTF-8">
     <title></title>
+    <link href="favicon.ico" rel="shortcut icon"/><!--这个是标题图片-->
     <meta http-equiv="pragma" content="no-cache">
     <meta http-equiv="cache-control" content="no-cache">
     <meta http-equiv="expires" content="0">
@@ -114,14 +115,15 @@
 
 <div id="categoryDiv">
 
-    <form id="categoryForm" action="ProductServlet?action=getPageByQuery&target=productMainUpDown" method="post">
+    <form id="categoryForm" action="ProductServlet?action=getPageByQuery" method="post">
 
         <div id="jdCategorySearch" class="input-group">
             <input type="search" id="searchCondition" name="searchCondition" value='${searchCondition}'
                    class="form-control"/>
 
             <span class="input-group-btn">
-<input type="submit" value="搜索" class="btn btn-default"/>
+                    <input type="submit" value="搜索" class="btn btn-default"/>
+                    <input type="hidden" name="target" value="/admin/product/productMainUpDown">
 			</span>
         </div>
 
@@ -214,22 +216,22 @@
             </tbody>
         </table>
         <div class="pageDiv">
-            <form id="productForm2" action="ProductServlet?action=getPageByQuery&target=productMainUpDown"
+            <form id="productForm2" action="ProductServlet?action=getPageByQuery&target=/product/productMainUpDown"
                   method="post">
                 <a id="first" class="btn btn-default btn-sm"
-                   href='ProductServlet?action=getPageByQuery&target=productMainUpDown&searchCondition=${searchCondition}&requestPage=1'>首页</a>
+                   href='ProductServlet?action=getPageByQuery&target=/product/productMainUpDown&searchCondition=${searchCondition}&requestPage=1'>首页</a>
 
 
                 <a id="previous" class="btn btn-default btn-sm"
-                   href='ProductServlet?action=getPageByQuery&target=productMainUpDown&searchCondition=${searchCondition}&requestPage=${pageInfo.previousPage}'>
+                   href='ProductServlet?action=getPageByQuery&target=/product/productMainUpDown&searchCondition=${searchCondition}&requestPage=${pageInfo.previousPage}'>
                     上一页</a>
                 <a id="next" class="btn btn-default btn-sm"
-                   href='ProductServlet?action=getPageByQuery&target=productMainUpDown&searchCondition=${searchCondition}&requestPage=${pageInfo.nextPage}'>
+                   href='ProductServlet?action=getPageByQuery&target=/product/productMainUpDown&searchCondition=${searchCondition}&requestPage=${pageInfo.nextPage}'>
                     下一页</a>
 
 
                 <a id="last" class="btn btn-default btn-sm"
-                   href='ProductServlet?action=getPageByQuery&target=productMainUpDown&searchCondition=${searchCondition}&requestPage=${pageInfo.totalPageCount}'>尾页</a>
+                   href='ProductServlet?action=getPageByQuery&target=/product/productMainUpDown&searchCondition=${searchCondition}&requestPage=${pageInfo.totalPageCount}'>尾页</a>
 
                 <span class="mySpan">
     <span>当前第${pageInfo.currentPage}页</span>
@@ -286,14 +288,10 @@
 
             //给跳到第几页下拉列表框绑定事件
             $("#requestPage").change(function () {
-
-
                 //提交请求
                 $("#productForm2").submit();
             });
-
             //第一页时 "首页"和上一页不能用
-
             var currentPage = <%=pageInfo.getCurrentPage()%>;
             var totalPageCount = <%=pageInfo.getTotalPageCount()%>;
             if (currentPage == 1) {
@@ -304,48 +302,40 @@
                 $("#next").addClass("disabled");
                 $("#last").addClass("disabled");
             }
-
-
         });
-
         function productDown(pid) {
             $.confirm({
                 title: ' ',
                 content: '您确认下架编号为' + pid + '的商品吗?',
                 confirm: function () {
                     //发请求
-                    location.assign("ProductServlet?action=upperOrLower&target=productMainUpDown&updowm=0&searchCondition=${searchCondition}&requestPage=${pageInfo.getCurrentPage()}&pid=" + pid);
+                    location.assign("ProductServlet?action=upperOrLower&target=/admin/product/productMainUpDown&updowm=0&searchCondition=${searchCondition}&requestPage=${pageInfo.getCurrentPage()}&pid=" + pid);
                 },
                 cancel: function () {
 
                 }
             });
         }
-
         function productUp(pid) {
             $.confirm({
                 title: ' ',
                 content: '您确认上架编号为' + pid + '的商品吗?',
                 confirm: function () {
                     //发请求
-                    location.assign("ProductServlet?action=upperOrLower&target=productMainUpDown&updowm=1&searchCondition=${searchCondition}&requestPage=${pageInfo.getCurrentPage()}&pid=" + pid);
+                    location.assign("ProductServlet?action=upperOrLower&target=/admin/product/productMainUpDown&updowm=1&searchCondition=${searchCondition}&requestPage=${pageInfo.getCurrentPage()}&pid=" + pid);
                 },
                 cancel: function () {
 
                 }
             });
         }
-
-
     </script>
         <%
     String msg = (String) request.getAttribute("msg");
     String msgDetail = (String) request.getAttribute("msgDetail");
     if (msg != null) {
 %>
-
     <script type="text/javascript">
-
         $.alert({
             title: '${msg}',
             content: '${msgDetail}',
@@ -353,10 +343,7 @@
             closeAnimation: 'right',
             opacity: 0.5
         });
-
-
     </script>
-
         <%
     }
 %>

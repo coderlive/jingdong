@@ -82,6 +82,7 @@
 			<!--0.8 搜索功能 加入搜索框-->
 			<form id="categoryForm2" action="CategoryServlet?action=getPageByQuery" method="post">
                 <input id="clevel" type="hidden" name="clevel" value="${clevel}"><!--默认查询一级商品-->
+				<input type="hidden" name="target" value="admin/category/categoryMain">
                 <div class="input-group mb-3">
                     <div class="input-group-prepend">
                         <button id="search" type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -112,11 +113,6 @@
 				</thead>
 				<tbody>
 					<c:forEach items="${list}" var="category">
-							<input type="hidden" name="cid" value="${category.cid}">
-							<input type="hidden" name="cname" value="${category.cname}">
-							<input type="hidden" name="cdesc" value="${category.cdesc}">
-							<input type="hidden" name="cparent" value="${category.cparent}">
-							<input type="hidden" name="clevel" value="${category.clevel}">
 							<tr>
 								<td>${category.cid}</td>
 								<td>${category.cname}</td>
@@ -138,19 +134,20 @@
 					<input type="hidden" name="action" value="getPageByQuery"/>
 					<input type="hidden" name="searchCondition" value="${searchCondition}"/>
                     <input type="hidden" name="clevel" value="${clevel}">
+                    <input type="hidden" name="target" value="admin/category/categoryMain">
 					  <ul class="pagination">
-						<li id="first" class="page-item"><a class="page-link" href="CategoryServlet?action=getPageByQuery&requestPage=1&searchCondition=${searchCondition}&clevel=${clevel}">首页</a></li>
-						<li id="previous" class="page-item"><a class="page-link" href="CategoryServlet?action=getPageByQuery&requestPage=${pageInfo.previousPage}&searchCondition=${searchCondition}&clevel=${clevel}">上一页</a></li>
+						<li id="first" class="page-item"><a class="page-link" href="CategoryServlet?action=getPageByQuery&requestPage=1&searchCondition=${searchCondition}&clevel=${clevel}&target=admin/category/categoryMain">首页</a></li>
+						<li id="previous" class="page-item"><a class="page-link" href="CategoryServlet?action=getPageByQuery&requestPage=${pageInfo.previousPage}&searchCondition=${searchCondition}&clevel=${clevel}&target=admin/category/categoryMain">上一页</a></li>
 							  <c:forEach  varStatus="status" begin="${pageInfo.currArea*5+1}" end="${(pageInfo.currArea+1)*5}">
 								<c:if test="${status.index<=pageInfo.totalPageCount}"	>
-									<li class="page-item <c:if test="${status.index==pageInfo.currentPage}">active</c:if> "><a class="page-link" href="CategoryServlet?action=getPageByQuery&requestPage=${status.index}&searchCondition=${searchCondition}&clevel=${clevel}">${status.index}</a></li>
+									<li class="page-item <c:if test="${status.index==pageInfo.currentPage}">active</c:if> "><a class="page-link" href="CategoryServlet?action=getPageByQuery&requestPage=${status.index}&searchCondition=${searchCondition}&clevel=${clevel}&target=admin/category/categoryMain">${status.index}</a></li>
 								</c:if>
 							</c:forEach>
 							  <c:if test="${(pageInfo.currArea+1)*5<=pageInfo.totalPageCount}">
-								  <li class="page-item"><a class="page-link" href="CategoryServlet?action=requestPage&requestPage=${pageInfo.currentPage+5<=pageInfo.totalPageCount?pageInfo.currentPage+5:pageInfo.totalPageCount}&searchCondition=${searchCondition}&clevel=${clevel}">...</a></li>
+								  <li class="page-item"><a class="page-link" href="CategoryServlet?action=getPageByQuery&requestPage=${pageInfo.currentPage+5<=pageInfo.totalPageCount?pageInfo.currentPage+5:pageInfo.totalPageCount}&searchCondition=${searchCondition}&clevel=${clevel}&target=admin/category/categoryMain">...</a></li>
 							  </c:if>
-						<li id="next" class="page-item"><a class="page-link" href="CategoryServlet?action=getPageByQuery&requestPage=${pageInfo.nextPage}&searchCondition=${searchCondition}&clevel=${clevel}">下一页</a></li>
-						<li id="last" class="page-item"><a class="page-link" href="CategoryServlet?action=getPageByQuery&requestPage=${pageInfo.totalPageCount}&searchCondition=${searchCondition}&clevel=${clevel}">尾页</a></li>
+						<li id="next" class="page-item"><a class="page-link" href="CategoryServlet?action=getPageByQuery&requestPage=${pageInfo.nextPage}&searchCondition=${searchCondition}&clevel=${clevel}&target=admin/category/categoryMain">下一页</a></li>
+						<li id="last" class="page-item"><a class="page-link" href="CategoryServlet?action=getPageByQuery&requestPage=${pageInfo.totalPageCount}&searchCondition=${searchCondition}&clevel=${clevel}&target=admin/category/categoryMain">尾页</a></li>
 						  <li class="page-item"><span class="page-link">共${pageInfo.totalRecordCount}条记录</span> </li>
 						  <li class="page-item"><span class="page-link">共${pageInfo.totalPageCount}页</span></li>
 						  <li class="page-item"><span class="page-link">每页${pageInfo.perPageRecordCount}条</span></li>
@@ -173,6 +170,8 @@
 		<script src="js/jquery-3.2.1.min.js" type="text/javascript"></script>
         <script src="js/popper.min.js"></script>
 		<script src="js/bootstrap.js" type="text/javascript" ></script>
+		<script src="css/jQueryConfirm/jquery-confirm.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/network.js"></script>
 		<script type="text/javascript">
 			$(function(){
                 setSearch();
@@ -200,7 +199,7 @@
                     $('#search').text($(this).text());
                 });
                 function setSearch() {
-                    var level=${clevel};
+                    var level='${clevel}';
                     var strlevel='';
                     if (level==0)
                         strlevel='查询所有商品';
@@ -215,9 +214,19 @@
 			});
 			function deleteCate(cid) {
                 var is_delte=confirm("是否确认删除");
+                <%--console.log('CategoryServlet?action=deleteById&cid='+cid+'&requestPage="${pageInfo.currentPage}"&searchCondition="${searchCondition}"&clevel="${clevel}"&target=/category/categoryMain')--%>
                 if (is_delte)
                 {
-                    window.location.assign('CategoryServlet?action=deleteById&cid='+cid+'&requestPage=${pageInfo.currentPage}&searchCondition=${searchCondition}&clevel=${clevel}')
+                    new network("CategoryServlet",{"action":"getLevelCategory","cparent":cid}).then(function (data) {
+						if (data.length==0)
+						{
+                            window.location.assign('CategoryServlet?action=deleteById&cid='+cid+'&requestPage=${pageInfo.currentPage}&searchCondition=${searchCondition}&clevel=${clevel}&target=admin/category/categoryMain')
+						}else
+						{
+						    alert('该商品还有子级商品，不能删除');
+                        }
+                    });
+
                 }
             }
 		</script>

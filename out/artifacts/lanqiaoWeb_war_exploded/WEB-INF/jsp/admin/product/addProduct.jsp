@@ -10,7 +10,7 @@
     <base href="<%=basePath%>">
 
     <title>添加二级商品种类</title>
-
+    <link href="favicon.ico" rel="shortcut icon"/><!--这个是标题图片-->
     <meta http-equiv="pragma" content="no-cache">
     <meta http-equiv="cache-control" content="no-cache">
     <meta http-equiv="expires" content="0">
@@ -120,6 +120,7 @@
     <div class="myFormDiv">
         <form action="ProductServlet" method="post">
             <input type="hidden" name="action" value="add"/>
+            <input type="hidden" name="target" value="/admin/product/productMain"/>
             <div class="inputDiv"><label class="myFormLabel">商品名称</label><input type="text" class="jdInput"name="pname" placeholder="请输入商品名称"/></div>
             <div class="inputDiv"><label class="myFormLabel">商品价格</label><input type="text" class="jdInput"name="price" placeholder="请输入商品价格"/></div>
             <div class="inputDiv"><label class="myFormLabel">商品数量</label><input type="text" class="jdInput"name="product_sum" placeholder="请输入商品数量"/></div>
@@ -131,7 +132,11 @@
                 </select>
             </div>
             <div class="inputDiv">
-                <label class="myFormLabel" for="cid">二级种类</label>
+                <label class="myFormLabel" for="category2">二级种类</label>
+                <select class="selectCategory" name="category2" id="category2"></select>
+            </div>
+            <div class="inputDiv">
+                <label class="myFormLabel" for="cid">三级种类</label>
                 <select class="selectCategory" name="cid" id="cid"></select>
             </div>
 
@@ -144,49 +149,45 @@
 
 <script src="css/bootstrap/js/jquery-2.1.4.js" type="text/javascript" charset="utf-8"></script>
 <script src="css/bootstrap/js/bootstrap.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/network.js"></script>
 <script type="text/javascript">
     $(function() {
-        new Promise(function (resolve, reject) {
-            $.post("CategoryServlet", {"action": "getLevelCategory", "cparent": -1}, function (data) {
-                //使用dom技术动态的产生 二级商品种类下拉列表框
-                resolve(data);
-            }, "json");
-        }).then(function (cates) {
-            updateSelect('#category1', cates);
+        theupdateSelect(-1,'category1').then(function () {
             var cid=$('#category1').children('option')[0].value;
-            theupdateSelect(cid);
-            //给一级商品种类的下拉列表框绑定onchange事件
-            //当一级种类发生变化时 发Ajax请求 去检索对应的二级商品种类
-            $("#category1").change(function () {
+            return theupdateSelect(cid,'category2');
+        }).then(function () {
+            var cid=$('#category2').children('option')[0].value;
+            return theupdateSelect(cid,'cid');
+        }).then(function () {//当数据更新完后才加载这个东西
+            $("#category1").change(function () {//当第一个选项框更新内容的时候更新他
                 var category1Id = this.options[this.selectedIndex].value;
-                $('#cid').replaceWith('<select class="selectCategory" name="cid" id="cid"></select>');//默认把第二个选项的地方清空
-                theupdateSelect(category1Id);
+                $('#category2').replaceWith('<select class="selectCategory" name="category2" id="category2"></select>');//默认把第二个选项的地方清空
+                theupdateSelect(category1Id,'category2').then(function () {
+                    $("#category2").change(function () {//当第二个选项框内容更新的时候更新第三个选项框
+                        var category2Id = this.options[this.selectedIndex].value;
+                        theupdateSelect(category2Id,'cid');
+                    })
+                    $('#category2').trigger('change');
+                })
+
             });
         });
-        //这个函数是传入一个父级别id来获取第二个选项框的数据的
-        function theupdateSelect(category1Id) {
-            new Promise(function (resolve, reject) {
-                $.post("CategoryServlet", {"action": "getLevelCategory", "cparent": category1Id}, function (data) {
-                    //使用dom技术动态的产生 二级商品种类下拉列表框
-                    resolve(data);
-                }, "json");
-            }).then(function (cates) {
-                $('#cid').replaceWith('<select class="selectCategory" name="cid" id="cid"></select>');
-                updateSelect('#cid', cates);
+
+        function theupdateSelect(category1Id,select) {
+           return new network("CategoryServlet",{"action":"getLevelCategory","cparent":category1Id}).then(function (cates) {
+                $('#'+select).replaceWith('<select class="selectCategory" name="'+select+'" id="'+select+'"></select>');
+               var cate1 = $('#'+select);
+               if (cates.length==0)
+               {
+                   cate1.replaceWith('<select class="selectCategory" name="'+select+'" id="'+select+'"><option value="-10" >没有种类</option></select>');
+               }else{
+                   var str = "";
+                   for (var i = 0; i < cates.length; i++) {
+                       str += "<option value='" + cates[i].cid + "'>" + cates[i].cname + "</option>";
+                   }
+                   cate1.append($(str));
+               }
             });
-        }
-        function updateSelect(updateoption, cates) {
-            var cate1 = $(updateoption);
-            if (cates.length==0)
-            {
-                cate1.replaceWith('<select class="selectCategory" name="cid" id="cid"><option >没有二级种类</option></select>');
-            }else{
-                var str = "";
-                for (var i = 0; i < cates.length; i++) {
-                    str += "<option value='" + cates[i].cid + "'>" + cates[i].cname + "</option>";
-                }
-                cate1.append($(str));
-            }
         }
     });
 </script>

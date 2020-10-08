@@ -21,4 +21,15 @@ public class ProductDaoImpl extends DaoImpl<Products> implements ProductDao {
         }
         return count;
     }
+
+    @Override
+    public void updateProductByOid(String sql) {
+        try {
+            PreparedStatement pst=conn.prepareStatement(sql);
+            pst.executeUpdate();
+        } catch (SQLException e) {
+            System.out.println("修改商品的状态失败");
+            e.printStackTrace();
+        }
+    }
 }

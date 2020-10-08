@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%
     String path = request.getContextPath();
     String baseurl = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path + "/";
@@ -11,14 +12,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
     <base href="<%=baseurl%>">
     <title>京东后台管理页面</title>
+    <link href="favicon.ico" rel="shortcut icon"/><!--这个是标题图片-->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="css/style.css">
-    <!--[if lt IE 9]>
-    <script src="js/html5shiv.min.js"></script>
-    <script src="js/respond.min.js"></script>
-    <![endif]-->
 </head>
 
 <body>
@@ -26,7 +24,7 @@
     <div class="header">
         <div class="header-left">
             <a href="JDDispatcherServlet?target=/index.jsp" class="logo">
-                <img src="http://img.duoziwang.com/2018/16/04172136909052.jpg" width="35" height="35" alt="">
+                <img src="img/jdhead.jpg" width="35" height="35" alt="">
                 <span>京东后台管理系统</span>
             </a>
         </div>
@@ -114,7 +112,7 @@
 							<img class="rounded-circle" src="https://dss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=3818670604,1923994441&fm=26&gp=0.jpg" width="24" alt="Admin">
 							<span class="status online"></span>
 						</span>
-                    <span>Admin</span>
+                    <span>${backuser.username}</span>
                 </a>
                 <div class="dropdown-menu">
                     <a class="dropdown-item" href="profile.html">我的简介</a>
@@ -142,32 +140,43 @@
                     <li class="active">
                         <a href="jsp/main.jsp" target="mainIFrame"><i class="fa fa-dashboard"></i> <span>主页</span></a>
                     </li>
+                    <li>
+                        <a href="javascript:0;"><i class="fa fa-calendar-check-o"></i> <span>用户管理</span></a>
+                        <ul style="display: none;">
+                            <li><a href="login?action=getPageByQuery&target=/admin/user/usersActiveMain&requestPage=1" target="mainIFrame">用户激活状态</a></li>
+                            <li><a href="login?action=getPageByQuery&target=/admin/user/usersMain&requestPage=1" target="mainIFrame">用户解锁</a></li>
+                        </ul>
+                    </li>
                     <li class="submenu">
                         <a href="page/doctors.html"><i class="fa fa-certificate"></i> <span>商品种类管理</span><span class="menu-arrow"></span></a>
                         <ul style="display: none;">
                             <li><a href="JDDispatcherServlet?target=admin/category/addCategory.jsp" target="mainIFrame">添加商品种类</a></li>
-                            <li><a href="JDDispatcherServlet?target=admin/category/deleteById.jsp" target="mainIFrame">删除商品种类</a></li>
-                            <li><a href="CategoryServlet?action=getPageByQuery&requestPage=1&clevel=0" target="mainIFrame">查询商品种类</a></li>
+                            <%--<li><a href="JDDispatcherServlet?target=admin/category/deleteById.jsp" target="mainIFrame">删除商品种类</a></li>--%>
+                            <li><a href="CategoryServlet?action=getPageByQuery&requestPage=1&clevel=0&target=admin/category/categoryMain" target="mainIFrame">管理商品种类</a></li>
+                            <li><a href="JDDispatcherServlet?target=admin/product/addProductAttribute.jsp" target="mainIFrame">添加商品属性</a></li>
+                            <li><a href="AttributeServlet?action=getAttribute&requestPage=1&target=/admin/product/getAttribute" target="mainIFrame">管理商品属性</a></li>
+                            <li><a href="JDDispatcherServlet?target=admin/product/addProperties.jsp" target="mainIFrame">添加商品属性选项</a></li>
+                            <li><a href="Properties_selectServlet?action=getPropertiesvalues&requestPage=1&target=/admin/product/getPropertiesvalues" target="mainIFrame">管理商品属性选项</a></li>
                         </ul>
                     </li>
                     <li>
                         <a href="javascript:0;"><i class="fa fa-calendar"></i> <span>商品管理</span><span class="menu-arrow"></span></a>
                         <ul style="display: none;">
                             <li><a href="JDDispatcherServlet?target=admin/product/addProduct.jsp" target="mainIFrame">添加商品</a></li>
-                            <li><a href="ProductServlet?action=getPageByQuery&target=productMain&requestPage=1" target="mainIFrame">管理商品</a></li>
-                            <li><a href="ProductServlet?action=getPageByQuery&target=productMainUpload&requestPage=1" target="mainIFrame">文件上传</a></li>
-                            <li><a href="ProductServlet?action=getPageByQuery&target=productMainUpDown&requestPage=1" target="mainIFrame">上下架商品</a></li>
+                            <li><a href="ProductServlet?action=getPageByQuery&target=/admin/product/productMain&requestPage=1" target="mainIFrame">管理商品</a></li>
+                            <li><a href="ProductServlet?action=getPageByQuery&target=/admin/product/productMainUpDown&requestPage=1" target="mainIFrame">上下架商品</a></li>
                         </ul>
                     </li>
                     <li>
-                        <a href="page/appointments.html"><i class="fa fa-calendar"></i> <span>Appointments</span></a>
+                        <a href="JDDispatcherServlet?target=admin/product/salesVolume.jsp" target="mainIFrame"><i class="fa fa-hospital-o"></i> <span>商品销量排行榜</span></a>
                     </li>
                     <li>
-                        <a href="page/schedule.html"><i class="fa fa-calendar-check-o"></i> <span>Doctor Schedule</span></a>
+                        <a href="CategoryServlet?action=goJdIndex&target=/user/welcome&clevel=1" ><i class="fa fa-calendar"></i> <span>去京东首页</span></a>
                     </li>
                     <li>
-                        <a href="page/departments.html"><i class="fa fa-hospital-o"></i> <span>Departments</span></a>
+                        <a href="#"><i class="fa fa-calendar-check-o"></i> <span>doctor</span></a>
                     </li>
+
                     <li class="submenu">
                         <a href="#"><i class="fa fa-user"></i> <span> Employees </span> <span class="menu-arrow"></span></a>
                         <ul style="display: none;">
@@ -175,133 +184,6 @@
                             <li><a href="page/leaves.html">Leaves</a></li>
                             <li><a href="page/holidays.html">Holidays</a></li>
                             <li><a href="page/attendance.html">Attendance</a></li>
-                        </ul>
-                    </li>
-                    <li class="submenu">
-                        <a href="#"><i class="fa fa-money"></i> <span> Accounts </span> <span class="menu-arrow"></span></a>
-                        <ul style="display: none;">
-                            <li><a href="page/invoices.html">Invoices</a></li>
-                            <li><a href="page/payments.html">Payments</a></li>
-                            <li><a href="page/expenses.html">Expenses</a></li>
-                            <li><a href="page/taxes.html">Taxes</a></li>
-                            <li><a href="page/provident-fund.html">Provident Fund</a></li>
-                        </ul>
-                    </li>
-                    <li class="submenu">
-                        <a href="#"><i class="fa fa-book"></i> <span> Payroll </span> <span class="menu-arrow"></span></a>
-                        <ul style="display: none;">
-                            <li><a href="page/salary.html"> Employee Salary </a></li>
-                            <li><a href="page/salary-view.html"> Payslip </a></li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="page/chat.html"><i class="fa fa-comments"></i> <span>Chat</span> <span class="badge badge-pill bg-primary float-right">5</span></a>
-                    </li>
-                    <li class="submenu">
-                        <a href="#"><i class="fa fa-video-camera camera"></i> <span> Calls</span> <span class="menu-arrow"></span></a>
-                        <ul style="display: none;">
-                            <li><a href="page/voice-call.html">Voice Call</a></li>
-                            <li><a href="page/video-call.html">Video Call</a></li>
-                            <li><a href="page/incoming-call.html">Incoming Call</a></li>
-                        </ul>
-                    </li>
-                    <li class="submenu">
-                        <a href="#"><i class="fa fa-envelope"></i> <span> Email</span> <span class="menu-arrow"></span></a>
-                        <ul style="display: none;">
-                            <li><a href="page/compose.html">Compose Mail</a></li>
-                            <li><a href="page/inbox.html">Inbox</a></li>
-                            <li><a href="page/mail-view.html">Mail View</a></li>
-                        </ul>
-                    </li>
-                    <li class="submenu">
-                        <a href="#"><i class="fa fa-commenting-o"></i> <span> Blog</span> <span class="menu-arrow"></span></a>
-                        <ul style="display: none;">
-                            <li><a href="page/blog.html">Blog</a></li>
-                            <li><a href="page/blog-details.html">Blog View</a></li>
-                            <li><a href="page/add-blog.html">Add Blog</a></li>
-                            <li><a href="page/edit-blog.html">Edit Blog</a></li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="...html"><i class="fa fa-cube"></i> <span>..</span></a>
-                    </li>
-                    <li>
-                        <a href="page/activities.html"><i class="fa fa-bell-o"></i> <span>Activities</span></a>
-                    </li>
-                    <li class="submenu">
-                        <a href="#"><i class="fa fa-flag-o"></i> <span> Reports </span> <span class="menu-arrow"></span></a>
-                        <ul style="display: none;">
-                            <li><a href="page/expense-reports.html"> Expense Report </a></li>
-                            <li><a href="page/invoice-reports.html"> Invoice Report </a></li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="page/settings.html"><i class="fa fa-cog"></i> <span>Settings</span></a>
-                    </li>
-                    <li class="menu-title">UI Elements</li>
-                    <li class="submenu">
-                        <a href="#"><i class="fa fa-laptop"></i> <span> Components</span> <span class="menu-arrow"></span></a>
-                        <ul style="display: none;">
-                            <li><a href="page/uikit.html">UI Kit</a></li>
-                            <li><a href="page/typography.html">Typography</a></li>
-                            <li><a href="page/tabs.html">Tabs</a></li>
-                        </ul>
-                    </li>
-                    <li class="submenu">
-                        <a href="#"><i class="fa fa-edit"></i> <span> Forms</span> <span class="menu-arrow"></span></a>
-                        <ul style="display: none;">
-                            <li><a href="page/form-basic-inputs.html">Basic Inputs</a></li>
-                            <li><a href="page/form-input-groups.html">Input Groups</a></li>
-                            <li><a href="page/form-horizontal.html">Horizontal Form</a></li>
-                            <li><a href="page/form-vertical.html">Vertical Form</a></li>
-                        </ul>
-                    </li>
-                    <li class="submenu">
-                        <a href="#"><i class="fa fa-table"></i> <span> Tables</span> <span class="menu-arrow"></span></a>
-                        <ul style="display: none;">
-                            <li><a href="page/tables-basic.html">Basic Tables</a></li>
-                            <li><a href="page/tables-datatables.html">Data Table</a></li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="calendar.html"><i class="fa fa-calendar"></i> <span>Calendar</span></a>
-                    </li>
-                    <li class="menu-title">Extras</li>
-                    <li class="submenu">
-                        <a href="#"><i class="fa fa-columns"></i> <span>Pages</span> <span class="menu-arrow"></span></a>
-                        <ul style="display: none;">
-                            <li><a href="page/login.html"> Login </a></li>
-                            <li><a href="page/register.html"> Register </a></li>
-                            <li><a href="page/forgot-password.html"> Forgot Password </a></li>
-                            <li><a href="page/change-password2.html"> Change Password </a></li>
-                            <li><a href="page/lock-screen.html"> Lock Screen </a></li>
-                            <li><a href="page/profile.html"> Profile </a></li>
-                            <li><a href="page/gallery.html"> Gallery </a></li>
-                            <li><a href="page/error-404.html">404 Error </a></li>
-                            <li><a href="page/error-500.html">500 Error </a></li>
-                            <li><a href="page/blank-page.html"> Blank Page </a></li>
-                        </ul>
-                    </li>
-                    <li class="submenu">
-                        <a href="javascript:void(0);"><i class="fa fa-share-alt"></i> <span>Multi Level</span> <span class="menu-arrow"></span></a>
-                        <ul style="display: none;">
-                            <li class="submenu">
-                                <a href="javascript:void(0);"><span>Level 1</span> <span class="menu-arrow"></span></a>
-                                <ul style="display: none;">
-                                    <li><a href="javascript:void(0);"><span>Level 2</span></a></li>
-                                    <li class="submenu">
-                                        <a href="javascript:void(0);"> <span> Level 2</span> <span class="menu-arrow"></span></a>
-                                        <ul style="display: none;">
-                                            <li><a href="javascript:void(0);">Level 3</a></li>
-                                            <li><a href="javascript:void(0);">Level 3</a></li>
-                                        </ul>
-                                    </li>
-                                    <li><a href="javascript:void(0);"><span>Level 2</span></a></li>
-                                </ul>
-                            </li>
-                            <li>
-                                <a href="javascript:void(0);"><span>Level 1</span></a>
-                            </li>
                         </ul>
                     </li>
                 </ul>
@@ -315,12 +197,14 @@
             </div>
     </div>
 </div>
+    <!--[if lt IE 9]>
+    <script src="js/html5shiv.min.js"></script>
+    <script src="js/respond.min.js"></script>
+    <![endif]-->
     <script src="js/jquery-3.2.1.min.js"></script>
     <script src="js/popper.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/jquery.slimscroll.js"></script>
-    <script src="js/Chart.bundle.js"></script>
-    <script src="js/chart.js"></script>
     <script src="js/app.js"></script>
     <script src="js/bootstrap.js" type="text/javascript" ></script>
 </body>

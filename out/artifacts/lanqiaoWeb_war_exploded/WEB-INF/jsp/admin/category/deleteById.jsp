@@ -97,7 +97,8 @@
 
 <div class="centerDiv">
     <div class="myFormDiv">
-        <form action="CategoryServlet?action=deleteById" method="post">
+        <form action="CategoryServlet?action=deleteById&target=admin/category/categoryMain" method="post">
+            <input type="hidden" name="clevel" value="1">
             <div class="inputDiv">
                 <label class="myFormLabel">商品ID:</label>
                 <input type="text" class="jdInput"name="cid" placeholder="请要删除的输入商品编号"/>

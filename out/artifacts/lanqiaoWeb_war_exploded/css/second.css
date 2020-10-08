@@ -1,0 +1,136 @@
+.input_btn{
+	width: 257px;
+	height: 50px;
+	line-height: 46px;
+	border-right: 2px solid #dddddd;
+	display: inline-block;
+	position: absolute;
+}
+
+#input_text{
+	margin-left: 20px;
+	width: 67px;
+	border: none;
+	color: #3f3d3d;
+}
+#div_1{
+	width: 394px;
+	height: 50px;
+	border: 2px solid #DDDDDD;
+}
+#lab_id{
+    float: left;
+    width: 87px;
+	height: 50px;
+	font-size: 13px;
+    line-height: 50px;
+    padding-left: 20px;
+}
+#id_get{
+	width: 113px;
+    height: 50px;
+    display: inline-block;
+    line-height: 47px;
+    text-align: center;
+}
+div.input_btn{
+	width: 394px;
+		height: 50px;
+		line-height: 46px;
+		display: inline-block;
+}
+input.input_text{
+    margin-left: 20px;
+    width: 250px;
+    border: none;
+    color: #dddddd;
+}
+#input-tip{
+	color: #c5c5c5;
+	height: 36px;
+	font-size: 12px;
+	padding-top: 5px;
+}
+
+#input-tip a {
+	color: #38f;
+}
+
+.btn2{
+	width: 18px;
+	height: 18px;
+	position: relative;
+	top: 5px;
+}
+.btn2:hover{
+	cursor: pointer;
+}
+.class12{
+	display: inline-block;
+	color: black;
+}
+
+.i-def {
+	background-position: 0 -100px;
+}
+
+/*手机验证 、 邮箱验证 */
+.item-phone-wrap .orEmail {
+	position: absolute;
+	right: 0;
+	bottom: 10px;
+}
+
+.item-phone-wrap .orEmail a {
+	color: #38f;
+}
+
+.item-email-wrap {
+	display: none;
+	height: 86px;
+	position: relative;
+	z-index: 11;
+}
+
+.item-email-wrap .orPhone {
+	position: absolute;
+	right: 0;
+	bottom: 10px;
+}
+
+.item-email-wrap .orPhone a {
+	color: #38f;
+}
+
+.item-email-wrap .form-item {
+	z-index: 11;
+}
+
+.ignore-item {
+	display: none;
+}
+
+.classspan1 {
+	/*color: red;*/
+	margin-left: 1em;
+	padding-left: 18px;
+}
+
+.classspan2 {
+	color: red;
+	margin-left: 1em;
+	padding-left: 18px;
+}
+
+span.error {
+	color: red;
+	margin-left: 1em;
+	padding-left: 22px;
+	background: url(../images/register/error.png) no-repeat 0px center;
+}
+
+span.success {
+	margin-left: 1em;
+	padding-left: 18px;
+	background: url(../images/register/success.gif) no-repeat 0px center;
+}

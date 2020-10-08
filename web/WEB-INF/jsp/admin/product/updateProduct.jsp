@@ -9,6 +9,7 @@
 <head>
     <base href="<%=basePath%>">
     <title>修改二级商品种类</title>
+    <link href="favicon.ico" rel="shortcut icon"/><!--这个是标题图片-->
     <meta http-equiv="pragma" content="no-cache">
     <meta http-equiv="cache-control" content="no-cache">
     <meta http-equiv="expires" content="0">
@@ -102,6 +103,7 @@
             <input type="hidden" name="pid" value="${product.pid}"/>
             <input type="hidden" name="searchCondition" value="${searchCondition}"/>
             <input type="hidden" name="requestPage" value="${requestPage}"/>
+            <input type="hidden" name="target" value="${target}">
             <div class="inputDiv"><label class="myFormLabel">商品名称</label><input type="text" class="jdInput"name="pname" value="${product.pname}"  placeholder="请输入商品名称"/></div>
             <div class="inputDiv"><label class="myFormLabel">商品价格</label><input type="text" class="jdInput"name="price" value="${product.price}" placeholder="请输入商品价格"/></div>
             <div class="inputDiv"><label class="myFormLabel">商品数量</label><input type="text" class="jdInput"name="product_sum" value="${product.product_sum}" placeholder="请输入商品数量"/></div>

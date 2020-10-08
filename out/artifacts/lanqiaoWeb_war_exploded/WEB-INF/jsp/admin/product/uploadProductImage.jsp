@@ -3,16 +3,18 @@
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
 %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
 
-<base href="<%=basePath%>">
-<title>上传图片</title>
+	<base href="<%=basePath%>">
+	<link href="favicon.ico" rel="shortcut icon"/><!--这个是标题图片-->
+	<title>上传图片</title>
 
-<meta http-equiv="pragma" content="no-cache">
-<meta http-equiv="cache-control" content="no-cache">
-<meta http-equiv="expires" content="0">
+	<meta http-equiv="pragma" content="no-cache">
+	<meta http-equiv="cache-control" content="no-cache">
+	<meta http-equiv="expires" content="0">
 
 
 <link rel="stylesheet" type="text/css" href="css/bootstrap/css/bootstrap.css"/>
@@ -187,7 +189,7 @@ label.productInfoLabel {
 			</ul>
 	</div>			
 	<form action="ProductServlet?action=uploadImage" method="post" enctype="multipart/form-data">
-		<input type="hidden" name="target" value="<%=request.getAttribute("target")%>"/>
+		<input type="hidden" name="target" value=""/>
 		<input type="hidden" name="pid" value="<%=product.getPid()%>"/>
 		<fieldset id="imageUploadFieldset">
 			<legend>上传图片</legend>

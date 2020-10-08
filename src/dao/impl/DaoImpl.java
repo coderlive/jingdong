@@ -133,9 +133,7 @@ public class DaoImpl<T> implements Dao<T> {
 
             // 反射调方法
             for (int i = 1; i <= tableColumnCount - 1; i++) {
-
                 // 相当于 pstmt.setString(1, product.getPname());
-
                 String voGetMethodStr = "get" + columnNameList.get(i);
                 Method voGetMethod = voClazz.getDeclaredMethod(voGetMethodStr);
 

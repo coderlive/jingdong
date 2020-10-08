@@ -1,6 +1,7 @@
 package servlet;
 
 import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 import org.apache.commons.beanutils.BeanUtils;
 import page.PageInfo;
 import service.impl.CategoryServiceImpl;
@@ -16,6 +17,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.UnsupportedEncodingException;
 import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Type;
 import java.security.Key;
 import java.util.ArrayList;
 import java.util.List;
@@ -47,8 +49,60 @@ public class CateGoryServlet extends HttpServlet {
         }else if (action.equals("getLevelCategory"))//获取商品种类
         {
             getLevelCategory(request,response);
+        }else if(action.equals("goJdIndex"))//去京东首页
+        {
+            goJdIndex(request,response);
+        }else if(action.equals("selectLevelByGroup"))//select * from categorys where cparent in(-1,1);使用这个语句查询子节点，节省效率
+        {
+            selectLevelByGroup(request,response);
         }
     }
+    //这个函数返回的是json数据,用于京东商城查询1，2，3级数据的
+    private void selectLevelByGroup(HttpServletRequest request, HttpServletResponse response) {
+        String sql="select * from categorys where cparent in(";//查询一级商品
+        String cparentArr=request.getParameter("cparentArr");
+        System.out.println(cparentArr);
+        ArrayList arr=null;
+        Gson gson=new Gson();
+        Type type = new TypeToken<List<Integer>>() {}.getType();
+        arr =gson .fromJson(cparentArr, type);
+        if (arr.size()!=0)
+        {
+            for (Object i:arr)
+            {
+                sql+=i+",";
+            }
+            sql=sql.substring(0,sql.length()-1);
+        }else
+        {
+            sql+=-10;
+        }
+        sql+=")";
+            try {
+            List<Categorys> list=cs.selectAll(sql);
+            System.out.println(list);
+            response.setContentType("application/json");
+            PrintWriter pw= response.getWriter();
+            pw.print(gson.toJson(list));
+            pw.flush();
+            pw.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void goJdIndex(HttpServletRequest request, HttpServletResponse response) {
+       String clevel= request.getParameter("clevel");
+       String target=request.getParameter("target");
+        try {
+            List<Categorys> list=cs.selectAllByLevel(Integer.parseInt(clevel));
+            request.setAttribute("list",list);
+            request.getRequestDispatcher("WEB-INF/jsp/admin"+target+".jsp").forward(request,response);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
     //返回json数据,只需要更具父类的id :cparent 来查询就可以了
     protected void getLevelCategory(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
         //调用ajax方法返回当前商品级别的所有数据
@@ -73,6 +127,7 @@ public class CateGoryServlet extends HttpServlet {
     //下面这个是分页查询
     protected void getPageByQuery(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String searchCondition=request.getParameter("searchCondition");
+        String target=request.getParameter("target");
         if (searchCondition==null)
             searchCondition="";
         System.out.println("查询条件为："+searchCondition);
@@ -86,7 +141,7 @@ public class CateGoryServlet extends HttpServlet {
         }
         String clevel=request.getParameter("clevel");
         int level=0;
-        if (clevel!=null)
+        if (clevel!=null&&!clevel.equals(""))
         {
             level=Integer.parseInt(clevel);
         }
@@ -103,7 +158,7 @@ public class CateGoryServlet extends HttpServlet {
             request.setAttribute("pageInfo",pageInfo);
             request.setAttribute("searchCondition",searchCondition);
             request.setAttribute("clevel",clevel);
-            request.getRequestDispatcher("WEB-INF/jsp/admin/category/categoryMain.jsp").forward(request,response);
+            request.getRequestDispatcher("WEB-INF/jsp/"+target+".jsp").forward(request,response);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -167,6 +222,8 @@ public class CateGoryServlet extends HttpServlet {
     }
     //用id值删除一个数据
     protected void deleteById(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+//        String searchCondition=request.getParameter("searchCondition");
+//        String clevel=request.getParameter("clevel");
         Map<String, String[]> map= request.getParameterMap();
         Categorys c=new Categorys();
         try {
@@ -209,4 +266,6 @@ public class CateGoryServlet extends HttpServlet {
             e.printStackTrace();
         }
     }
+    
+    
 }

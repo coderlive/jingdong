@@ -1,4 +1,5 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%
     String path = request.getContextPath();
     String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path + "/";
@@ -83,6 +84,8 @@
             <input type="hidden" name="action" value="add">
             <input id="cparent" type="hidden" name="cparent" value="-1">
             <input id="clevel" type="hidden" name="clevel" value="1">
+            <input id="target" type="hidden" name="target" value="admin/category/categoryMain">
+
             <div style="margin-top: 20px" class="inputDiv"><label class="myFormLabel">商品种类名称</label><input type="text" class="jdInput"name="cname" placeholder="请输入商品种类名称"/></div>
             <div class="inputDiv"><label class="myFormLabel">商品种类描述</label><input type="text" class="jdInput"name="cdesc" placeholder="请输入商品种类描述"/></div>
             <div class="btn-group">
