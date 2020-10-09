@@ -1,4 +1,4 @@
-<%@ page language="java" import="java.util.*" import="vo.Orders,page.PageInfo2"
+<%@ page language="java" import="java.util.*" import="vo.Orders,page.PageInfo"
          contentType="text/html; charset=utf-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%
@@ -80,7 +80,7 @@
 
 <body>
 <%
-	PageInfo2 pageInfo = (PageInfo2) request.getAttribute("pageInfo");
+	PageInfo pageInfo = (PageInfo) request.getAttribute("pageInfo");
 %>
 <div>
     <ul class="breadcrumb">
@@ -127,7 +127,20 @@
 					<td>${orders.order_time}</td>
 					<td>${orders.received_address}</td>
 					<td>${orders.all_price}</td>
-					<td>${orders.status}</td>
+					<td><c:choose>
+						<c:when test="${orders.status==0}">
+							未付款
+						</c:when>
+						<c:when test="${orders.status==1}">
+							已付款
+						</c:when>
+						<c:when test="${orders.status==2}">
+							未收货
+						</c:when>
+						<c:otherwise>
+							未评价
+						</c:otherwise>
+						</c:choose></td>
 					<td>${orders.userid}</td>
 					<td>
 						<button onclick="getOneForUpdate(${orders.oid})" class="btn btn-success btn-xs">修改</button>

@@ -1920,12 +1920,12 @@
 			<ul class="fr">
 				<li class="fore1" id="ttbar-login">
 					<a href="" class="link-login">${frontuser.username}</a>&nbsp;&nbsp;
-					<a href="#" class="link-regist style-red">退出</a>
+					<a href="login?action=frontLoginOut" class="link-regist style-red">退出</a>
 				</li>
 				<li class="spacer"></li>
 				<li class="fore2">
 					<div class="dt">
-						<a target="#" href="">我的订单</a>
+						<a  href="OrderServlet?action=queryMyOrder">我的订单</a>
 					</div>
 				</li>
 				<li class="spacer"></li>
@@ -2295,14 +2295,14 @@
 	<div id="nav">
 		<div class="w">
 			<div class="logo">
-				<a class="fore1" href="#"></a>
-				<a class="fore2" href="#">我的京东</a>
-				<a class="fore3" href="#">返回京东首页</a>
+				<a class="fore1" href="javascript:0"></a>
+				<a class="fore2" href="javascript:0">我的京东</a>
+				<a class="fore3" href="CategoryServlet?action=goJdIndex&target=/user/welcome&clevel=1">返回京东首页</a>
 			</div>
 			<div class="navitems">
 				<ul>
 					<li class="fore-1">
-						<a target="_self" href="#">首页</a>
+						<a target="_self" href="CategoryServlet?action=goJdIndex&target=/user/welcome&clevel=1">首页</a>
 					</li>
 					<li class="fore-3">
 						<div class="dl">
@@ -2369,8 +2369,8 @@
 				<div id="settleup" class="dorpdown">
 					<div class="cw-icon">
 						<i class="ci-left"></i>
-						<i class="ci-right">&gt;</i><i class="ci-count" id="shopping-amount">1</i>
-						<a target="_blank" href="#">我的购物车</a>
+						<i class="ci-right">&gt;</i><i class="ci-count" id="shopping-amount">${productsList.size()}</i>
+						<a  href="ShoppingCartServlet?action=queryShoppingCart">我的购物车</a>
 					</div>
 				</div>
 				
@@ -2388,7 +2388,7 @@
 						<dl class="fore1">
 							<dt id="_MYJD_order">订单中心</dt>
 							<dd class="fore1_1 curr" id="_MYJD_ordercenter">
-								<a  href="#" target="_self">我的订单</a>
+								<a  href="OrderServlet?action=queryMyOrder">我的订单</a>
 							</dd>
 							<dd class="fore1_2" id="_MYJD_tuan">
 								<a  href="#" target="_blank">团购订单</a>
@@ -2655,6 +2655,7 @@
 											<td rowspan="1">
 												<div class="status">
 													<div class="tooltip" _orderid="22964031644" _ordertype="0" _orderstatus="1" _orderurl="//details.jd.com/normal/item.action?orderid=22964031644&amp;PassKey=8A4F13A2DCC3A4AE41E1B99A04C0397E" _ordership="70">
+														<span class="order-status ftx-04">等待付款</span><br>
 														<i class="auto-icon"></i> 跟踪
 														<i class="circle-icon"></i>
 														<div style="display: none;" class="prompt-01">
@@ -2684,8 +2685,8 @@
 													<a class="btn-pay" href="#">付款</a><br>
 
 													<a href="#" class="a-link" target="_blank">请人代付</a><br>
-									
-													<a class="a-link order-cancel" href="javascript:void(0);" _oid="22964031644" _passkey="3D8EF18241ACBF23A97016AA7104A295" _url="new/cancelOrder.html?1&amp;cancalText=0&amp;isHaveGiftOrder=0&amp;status=0">取消订单</a><br></div>
+
+													<a class="a-link order-cancel"  _oid="22964031644" _passkey="3D8EF18241ACBF23A97016AA7104A295" href="OrderServlet?action=deleteOrderByOrders_no&orders_no=<%=ll.getOrders_no()%>">取消订单</a><br></div>
 											</td>
 										</tr>
 								        <%
@@ -2775,7 +2776,7 @@
 											</td>
 											<td rowspan="1">
 												<div class="status">
-													<span class="order-status ftx-04">等待付款</span><br>
+
 													<div class="tooltip" _orderid="22964031644" _ordertype="0" _orderstatus="1" _orderurl="//details.jd.com/normal/item.action?orderid=22964031644&amp;PassKey=8A4F13A2DCC3A4AE41E1B99A04C0397E" _ordership="70">
 														<i class="auto-icon"></i> 跟踪
 														<i class="circle-icon"></i>

@@ -121,8 +121,9 @@ public class ShoppingCartServlet extends HttpServlet {
     public void addToCart(HttpServletRequest request,
                           HttpServletResponse response) throws ServletException, IOException {
         String pid=request.getParameter("pid");
+        int modify=Integer.parseInt(request.getParameter("modify"));
         HttpSession session=request.getSession();
-        sc.addToCart(session,pid);//添加商品到购物车
+        sc.addToCart(session,pid,modify);//添加商品到购物车
         request.getRequestDispatcher("/WEB-INF/jsp/admin/product/addToShoppingCart.jsp").forward(request,response);
     }
 

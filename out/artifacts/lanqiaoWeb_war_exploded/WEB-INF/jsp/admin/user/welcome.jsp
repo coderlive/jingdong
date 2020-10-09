@@ -108,7 +108,7 @@
                 <span class="please">
                     您好,
                     <c:if test="${frontuser!=null}">${frontuser.username}</c:if>
-                    <c:if test="${frontuser==null}"><a style="text-decoration: none;" href="JDDispatcherServlet?target=admin/user/frontLogin.jsp">请登录</a></c:if>
+                    <c:if test="${frontuser==null}"><a style="text-decoration: none;color: #d81b2a;" href="JDDispatcherServlet?target=admin/user/frontLogin.jsp">请登录</a></c:if>
                 </span>
                 <a href="JDDispatcherServlet?target=admin/user/register.jsp" style="text-decoration:none" class="register"> 免费注册</a>
             </div>

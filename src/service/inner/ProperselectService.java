@@ -13,4 +13,5 @@ public interface ProperselectService {
     int delete(int psid) throws Exception;
     int update(Properties_select properties_select) throws Exception;
     public Properties_select getPropertiesById(String psid) throws Exception;
+    public List<Properties_select> getPropertiesByPrp_id(int prp_id) throws Exception;
 }

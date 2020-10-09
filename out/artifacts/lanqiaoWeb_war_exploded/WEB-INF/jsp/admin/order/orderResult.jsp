@@ -1228,13 +1228,13 @@
 				</ul>
 				<ul class="fr">
 					<li class="fore1" id="ttbar-login">
-						<a href="" class="link-login">小犄角</a>&nbsp;&nbsp;
-						<a href="#" class="link-regist style-red">退出</a>
+						<a href="" class="link-login">${frontuser.username}</a>&nbsp;&nbsp;
+						<a href="login?action=frontLoginOut" class="link-regist style-red">退出</a>
 					</li>
 					<li class="spacer"></li>
 					<li class="fore2">
 						<div class="dt">
-							<a target="#" href="">我的订单</a>
+							<a  href="OrderServlet?action=queryMyOrder">我的订单</a>
 						</div>
 					</li>
 					<li class="spacer"></li>
@@ -1611,7 +1611,7 @@
 				<div class="navitems">
 					<ul>
 						<li class="fore-1">
-							<a target="_self" href="#">首页</a>
+							<a  href="CategoryServlet?action=goJdIndex&target=/user/welcome&clevel=1">首页</a>
 						</li>
 						<li class="fore-3">
 							<div class="dl">
@@ -1679,7 +1679,7 @@
 						<div class="cw-icon">
 							<i class="ci-left"></i>
 							<i class="ci-right">&gt;</i><i class="ci-count" id="shopping-amount">${productsList.size()}</i>
-							<a target="_blank" href="#">我的购物车</a>
+							<a  href="ShoppingCartServlet?action=queryShoppingCart">我的购物车</a>
 						</div>
 					</div>
 

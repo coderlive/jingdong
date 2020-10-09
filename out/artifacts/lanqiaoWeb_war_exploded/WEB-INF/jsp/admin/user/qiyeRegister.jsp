@@ -13,20 +13,19 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link href="favicon.ico" rel="shortcut icon"/><!--这个是标题图片-->
 		<title>企业注册</title>
-		<style type="text/css">
-			@import url("css/header2.css");
-			@import url("css/second.css");
-		</style>
+		<link rel="stylesheet" href="css/header2.css">
+		<link rel="stylesheet" href="css/second.css">
+		<link rel="stylesheet" href="css/slide.css">
 	</head>
 	<body>
 		<div class="header">
 			<div class="logo-con w clearfix">
 				<a class="logo ">
-					<img src="images/logo.png" id="img_logo">
+					<img src="img/logo.png" id="img_logo">
 				</a>
 				<div class="logo-title">欢迎注册</div>
 
-				<div class="have-account">已有账号？ <a href="个人注册.html">请登录&gt;</a></div>
+				<div class="have-account">已有账号？ <a href="JDDispatcherServlet?target=admin/user/frontLogin.jsp">请登录&gt;</a></div>
 
 			</div>
 		</div>
@@ -37,42 +36,42 @@
 					<p class="step-desc">填写账号信息</p>
 				</div>
 				<div class="pro-line pro-line1 person-pro-line person-pro-line1 ">
-					<p id="div1"></p>
-					<p id="div1"></p>
-					<p id="div1"></p>
-					<p id="div1"></p>
-					<p id="div1"></p>
-					<p id="div1"></p>
-					<p id="div1"></p>
-					<p id="div1"></p>
-					<p id="div1"></p>
-					<p id="div1"></p>
-					<p id="div1"></p>
-					<p id="div1"></p>
-					<p id="div1"></p>
-					<p id="div1"></p>
-					<p id="div1"></p>
+					<p class="div1"></p>
+					<p class="div1"></p>
+					<p class="div1"></p>
+					<p class="div1"></p>
+					<p class="div1"></p>
+					<p class="div1"></p>
+					<p class="div1"></p>
+					<p class="div1"></p>
+					<p class="div1"></p>
+					<p class="div1"></p>
+					<p class="div1"></p>
+					<p class="div1"></p>
+					<p class="div1"></p>
+					<p class="div1"></p>
+					<p class="div1"></p>
 				</div>
 				<div id="step2" class="pro-step pro-step2 person-pro-step2 ">
 					<span class="step-index">2</span>
 					<p class="step-desc">填写企业信息</p>
 				</div>
 				<div class="pro-line pro-line2 person-pro-line person-pro-line2 ">
-					<p id="div1"></p>
-					<p id="div1"></p>
-					<p id="div1"></p>
-					<p id="div1"></p>
-					<p id="div1"></p>
-					<p id="div1"></p>
-					<p id="div1"></p>
-					<p id="div1"></p>
-					<p id="div1"></p>
-					<p id="div1"></p>
-					<p id="div1"></p>
-					<p id="div1"></p>
-					<p id="div1"></p>
-					<p id="div1"></p>
-					<p id="div1"></p>
+					<p class="div1"></p>
+					<p class="div1"></p>
+					<p class="div1"></p>
+					<p class="div1"></p>
+					<p class="div1"></p>
+					<p class="div1"></p>
+					<p class="div1"></p>
+					<p class="div1"></p>
+					<p class="div1"></p>
+					<p class="div1"></p>
+					<p class="div1"></p>
+					<p class="div1"></p>
+					<p class="div1"></p>
+					<p class="div1"></p>
+					<p class="div1"></p>
 				</div>
 				<div class="pro-step pro-step3 person-pro-step3  ">
 					<span class="step-index">3</span>
@@ -184,8 +183,8 @@
 								</div>
 							</div> -->
 							<div id="input-tip">
-									<input type="checkbox" name="agreen" class="btn2">
-									<div  class="class12">我已阅读并同意</div>
+									<input type="checkbox" checked name="agreen" class="btn2">
+									<div  class="class12" >我已阅读并同意</div>
 									<a href="#" target="_blank" >《京东企业用户注册协议》</a>
 							</div>
 							<div class="form-agreen">
@@ -239,15 +238,15 @@
 
 				<div class="reg-other clearfix">
 
-					<a href="个人注册.html" class="reg-other-item reg-other-person">
+					<a href="JDDispatcherServlet?target=admin/user/register.jsp" class="reg-other-item reg-other-person">
 						<p class="reg-other-icon" >
-							<img src="images/用户.png">
+							<img src="img/用户.png">
 						</p>
 						个人用户注册
 					</a>
 					<a href="个人注册.html" class="reg-other-item reg-other-inter">
 						<p class="reg-other-icon">
-							<img src="images/海外.png">
+							<img src="img/海外.png">
 						</p>
 						海外用户注册
 					</a>

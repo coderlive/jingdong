@@ -187,7 +187,7 @@ public class login extends HttpServlet {
     protected void frontLoginOut(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.getSession().setAttribute("frontuser",null);
 //        request.getRequestDispatcher("jsp/login.jsp").forward(request,response);
-        request.getRequestDispatcher("WEB-INF/jsp/user/frontLogin.jsp").forward(request,response);
+        request.getRequestDispatcher("WEB-INF/jsp/admin/user/frontLogin.jsp").forward(request,response);
     }
 
     protected void LoginIn(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

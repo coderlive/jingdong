@@ -4,7 +4,7 @@ import dao.impl.DaoImpl;
 import dao.impl.OrderDaoImpl;
 import dao.inner.Dao;
 import dao.inner.OrderDao;
-import page.PageInfo2;
+import page.PageInfo;
 import service.inner.OrderService;
 import vo.OrderDetail;
 import vo.Orders;
@@ -17,7 +17,21 @@ public class OrderServiceImpl implements OrderService {
     public void addOrder(Orders o) throws Exception {
         od.add(o);
     }
-
+    @Override
+    public int deleteOrderByOrders_no(String  orders_no) throws Exception {
+        String sql = "select * from orders where  orders_no = "+ orders_no;
+        Dao dao = new DaoImpl();
+        Dao dao1 = new DaoImpl();
+        List<Orders> list = dao.getPageByQuery(sql,Orders.class);
+        Orders orders = list.get(0);
+        String ss = "select * from orderdetail where oid = "+orders.getOid();
+        List<OrderDetail> list1 = dao1.getPageByQuery(ss,OrderDetail.class);
+        System.out.println(list1);
+        for(OrderDetail od:list1){
+            dao.delete(od);
+        }
+        return od.delete(orders);
+    }
     @Override
     public Integer selectIdByOrderNo(String str) throws Exception {
         String sql="select * from orders where orders_no="+str;
@@ -43,7 +57,7 @@ public class OrderServiceImpl implements OrderService {
     }
 
     @Override
-    public List<Orders> getAllByPage(PageInfo2 pageInfo) throws Exception {
+    public List<Orders> getAllByPage(PageInfo pageInfo) throws Exception {
         List<Orders> list = null;
         int perPageRecordCount = 5;
 
@@ -85,7 +99,7 @@ public class OrderServiceImpl implements OrderService {
     }
 
     @Override
-    public List<Orders> getPageByQuery(Orders orders, PageInfo2 pageInfo) throws Exception {
+    public List<Orders> getPageByQuery(Orders orders, PageInfo pageInfo) throws Exception {
         List<Orders> list = null;
 
         // String sql = "select * from (select c.*,rownum r from category c where 1=1 and cname='商品种类名称' or cdesc like '%商品种类描述%') where r>=21 and r<=25";

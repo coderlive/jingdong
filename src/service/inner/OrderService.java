@@ -1,6 +1,6 @@
 package service.inner;
 
-import page.PageInfo2;
+import page.PageInfo;
 import vo.Orders;
 
 import java.util.List;
@@ -14,11 +14,11 @@ public interface OrderService {
 
     int getTotalRecordCount() throws Exception;
 
-    public List<Orders> getAllByPage(PageInfo2 pageInfo) throws Exception;
+    public List<Orders> getAllByPage(PageInfo pageInfo) throws Exception;
 
     public int getTotalRecordCount(Orders orders) throws Exception;
 
-    public List<Orders> getPageByQuery(Orders orders,PageInfo2 pageInfo) throws Exception;
+    public List<Orders> getPageByQuery(Orders orders,PageInfo pageInfo) throws Exception;
 
     int deleteOrder(String oid) throws  Exception;
 
@@ -27,4 +27,6 @@ public interface OrderService {
     Orders selectOneOrder(String oid) throws Exception;
 
     List<Orders> selectOneOrderbyNo(String orders_no) throws  Exception;
+
+    int deleteOrderByOrders_no(String Orders_no) throws Exception;
 }

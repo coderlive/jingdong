@@ -2,7 +2,7 @@ package servlet;
 
 import com.google.gson.Gson;
 import org.apache.commons.beanutils.BeanUtils;
-import page.PageInfo2;
+import page.PageInfo;
 import service.impl.OrderDetailServiceImpl;
 import service.impl.OrderServiceImpl;
 import service.impl.UserServiceImpl;
@@ -34,6 +34,7 @@ import java.util.Map;
 public class OrderServlet extends HttpServlet {
     private OrderService os=new OrderServiceImpl();
     private OrderDetailService ods=new OrderDetailServiceImpl();
+    private UserService us = new UserServiceImpl();
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String action=request.getParameter("action");
         System.out.println("您执行了"+action+"操作");
@@ -53,7 +54,10 @@ public class OrderServlet extends HttpServlet {
             updateOrder(request,response);
         }else if(action.equals("byone")){
             byone(request,response);
+        }else if(action.equals("deleteOrderByOrders_no")){
+            deleteOrderByOrders_no(request,response);
         }
+
     }
 
     private void addOrder(HttpServletRequest request, HttpServletResponse response) {//添加订单
@@ -65,7 +69,7 @@ public class OrderServlet extends HttpServlet {
         HttpSession session=request.getSession();
         ArrayList<Products> list= (ArrayList<Products>) session.getAttribute("productsList");//这个是购物车的内容
         ArrayList<Products> config_list=new ArrayList<>();//存储要购买的商品
-        Users u= (Users) session.getAttribute("backuser");
+        Users u= (Users) session.getAttribute("frontuser");
         if (pids==null||list==null||u==null)
         {
             System.out.println("三者有一个为空");
@@ -119,14 +123,13 @@ public class OrderServlet extends HttpServlet {
             queryMyOrder(request,response);
             return;
         }
-        OrderService orderService = new OrderServiceImpl();
-        UserService userService = new UserServiceImpl();
+
         try {
             System.out.println("1");
-            List<Orders> list = orderService.selectOneOrderbyNo(orders_no);
+            List<Orders> list = os.selectOneOrderbyNo(orders_no);
             String userid = list.get(0).getUserid().toString();
             System.out.println("1.0");
-            Users users = userService.getOneById(userid);
+            Users users = us.getOneById(userid);
             System.out.println("1.1");
             request.setAttribute("list",list);
             request.setAttribute("users",users);
@@ -206,16 +209,14 @@ public class OrderServlet extends HttpServlet {
         }
         try {
 
-            PageInfo2 pageInfo = new PageInfo2(Integer.parseInt(requestPage));
+            PageInfo pageInfo = new PageInfo(Integer.parseInt(requestPage));
             //根据查询条件  查询一共多少条记录
-            OrderService service = new OrderServiceImpl();
-            int totalRecordCount = service.getTotalRecordCount(orders);
+            int totalRecordCount = os.getTotalRecordCount(orders);
             System.out.println(totalRecordCount);
             pageInfo.setTotalRecordCount(totalRecordCount);
 
             //2.调用业务逻辑
-            OrderService service2 = new   OrderServiceImpl();
-            List<Orders> list = service2.getPageByQuery(orders, pageInfo);
+            List<Orders> list = os.getPageByQuery(orders, pageInfo);
             request.setAttribute("list", list);
             request.setAttribute("searchCondition", searchCondition);
             request.setAttribute("pageInfo", pageInfo);
@@ -237,7 +238,7 @@ public class OrderServlet extends HttpServlet {
             requestPage="1";
         }
         //第1步:
-        PageInfo2 pageInfo = new PageInfo2(Integer.parseInt(requestPage));
+        PageInfo pageInfo = new PageInfo(Integer.parseInt(requestPage));
         try {
             int totalRecordCount = os.getTotalRecordCount();
             pageInfo.setTotalRecordCount(totalRecordCount);
@@ -255,14 +256,25 @@ public class OrderServlet extends HttpServlet {
 //        String userid = "41";
         String userid = ((Users)request.getSession().getAttribute("frontuser")).getUserid().toString();
         UserService userService = new UserServiceImpl();
-        OrderService orderService = new OrderServiceImpl();
         try {
-            Users users = userService.getOneById(userid);
-            List<Orders> list = orderService.selectOrdersByUserid(userid);
+            Users users = us.getOneById(userid);
+            List<Orders> list = os.selectOrdersByUserid(userid);
             System.out.println(list);
             request.setAttribute("list",list);
             request.setAttribute("users",users);
             request.getRequestDispatcher("/WEB-INF/jsp/admin/product/myOrder.jsp").forward(request,response);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+    }
+    private void deleteOrderByOrders_no(HttpServletRequest request, HttpServletResponse response) {//添加订单
+
+        String orders_no = request.getParameter("orders_no");
+        System.out.println(orders_no);
+        try {
+            os.deleteOrderByOrders_no(orders_no);
+            queryMyOrder(request,response);
         } catch (Exception e) {
             e.printStackTrace();
         }

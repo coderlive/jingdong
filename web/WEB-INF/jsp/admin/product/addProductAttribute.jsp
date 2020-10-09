@@ -9,7 +9,7 @@
 <head>
     <base href="<%=basePath%>">
 
-    <title>添加二级商品种类</title>
+    <title>添加商品属性</title>
 
     <meta http-equiv="pragma" content="no-cache">
     <meta http-equiv="cache-control" content="no-cache">
@@ -128,7 +128,7 @@
             <div class="inputDiv"><label class="myFormLabel">商品属性4</label><input type="text" class="jdInput"name="attribute" placeholder="请输入店铺属性4"/></div>
             <div class="inputDiv"><label class="myFormLabel">商品属性5</label><input type="text" class="jdInput"name="attribute" placeholder="请输入商品属性5"/></div>
 
-            <input type="submit" class="btn btn-success addCategoryBtn" value="添加商品" />
+            <input type="submit" class="btn btn-success addCategoryBtn" value="添加商品属性" />
         </form>
     </div>
 

@@ -1925,7 +1925,7 @@
         }
 
         /*下面的 选择 小图*/
-        #choose-color {
+        .choose-color {
             line-height: 40px;
         }
         .li {
@@ -1945,12 +1945,12 @@
         }
 
         /*第一个小图*/
-        #choose-color{
+        .choose-color{
             width: 738px;
             height: 47px;
         }
 
-        #choose-color .item {
+        .choose-color .item {
             background-color: #F7F7F7;
         }
         .li .item {
@@ -1961,7 +1961,7 @@
             margin-bottom: 4px;
             position: relative;
         }
-        #choose-color .item a, .ebook #choose-series .item a {
+        .choose-color .item a, .ebook #choose-series .item a {
             padding: 0;
         }
         .li .item.hover a, .li .item.selected a, .li .item:hover a {
@@ -1972,7 +1972,7 @@
             display: block;
             white-space: nowrap;
         }
-        #choose-color .item a i {
+        .choose-color .item a i {
             margin: 0 8px;
         }
 
@@ -3124,9 +3124,7 @@
 
 
     </style>
-
 </head>
-
 <body>
 <!--最顶上的一条开始-->
 <div id="shortcut">
@@ -3647,7 +3645,7 @@
     <div id="settleup" class="dorpdown">
         <div class="cw-icon">
             <i class="ci-left"></i>
-            <i class="ci-right">&gt;</i><i class="ci-count" id="shopping-amount">0</i>
+            <i class="ci-right">&gt;</i><i class="ci-count" id="shopping-amount">${productsList.size()}</i>
             <a target="_blank" href="ShoppingCartServlet?action=queryShoppingCart">我的购物车</a>
         </div>
         <div class="dorpdown-layer">
@@ -6502,445 +6500,28 @@
                         </div>
                     </div>
                 </div>
-                <div id="choose-color" class="li">
-                    <div class="dt">选择颜色</div>
-                    <div class="dd clearfix">
-                        <div class="item  selected">
-                            <a href="javascript:;" data-text="金色" title="金色" clstag="shangpin|keycount|product|yanse-金色">
-                                <img src="img/product/choose1.jpg" alt="金色" height="40" width="40">
-                                <i>金色</i>
-                            </a>
-                        </div>
-                        <div class="item"><a href="javascript:;" data-text="灰色" title="灰色" clstag="shangpin|keycount|product|yanse-灰色">
-                            <img src="img/product/choose2.jpg" alt="灰色" height="40" width="40">
-                            <i>灰色</i>
-                        </a>
-                        </div>
-                        <div class="item">
-                            <a href="javascript:;" data-text="皓月银" title="皓月银" clstag="shangpin|keycount|product|yanse-皓月银">
-                                <img src="img/product/choose3.jpg" alt="皓月银" height="40" width="40">
-                                <i>皓月银</i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div id="choose-version" class="li">
-                    <div class="dt">选择版本</div>
-                    <div class="dd clearfix">
-                        <div class="item  selected">
-                            <a href="javascript:;" data-text="移动联通电信4G" title="移动联通电信4G" clstag="shangpin|keycount|product|banben-移动联通电信4G">
-                                移动联通电信4G
-                            </a>
-                        </div>
-                        <div class="item disabled">
-                            <a href="javascript:;" data-text="移动4G" title="所选颜色该版本商品在该地区无货" clstag="shangpin|keycount|product|banben-移动4G">
-                                移动4G
-                            </a>
-                        </div>
-                        <div class="item disabled">
-                            <a href="javascript:;" data-text="移动联通4G" title="所选颜色该版本商品在该地区无货" clstag="shangpin|keycount|product|banben-移动联通4G">
-                                移动联通4G
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div id="choose-type" class="li" data-hook="hide" style="">
-                    <div class="dt">购买方式</div>
-                    <div class="dd">
-                        <div class="J-btype-item item selected" clstag="shangpin|keycount|product|gmfs-官方标配" data-ind="0" data-matched="false" data-sp="-1" data-count="1">
-                            <b></b>
-                            <a href="#none" title="">官方标配</a>
-                        </div>
-                        <div class="J-btype-item item" clstag="shangpin|keycount|product|gmfs-电信优惠购" data-ind="1" data-matched="false" data-ishy="true" data-sp="3" data-count="2">
-                            <b></b>
-                            <a href="#none" title="">电信优惠购</a>
-                        </div>
-                        <div class="J-btype-item item" clstag="shangpin|keycount|product|gmfs-移动优惠购" data-ind="2" data-matched="false" data-ishy="true" data-sp="1" data-count="2">
-                            <b></b>
-                            <a href="#none" title="">移动优惠购</a>
-                        </div>
-                        <div class="J-btype-item item" clstag="shangpin|keycount|product|gmfs-联通优惠购" data-ind="3" data-matched="false" data-ishy="true" data-sp="2" data-count="1">
-                            <b></b>
-                            <a href="#none" title="">联通优惠购</a>
-                        </div>
-                    </div>
-                </div>
-                <div id="choose-type-hy" class="li" data-hook="hide" style="display: none;">            <div class="dt">优惠类型</div>            <div class="dd">                <div class="J-hy-btype">                    <div class="item selected" clstag="shangpin|keycount|product|hylx-非合约机" data-aurl="" data-rurl="" data-type="0" data-id="100" data-skus="" data-ad="选择下方购买方式→【移动优惠购】→【北京老用户优惠购机】即享优惠【套餐享7折+免费宽带】" data-ind="0" data-sku="2600210" data-sp="-1">                        <b></b>                        <a href="#none" title="">非合约机</a>                    </div>                </div>                <div class="J-hy-btype hide">                    <div class="item selected" clstag="shangpin|keycount|product|hylx-电信老用户购机送费" data-aurl="http://eve.jd.com/apollo/ctcc/main?phoneWid={sku}&amp;bType=33&amp;provinceId={pid}&amp;cityId={cid}" data-rurl="http://eve.jd.com/redirect.action?wid={sku}&amp;btype=33&amp;pid={pid}&amp;cid={cid}" data-type="1" data-id="33" data-skus="" data-ad="选择电信老用户购机送费，不换号码享新款机器！下单前请咨询阅读电信购机赠费入网协议！" data-ind="0" data-sku="2729494" data-sp="3">                        <b></b>                        <a href="#none" title="">电信老用户购机送费</a>                    </div>                    <div class="item" clstag="shangpin|keycount|product|hylx-买手机送话费" data-aurl="" data-rurl="http://eve.jd.com/redirect.action?wid={sku}&amp;btype=5&amp;pid={pid}&amp;cid={cid}" data-type="0" data-id="5" data-skus="" data-ad="只需加1元，129以上套餐档位可得200元自由话费立即到账！每月还有额外送费，享受全国套餐！" data-ind="1" data-sku="2729494" data-sp="3">                        <b></b>                        <a href="#none" title="">买手机送话费</a>                    </div>                </div>                <div class="J-hy-btype hide">                    <div class="item selected" clstag="shangpin|keycount|product|hylx-北京老用户优惠购机" data-aurl="" data-rurl="http://eve.jd.com/redirect.action?wid={sku}&amp;btype=34&amp;pid={pid}&amp;cid={cid}" data-type="1" data-id="34" data-skus="" data-ad="" data-ind="0" data-sku="2670579" data-sp="1">                        <b></b>                        <a href="#none" title="">北京老用户优惠购机</a>                    </div>                    <div class="item" clstag="shangpin|keycount|product|hylx-老用户优惠购机" data-aurl="//eve.jd.com/apollo/mobile/main.htm?phoneWid={sku}&amp;bType=18&amp;provinceId={pid}&amp;cityId={cid}" data-rurl="//eve.jd.com/redirect.action?wid={sku}&amp;btype=18&amp;pid={pid}&amp;cid={cid}" data-type="1" data-id="18" data-skus="" data-ad="" data-ind="1" data-sku="2965242" data-sp="1">                        <b></b>                        <a href="#none" title="">老用户优惠购机</a>                    </div>                </div>                <div class="J-hy-btype hide">                    <div class="item selected" clstag="shangpin|keycount|product|hylx-买手机送话费" data-aurl="" data-rurl="http://eve.jd.com/redirect.action?wid={sku}&amp;btype=2&amp;pid={pid}&amp;cid={cid}" data-type="0" data-id="2" data-skus="" data-ad="选择1月合约期本地4G套餐，月费低，本地流量多；选择12月合约期加36元得360元话费，享全国套餐。" data-ind="0" data-sku="2729496" data-sp="2">                        <b></b>                        <a href="#none" title="">买手机送话费</a>                    </div>                </div>                     <a style="display: none;" class="J-hy-btype-tips hy-btype-tips icon question fl" href="#none"><i class="sprite-question"></i></a>            </div></div>
-                <div id="choose-type-suit" class="li" data-hook="hide" style="display:none;">
-                    <div class="dt">优惠套餐</div>
-                    <div class="dd clearfix">
-                        <div class="item J-suit-trigger" clstag="shangpin|keycount|product|taocanleixing">
-                            <i class="sprite-selected"></i>
-                            <a href="#none" title="选择套餐与资费">选择套餐与资费</a>
-                        </div>
-                        <div class="fl" style="padding-top:5px;">
-                            <span class="J-suit-tips hide">请选择套餐内容</span>
-                            <span class="J-suit-resel J-suit-trigger hl_blue hide" href="#none">重选</span>
-                        </div>
-                    </div>
-                </div>
-                <div id="btype-tip" data-hook="hide" style="display:none;">
-                    　您选择的地区暂不支持合约机销售！
-                </div>
-                <div id="choose-suits" class="li choose-suits">
-                    <div class="dt">套　　装</div>
-                    <div class="dd clearfix">
-                        <div class="item">
-                            <a href="#none" class="title" data-drop="head" data-skus="2600210,2819667" data-type="p" data-sid="4212254" clstag="shangpin|keycount|product|xuanzetaozhuang_655">
-                                保护套装
-                            </a>
-                            <div class="suits-panel J-suits-panel"></div>
-                        </div>
-                        <div class="item">
-                            <a href="#none" class="title" data-drop="head" data-skus="2600210,2805155" data-type="p" data-sid="4212255" clstag="shangpin|keycount|product|xuanzetaozhuang_655">保护套装</a>
-                            <div class="suits-panel J-suits-panel"></div>
-                        </div>
-                        <div class="item">
-                            <a href="#none" class="title" data-drop="head" data-skus="2600210,1887518" data-type="p" data-sid="4217026" clstag="shangpin|keycount|product|xuanzetaozhuang_655">
-                                存储扩展
-                            </a>
-                            <div class="suits-panel J-suits-panel"></div>
-                        </div>
-                        <div class="item">
-                            <a href="#none" class="title" data-drop="head" data-skus="2600210,1138288" data-type="p" data-sid="4216482" clstag="shangpin|keycount|product|xuanzetaozhuang_655">
-                                充电套装
-                            </a>
-                            <div class="suits-panel J-suits-panel"></div>
-                        </div>
-                        <div class="item">
-                            <a href="#none" class="title" data-drop="head" data-skus="2600210,2896470" data-type="p" data-sid="4222556" clstag="shangpin|keycount|product|xuanzetaozhuang_655">
-                                充电套装
-                            </a>
-                            <div class="suits-panel J-suits-panel"></div>
-                        </div>
-                        <div class="item">
-                            <a href="#none" class="title" data-drop="head" data-skus="2600210,2819991" data-type="p" data-sid="4224086" clstag="shangpin|keycount|product|xuanzetaozhuang_655">
-                                耳机套装
-                            </a>
-                            <div class="suits-panel J-suits-panel"></div>
-                        </div>
-                    </div>
-                </div>
-                <div id="choose-gift" class="choose-gift li" style="display: none;">
-                    <div class="dt">搭配赠品</div>
-                    <div class="dd clearfix">
-                        <div class="gift J-gift" clstag="shangpin|keycount|product|dapeizengpin">
-                            <i class="sprite-gift J-popup"></i>
-                            <span class="gift-tips">选择搭配赠品(共<em>0</em>个)</span>
-                        </div>
-                        <!--choosed-->
-                        <div class="J-gift-selected hide">
-                            <div class="gift choosed J-gift-choosed"></div>
-                            <a href="#none" class="gift-modify J-popup" clstag="shangpin|keycount|product|zengpin-genggai">
-                                更改
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div id="choose-service" class="li" data-hook="hide" style="">
-                    <div class="dt" data-yb="new_yb_server">增值保障</div>
-                    <div class="dd">
-                        <div class="service-type-yb clearfix">
-                            <div class="yb-item-cat">
-                                <div class="yb-item">
-                                    <img class="icon" src="img/product/zengzhi1.png">
-                                    <span class="name">意外保1年</span>
-                                    <span class="price">￥99</span>
-                                    <i class="arrow-icon"></i>
-                                </div>
-                                <div class="more-item">
-                                    <ul>
-                                        <li data-sku="10154225687">
-                                            <div class="title" title="意外故障免费上门取修，所修部件保修3个月">
-                    								<span class="choose-btn" clstag="shangpin|keycount|product|jingdongfuwu_10154225687">
-                    									<i class="sprite-checkbox"></i>
-                    									<span class="tips">优惠</span>
-                    									<span class="name">意外保1年</span>
-                    									<span class="price">￥99</span>
-                    								</span>
-                                                <a href="//item.jd.com/10154225687.html" target="_blank" class="detail-more" clstag="shangpin|keycount|product|jingdongfuwu_xiangqing">
-                                                    详情
-                                                    <s class="s-arrow">&gt;&gt;</s>
-                                                </a>
-                                            </div>
-                                        </li>
-                                        <li data-sku="10238107821">
-                                            <div class="title" title="为移动类设备提供一年的数据恢复服务">
-                    								<span class="choose-btn" clstag="shangpin|keycount|product|jingdongfuwu_10238107821">
-                    									<i class="sprite-checkbox"></i>
-                    									<span class="tips">优惠</span>
-                    									<span class="name">数据恢复</span>
-                    									<span class="price">￥169</span>
-                    								</span>
-                                                <a href="//item.jd.com/10238107821.html" target="_blank" class="detail-more" clstag="shangpin|keycount|product|jingdongfuwu_xiangqing">
-                                                    详情
-                                                    <s class="s-arrow">&gt;&gt;</s>
-                                                </a>
-                                            </div>
-                                        </li>
-                                        <li data-sku="10358567578">
-                                            <div class="title" title="手机屏幕意外碎裂保障服务">
-                    								<span class="choose-btn" clstag="shangpin|keycount|product|jingdongfuwu_10358567578">
-                    									<i class="sprite-checkbox"></i>
-                    									<span class="tips">优惠</span>
-                    									<span class="name">手机碎屏保</span>
-                    									<span class="price">￥79</span>
-                    								</span>
-                                                <a href="//item.jd.com/10358567578.html" target="_blank" class="detail-more" clstag="shangpin|keycount|product|jingdongfuwu_xiangqing">
-                                                    详情
-                                                    <s class="s-arrow">&gt;&gt;</s>
-                                                </a>
-                                            </div>
-                                        </li>
-                                        <li data-sku="2660266">
-                                            <div class="title" title="2年内听话筒免费维修或按购机价赔付15%">
-                    								<span class="choose-btn" clstag="shangpin|keycount|product|jingdongfuwu_2660266">
-                    									<i class="sprite-checkbox"></i>
-                    									<span class="name">手机包听讲</span>
-                    									<span class="price">￥40</span>
-                    								</span>
-                                                <a href="//item.jd.com/2660266.html" target="_blank" class="detail-more" clstag="shangpin|keycount|product|jingdongfuwu_xiangqing">
-                                                    详情
-                                                    <s class="s-arrow">&gt;&gt;</s>
-                                                </a>
-                                            </div>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="yb-item-cat">
-                                <div class="yb-item">
-                                    <img class="icon" src="img/product/zengzhi2.png">
-                                    <span class="name">延长保1年</span>
-                                    <span class="price">￥79</span>
-                                    <i class="arrow-icon"></i>
-                                </div>
-                                <div class="more-item">
-                                    <ul>
-                                        <li data-sku="10154192969">
-                                            <div class="title" title="保修期延长1年，延长期内免费上门取修">
-                    								<span class="choose-btn" clstag="shangpin|keycount|product|jingdongfuwu_10154192969">
-                    									<i class="sprite-checkbox"></i>
-                    									<span class="name">延长保1年</span>
-                    									<span class="price">￥79</span>
-                    								</span>
-                                                <a href="//item.jd.com/10154192969.html" target="_blank" class="detail-more" clstag="shangpin|keycount|product|jingdongfuwu_xiangqing">
-                                                    详情
-                                                    <s class="s-arrow">&gt;&gt;</s>
-                                                </a>
-                                            </div>
-                                        </li>
-                                        <li data-sku="10154204217">
-                                            <div class="title" title="保修期延长2年，延长期内免费上门取修">
-                    								<span class="choose-btn" clstag="shangpin|keycount|product|jingdongfuwu_10154204217">
-                    									<i class="sprite-checkbox"></i>
-                    									<span class="name">延长保2年</span>
-                    									<span class="price">￥179</span>
-                    								</span>
-                                                <a href="//item.jd.com/10154204217.html" target="_blank" class="detail-more" clstag="shangpin|keycount|product|jingdongfuwu_xiangqing">
-                                                    详情
-                                                    <s class="s-arrow">&gt;&gt;</s>
-                                                </a>
-                                            </div>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="yb-item-cat">
-                                <div class="yb-item">
-                                    <img class="icon" src="img/product/zengzhi3.png">
-                                    <span class="name">全保2年</span>
-                                    <span class="price">￥299</span>
-                                    <i class="arrow-icon"></i>
-                                </div>
-                                <div class="more-item">
-                                    <ul>
-                                        <li data-sku="10154255268">
-                                            <div class="title" title="2年意外保+1年延保，免费上门取修">
-                    								<span class="choose-btn" clstag="shangpin|keycount|product|jingdongfuwu_10154255268">
-                    									<i class="sprite-checkbox"></i>
-                    									<span class="tips">优惠</span>
-                    									<span class="name">全保2年</span>
-                    									<span class="price">￥299</span>
-                    								</span>
-                                                <a href="//item.jd.com/10154255268.html" target="_blank" class="detail-more" clstag="shangpin|keycount|product|jingdongfuwu_xiangqing">
-                                                    详情
-                                                    <s class="s-arrow">&gt;&gt;</s>
-                                                </a>
-                                            </div>
-                                        </li>
-                                        <li data-sku="10128545927">
-                                            <div class="title" title="意外故障免费上门取修，所修部件保修3个月">
-                    								<span class="choose-btn" clstag="shangpin|keycount|product|jingdongfuwu_10128545927">
-                    									<i class="sprite-checkbox"></i>
-                    									<span class="name">意外保2年</span>
-                    									<span class="price">￥249</span>
-                    								</span>
-                                                <a href="//item.jd.com/10128545927.html" target="_blank" class="detail-more" clstag="shangpin|keycount|product|jingdongfuwu_xiangqing">
-                                                    详情
-                                                    <s class="s-arrow">&gt;&gt;</s>
-                                                </a>
-                                            </div>
-                                        </li>
-                                        <li data-sku="10245507181">
-                                            <div class="title" title="1年内手机被盗窃或抢劫，给予一定金额补偿">
-                    								<span class="choose-btn" clstag="shangpin|keycount|product|jingdongfuwu_10245507181">
-                    									<i class="sprite-checkbox"></i>
-                    									<span class="name">手机盗抢保</span>
-                    									<span class="price">￥99</span>
-                    								</span>
-                                                <a href="//item.jd.com/10245507181.html" target="_blank" class="detail-more" clstag="shangpin|keycount|product|jingdongfuwu_xiangqing">
-                                                    详情
-                                                    <s class="s-arrow">&gt;&gt;</s>
-                                                </a>
-                                            </div>
-                                        </li>
-                                        <li data-sku="10154271111">
-                                            <div class="title" title="屏幕碎裂免费上门取修，新换屏幕保修3个月">
-                    								<span class="choose-btn" clstag="shangpin|keycount|product|jingdongfuwu_10154271111">
-                    									<i class="sprite-checkbox"></i>
-                    									<span class="name">屏碎保1年</span>
-                    									<span class="price">￥159</span>
-                    								</span>
-                                                <a href="//item.jd.com/10154271111.html" target="_blank" class="detail-more" clstag="shangpin|keycount|product|jingdongfuwu_xiangqing">
-                                                    详情
-                                                    <s class="s-arrow">&gt;&gt;</s>
-                                                </a>
-                                            </div>
-                                        </li>
-                                        <li data-sku="10154517220">
-                                            <div class="title" title="屏幕碎裂免费上门取修，新换屏幕保修3个月">
-                    								<span class="choose-btn" clstag="shangpin|keycount|product|jingdongfuwu_10154517220">
-                    									<i class="sprite-checkbox"></i>
-                    									<span class="name">屏碎保2年</span>
-                    									<span class="price">￥269</span>
-                    								</span>
-                                                <a href="//item.jd.com/10154517220.html" target="_blank" class="detail-more" clstag="shangpin|keycount|product|jingdongfuwu_xiangqing">
-                                                    详情
-                                                    <s class="s-arrow">&gt;&gt;</s>
-                                                </a>
-                                            </div>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="service-tips">
-                                <a href="#none"><i class="sprite-question"></i></a>
-                                <div class="tips">
-                                    <div class="sprite-arrow"></div>
-                                    <div class="content">
-                                        <dl>
-                                            <dd>增值保障是指凡在京东购买商品或服务的消费者，在保障期间内遇到无论是正常使用中的问题还是意外事故，即可享受增值保障服务。保障内容包括：延长保修、只换不修、意外保护、服务保障。覆盖家电、手机数码、电脑办公、汽车用品、服饰家居等商品。</dd>
-                                        </dl>
-                                        <p>如有疑问，请与
-                                            <a href="//chat.jd.com/pop/chat?shopId=162403" target="_blank">
-                                                在线客服
-                                            </a>
-                                            联系
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <c:forEach items="${all_map}" var="item">
+                    <div  class="li choose-color">
 
-                <div id="choose-baitiao" class="li choose-baitiao" style="">
-                    <div class="dt">白条分期</div>
-                    <div class="dd">
-                        <div class="baitiao-list J-baitiao-list">
-                            <div class="item" clstag="shangpin|keycount|product|baitiaofenqi_1_9987_653_655" data-snum="1">
-                                <b></b>
-                                <a href="#none">
-                                    <strong>
-                                        30天免息
-                                    </strong>
-                                    <span style="display:none;">
-                    						<em>惠</em>
-                    						 0手续费
-                    					</span>
-                                </a>
-                                <div class="baitiao-tips hide">
-                                    <ul>
-                                        <li>无手续费</li>
-                                    </ul>
+                        <div class="dt">${item.key.pname}</div><!--属性-->
+                        <div class="dd clearfix"><!--选项-->
+                            <c:forEach items="${item.value}" var="select">
+                                <div class="item  selected">
+                                    <a href="javascript:;" data-text="金色" title="金色" clstag="shangpin|keycount|product|yanse-金色">
+                                            <%--<img src="img/product/choose1.jpg" alt="金色" height="40" width="40">--%>
+                                        <i>${select.psname}</i>
+                                    </a>
                                 </div>
-                            </div>
-                            <div class="item" clstag="shangpin|keycount|product|baitiaofenqi_3_9987_653_655" data-snum="3">
-                                <b></b>
-                                <a href="#none">
-                                    <strong> ￥1078.61×3期                    </strong>
-                                    <span style="display:none;">
-                    						<em>惠</em> 含手续费
-                    					</span>
-                                </a>
-                                <div class="baitiao-tips hide">
-                                    <ul>
-                                        <li>
-                                            含手续费：费率0.5%，￥15.94×3期
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="item" clstag="shangpin|keycount|product|baitiaofenqi_6_9987_653_655" data-snum="6">
-                                <b></b>
-                                <a href="#none">
-                                    <strong> ￥547.27×6期                    </strong>
-                                    <span style="display:none;">
-                    						<em>惠</em> 含手续费
-                    					</span>
-                                </a>
-                                <div class="baitiao-tips hide">
-                                    <ul>
-                                        <li>含手续费：费率0.5%，￥15.94×6期</li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="item" clstag="shangpin|keycount|product|baitiaofenqi_12_9987_653_655" data-snum="12">
-                                <b></b>
-                                <a href="#none">
-                                    <strong> ￥281.61×12期                    </strong>
-                                    <span style="display:none;">
-                    						<em>惠</em> 含手续费
-                    					</span>
-                                </a>
-                                <div class="baitiao-tips hide">
-                                    <ul>
-                                        <li>含手续费：费率0.5%，￥15.94×12期  </li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="item" clstag="shangpin|keycount|product|baitiaofenqi_24_9987_653_655" data-snum="24">
-                                <b></b>
-                                <a href="#none">
-                                    <strong> ￥148.77×24期                    </strong>
-                                    <span style="display:none;">
-                    						<em>惠</em> 含手续费
-                    					</span>
-                                </a>
-                                <div class="baitiao-tips hide">
-                                    <ul>
-                                        <li>含手续费：费率0.5%，￥15.94×24期</li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="bt-info-tips">
-                                <a class="J-icon-hui prom icon fl" href="#none">　</a>
-                            </div>
-                            <div class="bt-info-tips">
-                                <a class="J-bt-tips question icon fl" href="#none">　</a>
-                            </div>
+                            </c:forEach>
                         </div>
-                        <div class="baitiao-text J-baitiao-text"></div>
                     </div>
-                </div>
+                </c:forEach>
                 <div id="choose-btns" class="choose-btns clearfix">
                     <div class="choose-amount" clstag="shangpin|keycount|product|goumaishuliang_1">
                         <div class="wrap-input">
-                            <input class="text buy-num" onkeyup="setAmount.modify('#buy-num');" id="buy-num" value="1">
-                            <a class="btn-add" onclick="setAmount.add('#buy-num')" href="">+</a>
-                            <a class="btn-reduce" onclick="setAmount.reduce('#buy-num')" href="">-</a>
-
+                            <input class="text buy-num" id="buy-num" value="1">
+                            <a class="btn-add" onclick="setAmount(1)" href="javascript:0">+</a>
+                            <a class="btn-reduce" onclick="setAmount(-1)" href="javascript:0">-</a>
                         </div>
                     </div>
 
@@ -6949,9 +6530,10 @@
                     <a href="//eve.jd.com/redirect.action?wid=2600210&amp;btype=100&amp;pid=1&amp;cid=72&amp;r=0.08266748638877608" id="btn-heyue" class="btn-special1 btn-lg" style="display:none;" clstag="shangpin|keycount|product|选择号码和套餐_1">
                         选择号码和套餐
                     </a>
-                    <a href="ShoppingCartServlet?action=addToCart&pid=${product.pid}" id="InitCartUrl"  clstag="shangpin|keycount|product|加入购物车_1">
+                    <input type="button" id="InitCartUrl"  clstag="shangpin|keycount|product|加入购物车_1">
 
-                    </a>
+                    </input>
+                    <%--ShoppingCartServlet?action=addToCart&pid=${product.pid}--%>
                     <a href="#none" id="btn-baitiao" class="btn-special2 btn-lg" style="display:none;">
                         打白条
                     </a>
@@ -7705,7 +7287,21 @@
     <script src="js/bootstrap.js"></script>
 
     <script type="text/javascript">
+        function setAmount(change)
+        {
+            var sum=parseInt($('#buy-num').val());
+            sum+=parseInt(change);
+            if (sum<1)
+                sum=1;
+            $('#buy-num').val(sum);
+        }
         (function() {
+            //加入购物车触发事件
+            $('#InitCartUrl').click(function () {
+                var modify=parseInt($('#buy-num').val());
+                <%--ShoppingCartServlet?action=addToCart&pid=${product.pid}--%>
+                window.location.assign('ShoppingCartServlet?action=addToCart&pid=${product.pid}'+'&modify='+modify);
+            });
             var $ddi = $("#categorys-dd-inner"),
                 $ddid = $ddi.find("div"),
                 $ddr = $("#category-dorpdown-layer"),
@@ -7805,8 +7401,8 @@
             var $big_picture = $("#spec-n1");
             <!--1.8 产品大图-->
             $big_picture.css({"background-image":"url(img/productImage/${product.detail_large_img})",
-                    'background-repeat':'no-repeat',
-                    'background-size':'100% 100%'
+                'background-repeat':'no-repeat',
+                'background-size':'100% 100%'
             })
             $(".tel img").hover(function(){
                 var id = this.getAttribute("id");

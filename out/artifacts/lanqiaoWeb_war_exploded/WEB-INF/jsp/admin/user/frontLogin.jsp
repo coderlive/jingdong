@@ -176,7 +176,7 @@
                 </div>
                 <div class="box reg">
                     <div class="icon"></div>
-                    <a href="#">立即注册</a>
+                    <a href="JDDispatcherServlet?target=admin/user/register.jsp">立即注册</a>
                     <!-- 立即注册 -->
                 </div>
             </div>

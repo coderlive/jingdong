@@ -92,4 +92,8 @@ public class ProperselectServiceImpl implements ProperselectService {
     public Properties_select getPropertiesById(String psid) throws Exception {
         return pd.getOneById(Integer.parseInt(psid),Properties_select.class);
     }
+    public List<Properties_select> getPropertiesByPrp_id(int prp_id) throws Exception{
+        String sql = "select * from properties_select where pid = "+prp_id;
+        return pd.getPageByQuery(sql,Properties_select.class);
+    }
 }

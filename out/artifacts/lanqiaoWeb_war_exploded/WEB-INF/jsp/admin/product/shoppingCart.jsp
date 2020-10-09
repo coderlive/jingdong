@@ -2015,13 +2015,15 @@
             </ul>
             <ul class="fr">
                 <li class="fore1 nologin" id="ttbar-login">
-                    <a href="login.html" class="link-login style-red">jd_747e10435...，请登录</a>&nbsp;&nbsp;
-                    <a href="../JD/JD_register.html" class="link-regist ">免费注册</a>
+                    您好,
+                    <c:if test="${frontuser!=null}">${frontuser.username}</c:if>
+                    <c:if test="${frontuser==null}"><a class="link-login style-red" style="text-decoration: none;color: #d81b2a;" href="JDDispatcherServlet?target=admin/user/frontLogin.jsp">请登录</a></c:if>
+                    <a href="JDDispatcherServlet?target=admin/user/register.jsp" class="link-regist ">免费注册</a>
                 </li>
                 <li class="spacer"></li>
                 <li class="fore2">
                     <div class="dt">
-                        <a target="_blank" href="">我的订单</a>
+                        <a  href="OrderServlet?action=queryMyOrder">我的订单</a>
                     </div>
                 </li>
                 <li class="spacer"></li>

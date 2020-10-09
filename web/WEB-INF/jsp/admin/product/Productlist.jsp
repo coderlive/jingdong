@@ -1857,9 +1857,13 @@
             </li>
         </ul>
         <ul class="fr">
-            <li class="fore1" id="ttbar-login"><a href=""
-                                                  class="link-login">你好，请登录</a>&nbsp;&nbsp; <a
-                    href="../JD/JD_register.html" class="link-regist style-red">免费注册</a>
+            <li class="fore1" id="ttbar-login">
+                <span class="please">
+                    您好,
+                    <c:if test="${frontuser!=null}">${frontuser.username}</c:if>
+                    <c:if test="${frontuser==null}"><a style="text-decoration: none;color: #d81b2a;" href="JDDispatcherServlet?target=admin/user/frontLogin.jsp">请登录</a></c:if>
+                </span>
+                <a href="JDDispatcherServlet?target=admin/user/register.jsp" style="text-decoration:none;color: red" class="register"> 免费注册</a>
             </li>
             <li class="spacer"></li>
             <li class="fore2">
@@ -2251,8 +2255,7 @@
             <a href="#" class="logo"></a>
         </div>
         <div id="search-2014">
-            <form id="categoryForm"
-                  action="ProductServlet" method="post">
+            <form id="categoryForm" action="ProductServlet" method="get">
                 <div class="form">
                     <input type="hidden" name="action" value="getPageByQuery">
                     <input type="hidden" name="perPageRecordCount" value="8">
@@ -2273,7 +2276,7 @@
         <div id="settleup-2014" class="dorpdown">
             <div class="cw-icon">
                 <i class="ci-left"></i> <i class="ci-right">></i> <i
-                    class="ci-count" >0</i> <a href="ShoppingCartServlet?action=queryShoppingCart">我的购物车</a>
+                    class="ci-count" >${productsList.size()}</i> <a href="ShoppingCartServlet?action=queryShoppingCart">我的购物车</a>
             </div>
             <div class="dorpdown-layer">
                 <div class="dl-space"></div>

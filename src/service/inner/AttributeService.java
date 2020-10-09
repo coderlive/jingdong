@@ -13,4 +13,5 @@ public interface AttributeService {
     int delete(int prp_id) throws Exception;
     int update(Properties properties) throws Exception;
     public Properties getPropertiesById(String prp_id) throws Exception;
+    List<Properties> getPropertiesByCid(int cid) throws Exception;
 }

@@ -4,13 +4,19 @@ import com.google.gson.Gson;
 import org.apache.commons.beanutils.BeanUtils;
 import page.OrderCondition;
 import page.PageInfo;
+import service.impl.AttributeServiceImpl;
 import service.impl.CategoryServiceImpl;
 import service.impl.ProductServiceImpl;
+import service.impl.ProperselectServiceImpl;
+import service.inner.AttributeService;
 import service.inner.CategoryService;
 import service.inner.ProductService;
+import service.inner.ProperselectService;
 import util.ProductDictionary;
 import vo.Categorys;
 import vo.Products;
+import vo.Properties;
+import vo.Properties_select;
 
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
@@ -23,6 +29,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -30,6 +37,8 @@ import java.util.Map;
 public class ProductServlet extends HttpServlet {
     private ProductService ps=new ProductServiceImpl();
     private CategoryService cs=new CategoryServiceImpl();
+    private AttributeService attributeService = new AttributeServiceImpl();
+    private ProperselectService properselectService = new ProperselectServiceImpl();
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
        doPost(req,resp);
@@ -156,16 +165,36 @@ public class ProductServlet extends HttpServlet {
             requestPage=Integer.parseInt(Page);
         }
         PageInfo pageInfo=new PageInfo(requestPage);
+        Properties properties = null;
+        Properties_select properties_select =null;
         Products p= null;//查询出这个东西
+        Categorys c = new Categorys();
+        List<Properties> prop_list = new ArrayList<>();
+//        List all_list=new ArrayList();//用来存储所有的数据
+        Map<Properties,List<Properties_select>> map=new LinkedHashMap<>();
         try {
             p = ps.selectById(pid);
+            c = cs.selectById(p.getCid());
+            prop_list =  attributeService.getPropertiesByCid(c.getCid());//获取商品属性的集合
+
+
+            for(Properties pp:prop_list){
+                List<Properties_select> pro_selects = new ArrayList<>();
+                Integer prp_id = pp.getPrp_id();//获取商品属性的选项
+                pro_selects = properselectService.getPropertiesByPrp_id(prp_id);
+                map.put(pp,pro_selects);
+//                all_list.add(map);
+            }
+//            System.out.println(all_list);
         } catch (Exception e) {
             e.printStackTrace();
         }
+
         target="WEB-INF/jsp/admin"+target+".jsp";
         request.setAttribute("target",target);
         request.setAttribute("pageInfo",pageInfo);
         request.setAttribute("product",p);
+        request.setAttribute("all_map",map);
         request.setAttribute("searchCondition",searchCondition);
         try {
             request.getRequestDispatcher(target).forward(request,response);

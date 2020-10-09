@@ -24,7 +24,7 @@
 		</a>
 		<div class="logo-title">欢迎注册</div>
 
-		<div class="have-account">已有账号？ <a href="个人注册.html">请登录&gt;</a></div>
+		<div class="have-account">已有账号？ <a href="JDDispatcherServlet?target=admin/user/frontLogin.jsp">请登录&gt;</a></div>
 
 	</div>
 </div>
@@ -166,7 +166,7 @@
 					</div>
 
 					<div id="input-tip">
-						<input type="checkbox" checked name="agreen" class="btn2">
+						<input type="checkbox"  name="agreen" class="btn2">
 						<div  class="class12">我已阅读并同意</div>
 						<a href="#" target="_blank" >《京东企业用户注册协议》</a>
 					</div>
@@ -179,7 +179,7 @@
 		</div>
 
 		<div class="reg-other clearfix">
-			<a href="企业用户注册.html" class="reg-other-item reg-other-person">
+			<a href="JDDispatcherServlet?target=admin/user/qiyeRegister.jsp" class="reg-other-item reg-other-person">
 				<p class="reg-other-icon">
 					<img src="img/用户.png" >
 				</p>
@@ -236,7 +236,13 @@
             var password1=$('#form-equalTopwd').val();
             if (password==password1)
 			{
-			    window.location.assign("login?action=addUser&username="+username+"&password="+password+"&email="+email);
+                var isagreen=$('#input-tip input').prop('checked');
+                if (isagreen) //同意条款
+				{
+					window.location.assign("login?action=addUser&username="+username+"&password="+password+"&email="+email);
+                }else{
+                    alert('请先同意条款')
+				}
 			}
             console.log(username,password,password1)
 			return;

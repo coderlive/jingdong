@@ -24,7 +24,7 @@
     <div class="header">
         <div class="header-left">
             <a href="JDDispatcherServlet?target=/index.jsp" class="logo">
-                <img src="img/jdhead.jpg" width="35" height="35" alt="">
+                <img style="border-radius: 25px" src="img/jdhead.jpg" width="35" height="35" alt="">
                 <span>京东后台管理系统</span>
             </a>
         </div>
@@ -138,17 +138,17 @@
                 <ul>
                     <%--<li class="menu-title">欢迎您!</li>--%>
                     <li class="active">
-                        <a href="jsp/main.jsp" target="mainIFrame"><i class="fa fa-dashboard"></i> <span>主页</span></a>
+                        <a href="jsp/main.jsp" target="mainIFrame"><i class="fa fa-desktop"></i> <span>主页</span></a>
                     </li>
                     <li>
-                        <a href="javascript:0;"><i class="fa fa-calendar-check-o"></i> <span>用户管理</span></a>
+                        <a href="javascript:0;"><i class="fa fa-user-o"></i> <span>用户管理</span><span class="menu-arrow"></a>
                         <ul style="display: none;">
                             <li><a href="login?action=getPageByQuery&target=/admin/user/usersActiveMain&requestPage=1" target="mainIFrame">用户激活状态</a></li>
                             <li><a href="login?action=getPageByQuery&target=/admin/user/usersMain&requestPage=1" target="mainIFrame">用户解锁</a></li>
                         </ul>
                     </li>
                     <li class="submenu">
-                        <a href="page/doctors.html"><i class="fa fa-certificate"></i> <span>商品种类管理</span><span class="menu-arrow"></span></a>
+                        <a href="page/doctors.html"><i class="fa fa-sitemap"></i> <span>商品种类管理</span><span class="menu-arrow"></span></a>
                         <ul style="display: none;">
                             <li><a href="JDDispatcherServlet?target=admin/category/addCategory.jsp" target="mainIFrame">添加商品种类</a></li>
                             <%--<li><a href="JDDispatcherServlet?target=admin/category/deleteById.jsp" target="mainIFrame">删除商品种类</a></li>--%>
@@ -168,25 +168,16 @@
                         </ul>
                     </li>
                     <li>
-                        <a href="JDDispatcherServlet?target=admin/product/salesVolume.jsp" target="mainIFrame"><i class="fa fa-hospital-o"></i> <span>商品销量排行榜</span></a>
+                        <a href="JDDispatcherServlet?target=admin/product/salesVolume.jsp" target="mainIFrame"><i class="fa fa-sort-amount-asc"></i> <span>商品销量排行榜</span></a>
                     </li>
                         <li>
-                            <a href="javascript:0;"><i class="fa fa-calendar"></i> <span>订单管理</span><span class="menu-arrow"></span></a>
+                            <a href="javascript:0;"><i class="fa fa-reorder"></i> <span>订单管理</span><span class="menu-arrow"></span></a>
                             <ul style="display: none;">
                                 <li><a href="OrderServlet?action=find&requestPage=1" target="mainIFrame">管理订单</a></li>
                             </ul>
                         </li>
                     <li>
-                        <a href="CategoryServlet?action=goJdIndex&target=/user/welcome&clevel=1" ><i class="fa fa-calendar"></i> <span>去京东首页</span></a>
-                    </li>
-                    <li class="submenu">
-                        <a href="#"><i class="fa fa-user"></i> <span> Employees </span> <span class="menu-arrow"></span></a>
-                        <ul style="display: none;">
-                            <li><a href="page/employees.html">Employees List</a></li>
-                            <li><a href="page/leaves.html">Leaves</a></li>
-                            <li><a href="page/holidays.html">Holidays</a></li>
-                            <li><a href="page/attendance.html">Attendance</a></li>
-                        </ul>
+                        <a href="CategoryServlet?action=goJdIndex&target=/user/welcome&clevel=1" ><i class="fa fa-home"></i> <span>去京东首页</span></a>
                     </li>
                 </ul>
             </div>

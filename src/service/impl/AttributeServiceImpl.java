@@ -86,5 +86,9 @@ public class AttributeServiceImpl implements AttributeService {
     public Properties getPropertiesById(String prp_id) throws Exception{
         return ad.getOneById(Integer.parseInt(prp_id),Properties.class);
     }
+    public List<Properties> getPropertiesByCid(int cid) throws Exception{
+        String sql = "select * from properties where cid ="+cid;
+        return ad.getPageByQuery(sql,Properties.class);
+    }
 
 }
