@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dao.ProductMapper">
+    <select id="salesVolume" parameterType="int" resultType="Products">
+        select * from (select * from products order by xiao_liang desc) where rownum &lt;=#{row}
+    </select>
+    <select id="getPageQueryByCount" parameterType="Products" resultType="int">
+        select count(1) from products
+        <where>
+            <if test="p.cid!=null">
+                and cid=#{p.cid}
+            </if>
+            <if test="p.pname!=null">
+                or pname=#{p.pname}
+            </if>
+            <if test="p.dianpu_name!=null">
+                or dianpu_name like concat(concat('%',#{p.dianpu_name}),'%')
+            </if>
+            <if test="p.onsale!=null">
+                or onsale=#{p.onsale}
+            </if>
+        </where>
+    </select>
+    <select id="getPageQuery" parameterType="string" resultType="Products">
+          ${sql}
+    </select>
+</mapper>

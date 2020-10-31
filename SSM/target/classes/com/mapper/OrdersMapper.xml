@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dao.OrderMapper">
+    <resultMap id="orderMap" type="Orders">
+        <id property="oid" column="oid"></id>
+        <result property="ordersNo" column="orders_no"></result>
+        <result property="orderTime" column="order_time"></result>
+        <result property="receivedAddress" column="received_address"></result>
+        <result property="allPrice" column="all_price"></result>
+        <result property="userid" column="userid"></result>
+        <result property="status" column="status"></result>
+    </resultMap>
+    <select id="selectById" parameterType="int" resultType="Orders">
+        select *  from orders where oid=#{oid}
+    </select>
+    <delete id="deleteById" parameterType="int">
+        delete from users where userid=#{id}
+    </delete>
+    <update id="updateById" parameterType="Users">
+        update users
+        <trim prefix="set" suffixOverrides=",">
+            <if test="username!=null">
+                username=#{username},
+            </if>
+            <if test="password!=null">
+                password=#{password},
+            </if>
+            <if test="active!=null">
+                active=#{active},
+            </if>
+            <if test="uenable!=null">
+                uenable=#{uenable},
+            </if>
+            <if test="uaccess!=null">
+                uaccess=#{uaccess},
+            </if>
+            <if test="nickname!=null">
+                nickname=#{nickname},
+            </if>
+            <if test="address!=null">
+                address=#{address},
+            </if>
+            <if test="mail!=null">
+                mail=#{mail},
+            </if>
+            <if test="phone!=null">
+                phone=#{phone},
+            </if>
+        </trim>
+        where userid=#{userid}
+    </update>
+    <!--当传入的参数为空时，需要指定jdbctype,负责mybatis无法解析-->
+    <insert id="add" parameterType="Users">
+        insert into users
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            userid,
+            <if test="username!=null">
+                username,
+            </if>
+            <if test="password!=null">
+                password,
+            </if>
+            <if test="active!=null">
+                active,
+            </if>
+            <if test="uenable!=null">
+                uenable,
+            </if>
+            <if test="uaccess!=null">
+                uaccess,
+            </if>
+            <if test="nickname!=null">
+                nickname,
+            </if>
+            <if test="address!=null">
+                address,
+            </if>
+            <if test="mail!=null">
+                mail,
+            </if>
+            <if test="phone!=null">
+                phone,
+            </if>
+        </trim>
+        <trim prefix="values(seq_userid.nextval," suffix=")" suffixOverrides=",">
+            <if test="username!=null">
+                #{username},
+            </if>
+            <if test="password!=null">
+                #{password},
+            </if>
+            <if test="active!=null">
+                #{active},
+            </if>
+            <if test="uenable!=null">
+                #{uenable},
+            </if>
+            <if test="uaccess!=null">
+                #{uaccess},
+            </if>
+            <if test="nickname!=null">
+                #{nickname},
+            </if>
+            <if test="address!=null">
+                #{address},
+            </if>
+            <if test="mail!=null">
+                #{mail},
+            </if>
+            <if test="phone!=null">
+                #{phone},
+            </if>
+        </trim>
+
+    </insert>
+    <select id="getPageByQuery" parameterType="string" resultType="Users">
+        ${sql}
+    </select>
+    <select id="getTotalRecordCount" parameterType="string" resultType="int">
+        ${sql}
+    </select>
+    <!--关联查询-->
+    <select id="selectMyOrders" parameterType="int" resultMap="myorders">
+        select * from orders o
+        join orderdetail od on od.oid=o.oid
+        join products p on p.pid=od.pid
+        where userid=#{userid}
+    </select>
+    <resultMap id="myorders" type="Orders">
+        <id property="oid" column="oid"></id>
+        <result property="orders_no" column="orders_no"></result>
+        <result property="order_time" column="order_time"></result>
+        <result property="received_address" column="received_address"></result>
+        <result property="all_price" column="all_price"></result>
+        <result property="userid" column="userid"></result>
+        <result property="status" column="status"></result>
+        <collection property="orderDetails" ofType="OrderDetail">
+            <id property="detail_id" column="detail_id"></id>
+            <result property="order_sum" column="order_sum"></result>
+            <result property="oid" column="oid"></result>
+            <association property="p" javaType="Products" >
+                <id property="pid" column="pid"></id>
+                <result property="pname" column="pname"></result>
+                <result property="price" column="price"></result>
+                <result property="pingjia_sum" column="pingjia_sum"></result>
+                <result property="xiao_liang" column="xiao_liang"></result>
+                <result property="dianpu_name" column="dianpu_name"></result>
+                <result property="product_list_large_image" column="product_list_large_image"></result>
+                <result property="product_list_small_image1" column="product_list_small_image1"></result>
+                <result property="product_list_small_image2" column="product_list_small_image2"></result>
+                <result property="product_list_small_image3" column="product_list_small_image3"></result>
+                <result property="pdesc" column="pdesc"></result>
+                <result property="product_sum" column="product_sum"></result>
+                <result property="detail_large_img" column="detail_large_img"></result>
+                <result property="detail_small_img1" column="detail_small_img1"></result>
+                <result property="detail_small_img2" column="detail_small_img2"></result>
+                <result property="detail_small_img3" column="detail_small_img3"></result>
+                <result property="detail_small_img4" column="detail_small_img4"></result>
+                <result property="detail_small_img5" column="detail_small_img5"></result>
+                <result property="shopping_car_img" column="shopping_car_img"></result>
+                <result property="onsale" column="onsale"></result>
+                <result property="cid" column="cid"></result>
+                <result property="shoppingCartSum" column="shoppingCartSum"></result>
+            </association>
+        </collection>
+    </resultMap>
+</mapper>

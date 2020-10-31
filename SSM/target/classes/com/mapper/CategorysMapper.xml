@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dao.CategoryMapper">
+    <select id="getLevelCategory" parameterType="int" resultType="Categorys">
+        select * from categorys where cparent=#{cparent}
+    </select>
+    <select id="selectLevelByGroup" parameterType="list" resultType="Categorys">
+        select * from categorys where cparent in (
+            <if test="arr.size>0">
+                <foreach collection="arr" item="item" separator=",">
+                    #{item}
+                </foreach>
+            </if>
+            <if test="arr.size==0">
+                -10
+            </if>
+        )
+    </select>
+    <select id="selectByName" parameterType="string" resultType="Categorys">
+        select * from categorys where cname=#{selectByName}
+    </select>
+</mapper>

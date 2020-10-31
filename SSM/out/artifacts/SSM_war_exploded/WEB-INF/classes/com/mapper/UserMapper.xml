@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- 定义sql文件的唯一标示  通过namespace这个标示 找到这个xml文件 -->
+<mapper namespace="com.dao.UserMapper">
+    <cache ></cache><!--设置缓存-->
+    <sql id="condition">
+            <where>
+                <if test="u.username!=null">
+                    username like '%${u.username}%'
+                </if>
+                <if test="u.userid!=null">
+                    or userid=#{u.userid}
+                </if>
+                <if test="u.uenable!=null">
+                    or uenable=#{u.uenable}
+                </if>
+                <if test="u.active!=null">
+                    or active=#{u.active}
+                </if>
+            </where>
+    </sql>
+    <select id="getPageQuery" resultType="Users">
+        select * from (select c.*,rownum r from users c
+              <where>
+                      <if test="u.username!=null">
+                          and username=#{u.username}
+                      </if>
+                      <if test="u.userid!=null">
+                          or userid=#{u.userid}
+                      </if>
+                      <if test="u.userid!=null">
+                          or userid=#{userid};
+                      </if>
+              </where>
+              )
+        <where>
+            <if test="p!=null">
+                and  r &gt;=#{p.begin} and r &lt;=#{p.end}
+            </if>
+        </where>
+    </select>
+    <select id="getPageQueryByCount" parameterType="Users" resultType="int">
+        select count(1) from users
+        <include refid="condition"></include>
+    </select>
+    <select id="selectByUsernameAndPassword" parameterType="Users" resultType="Users">
+        select * from users where username=#{username} and password=#{password}
+    </select>
+    <select id="selectById" parameterType="int" resultType="Users">
+        select * from users where userid=#{id}
+    </select>
+    <delete id="deleteById" parameterType="int">
+        delete from users where userid=#{id}
+    </delete>
+    <update id="updateById" parameterType="Users">
+        update users
+            <trim prefix="set" suffixOverrides=",">
+                <if test="username!=null">
+                    username=#{username},
+                </if>
+                <if test="password!=null">
+                    password=#{password},
+                </if>
+                <if test="active!=null">
+                    active=#{active},
+                </if>
+                <if test="uenable!=null">
+                    uenable=#{uenable},
+                </if>
+                <if test="uaccess!=null">
+                    uaccess=#{uaccess},
+                </if>
+                <if test="nickname!=null">
+                    nickname=#{nickname},
+                </if>
+                <if test="address!=null">
+                    address=#{address},
+                </if>
+                <if test="mail!=null">
+                    mail=#{mail},
+                </if>
+                <if test="phone!=null">
+                    phone=#{phone},
+                </if>
+        </trim>
+         where userid=#{userid}
+    </update>
+    <!--当传入的参数为空时，需要指定jdbctype,负责mybatis无法解析-->
+    <insert id="add" parameterType="Users">
+        insert into users
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            userid,
+        <if test="username!=null">
+            username,
+        </if>
+        <if test="password!=null">
+            password,
+        </if>
+        <if test="active!=null">
+            active,
+        </if>
+        <if test="uenable!=null">
+            uenable,
+        </if>
+        <if test="uaccess!=null">
+            uaccess,
+        </if>
+        <if test="nickname!=null">
+            nickname,
+        </if>
+        <if test="address!=null">
+            address,
+        </if>
+        <if test="mail!=null">
+            mail,
+        </if>
+        <if test="phone!=null">
+            phone,
+        </if>
+        </trim>
+        <trim prefix="values(seq_userid.nextval," suffix=")" suffixOverrides=",">
+            <if test="username!=null">
+                #{username},
+            </if>
+            <if test="password!=null">
+                #{password},
+            </if>
+            <if test="active!=null">
+                #{active},
+            </if>
+            <if test="uenable!=null">
+                #{uenable},
+            </if>
+            <if test="uaccess!=null">
+                #{uaccess},
+            </if>
+            <if test="nickname!=null">
+                #{nickname},
+            </if>
+            <if test="address!=null">
+                #{address},
+            </if>
+            <if test="mail!=null">
+                #{mail},
+            </if>
+            <if test="phone!=null">
+                #{phone},
+            </if>
+        </trim>
+
+    </insert>
+    <select id="getPageByQuery" parameterType="string" resultType="Users">
+        ${sql}
+    </select> <select id="getTotalRecordCount" parameterType="string" resultType="int">
+        ${sql}
+    </select>
+</mapper>

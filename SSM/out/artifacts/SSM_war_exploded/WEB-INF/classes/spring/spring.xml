@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context  http://www.springframework.org/schema/context/spring-context.xsd
+        http://www.springframework.org/schema/aop  http://www.springframework.org/schema/aop/spring-aop.xsd
+        http://www.springframework.org/schema/tx  http://www.springframework.org/schema/tx/spring-tx.xsd
+        ">
+<context:component-scan base-package="com.service"></context:component-scan>
+    <context:property-placeholder location="classpath:db/druid.properties"></context:property-placeholder>
+    <bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource"  destroy-method="close" >
+        <property name="url" value="${jdbc-url}"></property>
+        <property name="driverClassName" value="${jdbc-driver}"></property>
+        <property name="username" value="${jdbc-username}"></property>
+        <property name="password" value="${jdbc-password}"></property>
+        <!-- 开启Druid的监控统计功能,StatFilter可以和其他的Filter配置使用 -->
+        <property name="filters" value="stat"/>
+        <!-- proxyFilters属性配置,通过bean的方式配置 -->
+        <property name="proxyFilters">
+            <list>
+                <ref bean="log-filter"/>
+            </list>
+        </property>
+    </bean>
+    <bean id="log-filter" class="com.alibaba.druid.filter.logging.Log4j2Filter">
+        <!-- 所有连接相关的日志 -->
+        <property name="connectionLogEnabled" value="false"/>
+        <!-- 所有Statement相关的日志-->
+        <property name="statementLogEnabled" value="false"/>
+        <!-- 是否显示结果集 -->
+        <property name="resultSetLogEnabled" value="true"/>
+        <!-- 是否显示SQL语句 -->
+        <property name="statementExecutableSqlLogEnable" value="true"/>
+    </bean>
+    <bean id="factoryBean" class="org.mybatis.spring.SqlSessionFactoryBean">
+        <property name="dataSource" ref="dataSource"></property>
+        <property name="typeAliasesPackage" value="com.vo"></property>
+        <property name="mapperLocations" value="classpath:com/mapper/*.xml"></property>
+        <property name="configuration">
+            <bean class="org.apache.ibatis.session.Configuration">
+                <property name="mapUnderscoreToCamelCase" value="false"/><!--开启驼峰命名-->
+                <property name="lazyLoadingEnabled" value="true"></property>
+                <property name="aggressiveLazyLoading" value="false"></property><!--开启懒加载-->
+                <property name="jdbcTypeForNull" value="NULL"></property><!--设置为空的时候不报错-->
+            </bean>
+        </property>
+    </bean>
+    <!--下面这个是配置事务-->
+    <bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate">
+        <constructor-arg index="0" ref="factoryBean" />
+    </bean>
+    <!--这个是扫描mybatis的接口的类-->
+    <bean id="mapperscanner" class="tk.mybatis.spring.mapper.MapperScannerConfigurer">
+        <property name="basePackage" value="com.dao"></property>
+        <property name="sqlSessionTemplateBeanName" value="sqlSession" />
+        <property name="properties">
+            <value>
+                mappers=tk.mybatis.mapper.common.Mapper
+                ORDER=BEFORE
+            </value>
+        </property>
+    </bean>
+
+    <bean id="transactionManager"
+          class="org.springframework.jdbc.datasource.DataSourceTransactionManager" >
+        <property name="dataSource" ref="dataSource" />
+    </bean>
+    <!--使用事务自动注解-->
+    <tx:annotation-driven></tx:annotation-driven>
+</beans>
