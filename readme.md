@@ -10,61 +10,61 @@
 
 ##### 用户管理功能
 
-![用户激活](https://github.com/coderlive/jingdong/tree/master/img/用户激活.png)
+![用户激活](https://github.com/coderlive/jingdong/tree/master/images/用户激活.png)
 
-![用户解锁](img/用户解锁.png)
+![用户解锁](https://github.com/coderlive/jingdong/tree/master/images/用户解锁.png)
 
 ##### 商品种类管理功能
 
-![](https://github.com/coderlive/jingdong/tree/master/img/商品种类管理.png)
+![](https://github.com/coderlive/jingdong/tree/master/images/商品种类管理.png)
 
 ##### 商品管理功能
 
-![商品管理](img\商品管理.png)
+![商品管理](https://github.com/coderlive/jingdong/tree/master/images/商品管理.png)
 
 ##### 商品销量排行统计
 
-![](https://github.com/coderlive/jingdong/tree/master/img/商品销量排行榜.png)
+![](https://github.com/coderlive/jingdong/tree/master/images/商品销量排行榜.png)
 
 ##### 订单管理
 
-![订单管理](img\订单管理.png)
+![订单管理](https://github.com/coderlive/jingdong/tree/master/images/订单管理.png)
 
 #### 前端页面
 
 ##### 京东主页
 
-![](https://github.com/coderlive/jingdong/tree/master/img/京东首页.png)
+![](https://github.com/coderlive/jingdong/tree/master/images/京东首页.png)
 
 ![商品列表](img\商品列表.png)
 
 ##### 商品列表页面
 
-![商品列表2](https://github.com/coderlive/jingdong/tree/master/img/商品列表2.png)
+![商品列表2](https://github.com/coderlive/jingdong/tree/master/images/商品列表2.png)
 
 ##### 商品详情页面
 
-![商品详情](img\商品详情.png)
+![商品详情](https://github.com/coderlive/jingdong/tree/master/images/商品详情.png)
 
 ##### 购物车页面
 
-![购物车页面](https://github.com/coderlive/jingdong/tree/master/img/购物车页面.png)
+![购物车页面](https://github.com/coderlive/jingdong/tree/master/images/购物车页面.png)
 
 ##### 下单页面 
 
 密码六个1
 
-![支付页面](https://github.com/coderlive/jingdong/tree/master/img/支付页面.png)
+![支付页面](https://github.com/coderlive/jingdong/tree/master/images/支付页面.png)
 
-![支付页面2](img\支付页面2.png)
+![支付页面2](https://github.com/coderlive/jingdong/tree/master/images/支付页面2.png)
 
 ##### 下单成功页面
 
-![付款成功页面](https://github.com/coderlive/jingdong/tree/master/img/付款成功页面.png)
+![付款成功页面](https://github.com/coderlive/jingdong/tree/master/images/付款成功页面.png)
 
 ##### 订单页面
 
-![我的订单页面](img\我的订单页面.png)
+![我的订单页面](https://github.com/coderlive/jingdong/tree/master/images/我的订单页面.png)
 
 
 
@@ -74,7 +74,7 @@
 
 ##### 表的逻辑图
 
-![数据库表图](https://github.com/coderlive/jingdong/tree/master/img/数据库表图.png)
+![数据库表图](https://github.com/coderlive/jingdong/tree/master/images/数据库表图.png)
 
 ####  商品种类表
 
